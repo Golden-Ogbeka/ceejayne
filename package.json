@@ -4,14 +4,21 @@
   "description": "Ceejayne Beauty Parlour",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "server": "node server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "TCU Media",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.3.0",
     "config": "^3.3.1",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "helmet": "^4.1.1",
     "mysql": "^2.18.1"
   }
