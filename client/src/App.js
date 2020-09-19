@@ -1,9 +1,24 @@
 import React from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css"; //React Bootstrap
+import "fontsource-roboto";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+import {BrowserRouter} from "react-router-dom";
+import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
+import PublicRoutes from "./components/routes/PublicRoutes";
+import ShopRoutes from "./components/routes/ShopRoutes";
 
 function App() {
-  return <React.Fragment></React.Fragment>;
+  return (
+    <BrowserRouter>
+      <NavBar />
+      <PublicRoutes />
+      <ShopRoutes />
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
