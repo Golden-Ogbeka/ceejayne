@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/ -->
+<html lang="en-US" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="https://m.addthis.com/live/red_lojson/300lo.json?si=5f71239dfc730a04&amp;bkl=0&amp;bl=1&amp;pdt=2803&amp;sid=5f71239dfc730a04&amp;pub=ra-5bc18acdd0987bc0&amp;rev=v8.28.7-wp&amp;ln=en&amp;pc=men&amp;cb=0&amp;ab=-&amp;dp=www.positronx.io&amp;dr=www.google.com&amp;fp=react-file-upload-tutorial-with-node-express-and-multer%2F&amp;fr=&amp;of=0&amp;pd=0&amp;irt=0&amp;vcl=0&amp;md=0&amp;ct=1&amp;tct=0&amp;abt=0&amp;cdn=0&amp;pi=1&amp;rb=4&amp;gen=100&amp;chr=UTF-8&amp;colc=1601250205289&amp;jsl=1&amp;uvs=5f71239d65816a13000&amp;skipb=1&amp;callback=addthis.cbs.jsonp__229867434973475730"></script><script type="text/javascript" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/1.txt"></script><script type="text/javascript" src="https://z.moatads.com/addthismoatframe568911941483/moatframe.js"></script><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="msvalidate.01" content="36CD710C24E3493CA54F6E2FA73BB0DE"><meta name="google-site-verification" content="yd1dhSjzS5byK6DbpHIKXuhgJpUwPctgSR070xrzPAU"><meta name="yandex-verification" content="52c99524e8515c63"><meta name="dmca-site-verification" content="Qk9DMXdTbDBsSDBKMG5OT0g5TExtZzdJSnRSY3BjMU1qTkw4MlhRYVBYWT01"><title>React Single File Upload Tutorial with Node, Express and Multer - positronX.io</title><link rel="stylesheet" id="siteground-optimizer-combined-css-77decf444bb49ec412129e68362a54bc" href="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/siteground-optimizer-combined-css-77decf444bb49ec412129e68362a54bc.css" media="all"><link rel="apple-touch-icon" sizes="57x57" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://www.positronx.io/wp-content/themes/positronx/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="https://www.positronx.io/wp-content/themes/positronx/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="https://www.positronx.io/wp-content/themes/positronx/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="https://www.positronx.io/wp-content/themes/positronx/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="https://www.positronx.io/wp-content/themes/positronx/favicon-16x16.png"><link rel="manifest" href="https://www.positronx.io/wp-content/themes/positronx/manifest.json"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="https://www.positronx.io/wp-content/themes/positronx/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="pingback" href="https://www.positronx.io/xmlrpc.php"> <!-- Global site tag (gtag.js) - Google Analytics --> <script type="text/javascript" async="" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/analytics.js.download"></script><script async="" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/js"></script> <script>window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-125416634-1');</script> <!-- OneTrust CMP Builder start --> <!-- <script src="https://cmp-cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-cmp-builder-version="1.8.0" data-domain-script="bottom-panel-lite-global-ot"></script><script>function OptanonWrapper() {addCmpBuilderFeatures();function addCmpBuilderFeatures() {var existingCmpFeaturesScript = document.getElementById('cmp-builder-features-script');if(!existingCmpFeaturesScript) {var cmpFeaturesScript = document.createElement('script'),script1 = document.getElementsByTagName('script')[0];cmpFeaturesScript.src = "https://cmp-cdn.cookielaw.org/consent/cmp-features/cmp-features.js";cmpFeaturesScript.setAttribute('id', 'cmp-builder-features-script');cmpFeaturesScript.async = false;cmpFeaturesScript.type = 'text/javascript';script1.parentNode.insertBefore(cmpFeaturesScript, script1);}}}</script> --> <!-- OneTrust CMP Builder end --> <script>window.__afterTrafficQualityExecute = function () {
+            //pub headerbiddingcode
+            pg.loadJS("https://cdn4.buysellads.net/pub/positronx.js");
+        (function () {
+            var bsa_optimize = document.createElement('script');
+            bsa_optimize.type = 'text/javascript';
+            bsa_optimize.async = true;
+            bsa_optimize.src = 'https://cdn4.buysellads.net/pub/positronx.js?' + (new Date() - new    Date() % 600000);
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa_optimize);
+        })(); }</script> <script src="https://m2d.m2.ai/pg.positronx.io.js" async=""></script> <!-- Optimized by SG Optimizer plugin version - 5.6.7 --> <!-- This site is optimized with the Yoast SEO plugin v14.9 - https://yoast.com/wordpress/plugins/seo/ --><meta name="description" content="React File Upload with Node/Express Js Tutorial - Learn to upload a single file in React app and store the image in the MongoDB database."><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><link rel="canonical" href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/"><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="React Single File Upload Tutorial with Node, Express and Multer - positronX.io"><meta property="og:description" content="React File Upload with Node/Express Js Tutorial - Learn to upload a single file in React app and store the image in the MongoDB database."><meta property="og:url" content="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/"><meta property="og:site_name" content="positronX.io"><meta property="article:publisher" content="https://www.facebook.com/positronXX"><meta property="article:author" content="https://www.facebook.com/positronXX"><meta property="article:published_time" content="2019-09-13T16:22:36+00:00"><meta property="article:modified_time" content="2020-08-11T00:48:43+00:00"><meta property="og:image" content="https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-01.png"><meta property="fb:app_id" content="2373480019546484"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@https://twitter.com/RawatDigamberr"><meta name="twitter:site" content="@RawatDigamberr"> <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.positronx.io/#website","url":"https://www.positronx.io/","name":"positronX.io","description":"Learn Full Stack Development","publisher":{"@id":"https://www.positronx.io/#/schema/person/73331c1e0c4ff4cf3699e321e2e5ff91"},"potentialAction":[{"@type":"SearchAction","target":"https://www.positronx.io/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#primaryimage","inLanguage":"en-US","url":"https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-01.png","width":468,"height":147,"caption":"React File Upload"},{"@type":"WebPage","@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#webpage","url":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/","name":"React Single File Upload Tutorial with Node, Express and Multer - positronX.io","isPartOf":{"@id":"https://www.positronx.io/#website"},"primaryImageOfPage":{"@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#primaryimage"},"datePublished":"2019-09-13T16:22:36+00:00","dateModified":"2020-08-11T00:48:43+00:00","description":"React File Upload with Node/Express Js Tutorial - Learn to upload a single file in React app and store the image in the MongoDB database.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/"]}]},{"@type":"Article","@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#article","isPartOf":{"@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#webpage"},"author":{"@id":"https://www.positronx.io/#/schema/person/73331c1e0c4ff4cf3699e321e2e5ff91"},"headline":"React Single File Upload Tutorial with Node, Express and Multer","datePublished":"2019-09-13T16:22:36+00:00","dateModified":"2020-08-11T00:48:43+00:00","mainEntityOfPage":{"@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#webpage"},"publisher":{"@id":"https://www.positronx.io/#/schema/person/73331c1e0c4ff4cf3699e321e2e5ff91"},"image":{"@id":"https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#primaryimage"},"keywords":"express,multer,node,React File Upload,uuidv4","articleSection":"React","inLanguage":"en-US"},{"@type":["Person","Organization"],"@id":"https://www.positronx.io/#/schema/person/73331c1e0c4ff4cf3699e321e2e5ff91","name":"Digamber","image":{"@type":"ImageObject","@id":"https://www.positronx.io/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/a1cfb3fbc3daff8cbe23e214dff6ae8e?s=96&d=mm&r=g","caption":"Digamber"},"logo":{"@id":"https://www.positronx.io/#personlogo"},"description":"Digamber Rawat is a Full Stack Magician and a Chief Animal Lover. He loves to write about Object-oriented programming (OOP), modern programming languages, frameworks and want to contribute to the dev community to attain moksha.","sameAs":["https://www.facebook.com/positronXX","https://www.linkedin.com/in/rawatdigamber","https://twitter.com/https://twitter.com/RawatDigamberr"]}]}</script> <!-- / Yoast SEO plugin. --> <script type="text/javascript" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/jquery.js.download" id="jquery-core-js"></script> <script defer="" type="text/javascript" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/wp-date-remover-public.js.download" id="wp-date-remover-js"></script> <link rel="https://api.w.org/" href="https://www.positronx.io/wp-json/"><link rel="alternate" type="application/json" href="https://www.positronx.io/wp-json/wp/v2/posts/6559"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.positronx.io/xmlrpc.php?rsd"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.positronx.io/wp-includes/wlwmanifest.xml"><link rel="shortlink" href="https://www.positronx.io/?p=6559"><link rel="alternate" type="application/json+oembed" href="https://www.positronx.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.positronx.io%2Freact-file-upload-tutorial-with-node-express-and-multer%2F"><link rel="alternate" type="text/xml+oembed" href="https://www.positronx.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.positronx.io%2Freact-file-upload-tutorial-with-node-express-and-multer%2F&amp;format=xml"><link rel="amphtml" href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/amp/"><script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/clipboard.min.js.download"></script><style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at_complete,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}#at15s,#at16p,#at16p form input,#at16p label,#at16p textarea,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{overflow:hidden;display:block;background-position:0 0;height:1pc;width:1pc;line-height:1pc!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001;position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#at_share{margin:0;padding:0}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at15s #at16pf a{top:1px}#_atssh{width:1px!important;height:1px!important;border:0!important}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}.body .wsb-social-share .wsb-social-share-button-vert{padding-top:0;padding-bottom:0}.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button{padding-top:40px}.body .wsb-social-share.addthis_counter_style .addthis_button_facebook_like.wsb-social-share-button{padding-top:21px}@media print{#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style></head><span id="warning-container"><i data-reactroot=""></i></span><body class="post-template-default single single-post postid-6559 single-format-standard" data-drawer=""><div id="cookie"><div id="wrapper-cookee"><p>This site uses cookies. By continuing to browse the site you are agreeing to our use of cookies. <a href="https://www.positronx.io/privacy-policy/" rel="nofollow">Read more</a></p><div id="close"><a href="javascript:void(0)" id="closecookie">OK</a></div><div></div></div></div><header class="header"><div class="nav-container"><div class="inner-top-header"><div class="social-media-nav"><ul><li class="facebook"> <a href="https://www.facebook.com/positronXX" target="_blank" rel="noopener noreferrer"> <svg viewBox="0 0 8 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="facebook-letter-logo" fill="#ffffff" fill-rule="nonzero"> <path d="M1.74578218,3.2990099 C1.74578218,3.72827723 1.74578218,5.64427723 1.74578218,5.64427723 L0.0275643564,5.64427723 L0.0275643564,8.51207921 L1.74578218,8.51207921 L1.74578218,17.0341782 L5.27536634,17.0341782 L5.27536634,8.51231683 L7.64388119,8.51231683 C7.64388119,8.51231683 7.86570297,7.13722772 7.97322772,5.63370297 C7.6649505,5.63370297 5.28871287,5.63370297 5.28871287,5.63370297 C5.28871287,5.63370297 5.28871287,3.96530693 5.28871287,3.67287129 C5.28871287,3.37980198 5.67354455,2.98558416 6.05390099,2.98558416 C6.43354455,2.98558416 7.23481188,2.98558416 7.9769505,2.98558416 C7.9769505,2.59512871 7.9769505,1.2460198 7.9769505,3.96039604e-05 C6.98621782,3.96039604e-05 5.85908911,3.96039604e-05 5.36225743,3.96039604e-05 C1.65853465,-0.000158415842 1.74578218,2.87049505 1.74578218,3.2990099 Z" id="Facebook"></path> </g> </g> </svg> </a></li><li class="twitter"> <a href="https://twitter.com/ImDigamberSingh" target="_blank" rel="noopener noreferrer"> <svg viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="twitter-logo" fill="#ffffff" fill-rule="nonzero"> <path d="M19.4673968,6.77043619 C20.7004687,6.66870534 21.536877,6.10813921 21.858761,5.34753132 C21.4139629,5.6207703 20.0332204,5.91866357 19.2706729,5.63496056 C19.2333086,5.45579582 19.1915545,5.28561485 19.1505661,5.13197216 C18.5695313,2.99843155 16.5801392,1.27957309 14.495652,1.48722042 C14.6643016,1.41912761 14.8353503,1.35573086 15.0058886,1.29881671 C15.2353318,1.21663573 16.5815174,0.997605568 16.3695313,0.522436195 C16.190877,0.104487239 14.5461346,0.838296984 14.2364501,0.934208817 C14.6452622,0.780464037 15.3213411,0.51600464 15.3937726,0.0462459397 C14.7674617,0.132153132 14.1526357,0.428259861 13.6775684,0.858816705 C13.8490766,0.674190255 13.9791879,0.449187935 14.0068028,0.207034803 C12.3363341,1.27421346 11.3605244,3.42572158 10.5708213,5.51276102 C9.95073782,4.91181903 9.40114617,4.43858933 8.90811137,4.17581439 C7.52496984,3.43409281 5.87119258,2.66021346 3.27514153,1.69650116 C3.19546172,2.55541995 3.69993039,3.69748028 5.15356381,4.4569652 C4.83862181,4.41480278 4.26269142,4.50887703 3.80206961,4.61918329 C3.98965661,5.60316009 4.6022877,6.41384223 6.26081206,6.80586079 C5.50285847,6.85588399 5.11114617,7.02836195 4.75613457,7.40011601 C5.10134571,8.08446404 5.94372622,8.88988863 7.45907193,8.72455684 C5.7743109,9.45070998 6.77212065,10.7954664 8.1430116,10.5949142 C5.80437587,13.0104733 2.11725754,12.832942 0,10.8125661 C5.5280232,18.3452436 17.5446682,15.2673875 19.3354478,8.01198144 C20.6771415,8.02341531 21.4658747,7.54722506 21.9549281,7.02223666 C21.1819165,7.15341995 20.0614988,7.01784687 19.4673968,6.77043619 Z" id="Twitter__x28_alt_x29_"></path> </g> </g> </svg> </a></li><li class="github-icon"> <a href="https://github.com/SinghDigamber" target="_blank" rel="noopener noreferrer"> <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"> <path fill="#ffffff" d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z" class=""></path> </svg> </a></li><li class="youtube-icon"> <a href="https://www.youtube.com/channel/UCIf1tGU8-Tv0tFNoS_reV8Q/videos" target="_blank" rel="noopener noreferrer"> <svg viewBox="0 0 18 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="youtube-play-button" fill="#ffffff" fill-rule="nonzero"> <path d="M18,2.7916 C18,1.305 16.7958,0.1 15.31,0.1 L2.69,0.1 C1.2042,0.1 0,1.305 0,2.7916 L0,10.0084 C0,11.495 1.2042,12.7 2.69,12.7 L15.31,12.7 C16.7958,12.7 18,11.495 18,10.0084 L18,2.7916 Z M7.2,9.445 L7.2,2.666 L12.3404,6.0554 L7.2,9.445 Z" id="YouTube__x28_alt_x29_"></path> </g> </g> </svg> </a></li></ul></div><nav class="sitelinks-nav"><ul><li><a href="https://www.positronx.io/about/">About</a></li> <!--<li><a href="<#?php echo esc_url(get_permalink(1758)); ?>">Advertise</a></li> --><li><a href="https://www.positronx.io/privacy-policy/">Privacy Policy</a></li><li><a href="https://www.positronx.io/feed/">RSS</a></li><li><a href="https://www.positronx.io/contact/">Contact</a></li></ul></nav></div></div></header><header class="navigation"><div class="nav-container"><div class="inner-header"><div class="brand"> <a href="https://www.positronx.io/"> <img src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/logo-positronx-white.svg" alt="React Single File Upload Tutorial with Node, Express and Multer - positronX.io"> </a></div><ul class="responsive-nav-items"><li> <a href="javascript:void(0)" class="custom-search"> <svg height="18" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="search"> <path fill="#000000" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path> </svg> </a></li><li data-drawer-open=""> <a href="javascript:void(0)" class="custom-search-2"> <svg height="18" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="round-menu-24px" transform="translate(-3.000000, -6.000000)"> <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon> <path d="M4,18 L20,18 C20.55,18 21,17.55 21,17 C21,16.45 20.55,16 20,16 L4,16 C3.45,16 3,16.45 3,17 C3,17.55 3.45,18 4,18 Z M4,13 L20,13 C20.55,13 21,12.55 21,12 C21,11.45 20.55,11 20,11 L4,11 C3.45,11 3,11.45 3,12 C3,12.55 3.45,13 4,13 Z M3,7 C3,7.55 3.45,8 4,8 L20,8 C20.55,8 21,7.55 21,7 C21,6.45 20.55,6 20,6 L4,6 C3.45,6 3,6.45 3,7 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path> </g> </g> </svg> </a></li></ul><div class="top-ad-block-psx"> <!-- /8691100/Positronix_S2S_Leaderboard_ATF --><div id="bsa-zone_1574377454220-5_123456"></div></div></div></div></header> <!-- Navbar --><div class="nav-container main-header-mob"><nav class="main-hz-navbar "><ul class="navbar-left"><li><a id="GA-navtop-angular" href="https://www.positronx.io/free-angular-tutorials/">Angular 10</a></li><li><a href="https://www.positronx.io/vue/">Vue</a></li><li><a href="https://www.positronx.io/react-js/">React</a></li><li><a href="https://www.positronx.io/ionic/">Ionic 5</a></li><li><a href="https://www.positronx.io/free-firebase-tutorials/">Firebase</a></li><li class="hideon-below-800"><a href="https://www.positronx.io/laravel/">Laravel 8</a></li><li><a href="https://www.positronx.io/codeigniter/">Codeigniter</a></li><li class="hideon-below-800"><a href="https://www.positronx.io/php/">PHP</a></li></ul><ul class="navbar-right"><li> <a href="javascript:void(0)" class="custom-search"> <svg height="18" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="search"> <path fill="#000000" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path> </svg> </a></li><li data-drawer-open=""> <a href="javascript:void(0)" class="custom-search-2"> <svg height="18" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="round-menu-24px" transform="translate(-3.000000, -6.000000)"> <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon> <path d="M4,18 L20,18 C20.55,18 21,17.55 21,17 C21,16.45 20.55,16 20,16 L4,16 C3.45,16 3,16.45 3,17 C3,17.55 3.45,18 4,18 Z M4,13 L20,13 C20.55,13 21,12.55 21,12 C21,11.45 20.55,11 20,11 L4,11 C3.45,11 3,11.45 3,12 C3,12.55 3.45,13 4,13 Z M3,7 C3,7.55 3.45,8 4,8 L20,8 C20.55,8 21,7.55 21,7 C21,6.45 20.55,6 20,6 L4,6 C3.45,6 3,6.45 3,7 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path> </g> </g> </svg> </a></li></ul></nav></div><div id="search"> <button type="button" class="close">×</button><form role="search" method="get" class="nav-search" action="https://www.positronx.io/"> <input type="search" placeholder="Type keywrods, press enter..." value="" name="s" title="Search"></form></div><main id="main-content"><div class="container-wrapper"><div class="grid"> <!-- Breadcrumb --><div class="breadcrumb"><a href="https://www.positronx.io/" rel="nofollow">Home</a>&nbsp;&nbsp;»&nbsp;&nbsp;<a href="https://www.positronx.io/react-js/" rel="category tag">React</a> &nbsp;&nbsp;»&nbsp;&nbsp; React Single File Upload Tutorial with Node, Express and Multer</div><section class="main-content"><article class="article"><section class="single-body"><header class="single-header"><div class="single-header-flex"><div class="header-title"><h1>React Single File Upload Tutorial with Node, Express and Multer</h1><div class="article-data"> Last updated on <time datetime="2019-09-13T16:22:36+00:00">August 11, 2020</time> by Digamber</div> <!-- Primis --><div class="vdo-ads-wrapper"> <script type="text/javascript" language="javascript" src="https://live.sekindo.com/live/liveView.php?s=100431&amp;cbuster=[CACHE_BUSTER]&amp;pubUrl=[PAGE_URL_ENCODED]&amp;x=[WIDTH]&amp;y=[HEIGHT]&amp;vp_content=plembed155blkzgtxiv&amp;vp_template=6130&amp;subId=[SUBID_ENCODED]"></script> </div></div></div></header> <!-- The content --><div class="LinkedBlock"> In this tutorial, we are going to learn how to upload a single file in React app. We will also learn to store image files in the MongoDB database using the Node server. Uploading image files is a day to day task of a web developer, if you are new to React, then this tutorial has the answer which you are looking for.<p></p> <!-- AD Block --><div class="vdo-ads-wrapper text-center"> <!-- /8691100/Positronx_S2S_InContent_Leaderboard_1 --><div id="bsa-zone_1574377588455-0_123456" class="bsa-ad"></div></div><p>We will learn to upload single image file and store that file in the MongoDB database using Node and React.js. We will learn to create a client-side basic React app, along with that we will also create a file upload API with Express, Multer, and other Node packages.</p></div><div class="LinkedBlock"><div class="TableContent"><h4>Table of contents</h4><ol class="OrderedList"><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_01">Install React App</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_02">Create React File Upload Component</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_03">Create Node Server</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_04">Set up MongoDB</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_05">Create Schema</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_06">Set up Express Routes</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_07">Set up Server Js</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_08">Test React File Upload API</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_09">Build React Single File Upload</a></li><li><a href="https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/#tc_6559_10">Conclusion</a></li></ol></div></div><div class="LinkedBlock"><h2>React Js 16+ File Upload with Node Server</h2><p>In the very first step, we install and set up React app for file upload demo.</p> <!-- AD Block --><div class="vdo-ads-wrapper text-center"><div id="bsa-zone_1574377626597-7_123456" class="bsa-ad"></div></div></div><div class="LinkedBlock" id="tc_6559_01"><h2>Install React App</h2><p>Enter the following command in your terminal and press enter.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash">create-react-app react-node-file-upload</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Go to the project folder:</p> <!-- AD Block --><div class="vdo-ads-wrapper text-center"><div id="bsa-zone_1574377548719-4_123456" class="bsa-ad"></div></div><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token builtin class-name">cd</span> react-node-file-upload</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Start your React app in the web browser:</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">npm</span> start</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>View project on this URL: <a href="http://localhost:3000/" rel="noopener noreferrer" target="_blank">localhost:3000</a></p> <!-- AD Block --><div class="vdo-ads-wrapper text-center"><div id="bsa-zone_1574377501661-3_123456" class="bsa-ad"></div></div><p>Install <strong>Bootstrap 4</strong> in React app.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">npm</span> <span class="token function">install</span> bootstrap --save</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Include <strong>bootstrap.min.css</strong> in <strong>src/App.js</strong> file:</p> <!-- AD Block --><div class="vdo-ads-wrapper text-center"><div id="bsa-zone_1574377674646-5_123456" class="bsa-ad"></div></div><div class="code-toolbar"><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'../node_modules/bootstrap/dist/css/bootstrap.min.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>React File Upload Demo<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div><div class="toolbar-item"><button>Copy</button></div></div></div></div><div class="LinkedBlock" id="tc_6559_02"><h2>Create React File Upload Component</h2><p>Head over to <strong>src &gt; components</strong> directory and create a separate file by the name of <strong>files-upload-component.js</strong>.</p><div class="code-toolbar"><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">FilesUploadComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"row"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>form<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>h3<span class="token operator">&gt;</span>React File Upload<span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"form-group"</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"file"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"form-group"</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>button className<span class="token operator">=</span><span class="token string">"btn btn-primary"</span> type<span class="token operator">=</span><span class="token string">"submit"</span><span class="token operator">&gt;</span>Upload<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Add <strong>FilesUploadComponent</strong> in <strong>App.js</strong> template.</p><div class="code-toolbar"><pre class="  language-jsx"><code class="  language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'../node_modules/bootstrap/dist/css/bootstrap.min.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> FilesUploadComponent <span class="token keyword">from</span> <span class="token string">'./components/files-upload-component'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FilesUploadComponent</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>React JSX</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p><img loading="lazy" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/react-file-upload-6559-01.png" alt="React File Upload" width="468" height="147" class="alignnone size-full wp-image-6566" srcset="https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-01.png 468w, https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-01-302x95.png 302w" sizes="(max-width: 468px) 100vw, 468px"></p></div><div class="LinkedBlock" id="tc_6559_03"><h2>Create Node Server</h2><p>Let’s build the server with Node, Express, MongoDB and Multer for React file upload tutorial. Create the <strong>backend</strong> folder inside the React project.</p><p>Execute command to generate <strong>backend</strong> folder and get into the project folder.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">mkdir</span> backend <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> backend</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Build separate <strong>package.json</strong> file for Node server.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">npm</span> init</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>We will use following node modules to build Node/Express server:</p><table><tbody><tr><th>NPM</th><th>Detail</th></tr><tr><td><strong>Express</strong></td><td>A web application framework for Node.js.</td></tr><tr><td><strong>MongoDB</strong></td><td>NoSQL Database based on document and collection format.</td></tr><tr><td><strong>CORS</strong></td><td>Supports Access-Control-Allow-Origin CORS header.</td></tr><tr><td><strong>bodyParser</strong></td><td>A body parsing middleware for Node.js.</td></tr><tr><td><strong>uuid</strong></td><td>Simple, fast generation of RFC4122 UUIDS.</td></tr><tr><td><strong>Multer</strong></td><td>A Node.js middleware handles multipart/form-data, best used of file uploading.</td></tr></tbody></table><p>Run command to install NPM packages:</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">npm</span> <span class="token function">install</span> mongoose express cors body-parser uuid multer
+</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Install nodemon to auto-restart the node server, whenever it detects change in the server files.</p></div><div class="LinkedBlock" id="tc_6559_04"><h2>Set up MongoDB</h2><p>Create a <strong>backend &gt; database</strong> folder and create a new file inside of it by the name of <strong>db.js</strong>.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash">module.exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+   db: <span class="token string">'mongodb://localhost:27017/react-fileupload-db'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div></div><div class="LinkedBlock" id="tc_6559_05"><h2>Create Schema</h2><p>Create a <strong>backend &gt; models</strong> directory and create a fresh file inside of it and name it <strong>User.js</strong>.</p><div class="code-toolbar"><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Schema <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> userSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    _id<span class="token operator">:</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">.</span>Types<span class="token punctuation">.</span>ObjectId<span class="token punctuation">,</span>
+    profileImg<span class="token operator">:</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> String
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    collection<span class="token operator">:</span> <span class="token string">'users'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">,</span> userSchema<span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>We declared <strong>profileImg</strong> value with <strong>String</strong> data type along with Mongoose <strong>_id</strong> in Mongoose schema file.</p></div><div class="LinkedBlock" id="tc_6559_06"><h2>Set up Express Routes</h2><p>Create a <strong>backend &gt; routes</strong> folder and create a new file inside of it and name it <strong>user.routes.js</strong>.</p><p>Create <strong>backend &gt; public</strong> folder, in this folder we will store all the image files uploaded by user.</p><p>Run command from the root of the backend project.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">mkdir</span> public</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><div class="code-toolbar"><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">let</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    multer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'multer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    uuidv4 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uuid/v4'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">DIR</span> <span class="token operator">=</span> <span class="token string">'./public/'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> storage <span class="token operator">=</span> multer<span class="token punctuation">.</span><span class="token function">diskStorage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function-variable function">destination</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> file<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token constant">DIR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">filename</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> file<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> fileName <span class="token operator">=</span> file<span class="token punctuation">.</span>originalname<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token function">uuidv4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'-'</span> <span class="token operator">+</span> fileName<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> upload <span class="token operator">=</span> <span class="token function">multer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    storage<span class="token operator">:</span> storage<span class="token punctuation">,</span>
+    <span class="token function-variable function">fileFilter</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> file<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span>mimetype <span class="token operator">==</span> <span class="token string">"image/png"</span> <span class="token operator">||</span> file<span class="token punctuation">.</span>mimetype <span class="token operator">==</span> <span class="token string">"image/jpg"</span> <span class="token operator">||</span> file<span class="token punctuation">.</span>mimetype <span class="token operator">==</span> <span class="token string">"image/jpeg"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Only .png, .jpg and .jpeg format allowed!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// User model</span>
+<span class="token keyword">let</span> User <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../models/User'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user-profile'</span><span class="token punctuation">,</span> upload<span class="token punctuation">.</span><span class="token function">single</span><span class="token punctuation">(</span><span class="token string">'profileImg'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>protocol <span class="token operator">+</span> <span class="token string">'://'</span> <span class="token operator">+</span> req<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'host'</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        _id<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">mongoose<span class="token punctuation">.</span>Types<span class="token punctuation">.</span>ObjectId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+        profileImg<span class="token operator">:</span> url <span class="token operator">+</span> <span class="token string">'/public/'</span> <span class="token operator">+</span> req<span class="token punctuation">.</span>file<span class="token punctuation">.</span>filename
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">result</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            message<span class="token operator">:</span> <span class="token string">"User registered successfully!"</span><span class="token punctuation">,</span>
+            userCreated<span class="token operator">:</span> <span class="token punctuation">{</span>
+                _id<span class="token operator">:</span> result<span class="token punctuation">.</span>_id<span class="token punctuation">,</span>
+                profileImg<span class="token operator">:</span> result<span class="token punctuation">.</span>profileImg
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                error<span class="token operator">:</span> err
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            message<span class="token operator">:</span> <span class="token string">"User list retrieved successfully!"</span><span class="token punctuation">,</span>
+            users<span class="token operator">:</span> data
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div><div class="toolbar-item"><button>Copy</button></div></div></div></div><div class="LinkedBlock" id="tc_6559_07"><h2>Set up Server Js</h2><p>In this step, create a <strong>backend &gt; server.js</strong> file and paste the following code in it. This file contains required server settings such as database, express configuration, PORT connection, etc.</p><div class="code-toolbar"><pre class="  language-javascript"><code class="  language-javascript"><span class="token keyword">let</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mongoose'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cors'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    bodyParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'body-parser'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dbConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./database/db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'../backend/routes/user.routes'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// MongoDB Configuration</span>
+mongoose<span class="token punctuation">.</span>Promise <span class="token operator">=</span> global<span class="token punctuation">.</span>Promise<span class="token punctuation">;</span>
+mongoose<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>dbConfig<span class="token punctuation">.</span>db<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Database sucessfully connected'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Database could not be connected: '</span> <span class="token operator">+</span> error<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>bodyParser<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    extended<span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/public'</span><span class="token punctuation">,</span> express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'public'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">,</span> api<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> port <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span> <span class="token operator">||</span> <span class="token number">4000</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Connected to port '</span> <span class="token operator">+</span> port<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Error goes via `next()` method</span>
+    <span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Something went wrong'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>err<span class="token punctuation">.</span>statusCode<span class="token punctuation">)</span> err<span class="token punctuation">.</span>statusCode <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>statusCode<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div><div class="toolbar-item"><button>Copy</button></div></div></div></div><div class="LinkedBlock" id="tc_6559_08"><h2>Test React File Upload API</h2><p>In this step we will test REST API which we just created, before that we need to start the Node server. Follow the given below process to start the Node/Express server.</p><p>Run command to start the mongoDB.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash">mongod</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Run nodemon server by executing the following command:</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash">nodemon server</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><table><thead><tr><th>Method</th><th>API URL</th></tr></thead><tbody><tr><td><strong>GET</strong></td><td>http://localhost:4000/api</td></tr><tr><td><strong>POST</strong></td><td>/api/user-profile</td></tr></tbody></table><p>API base Url: <a href="http://localhost:4000/api" rel="noopener noreferrer" target="_blank">http://localhost:4000/api</a></p><p>We can test following API in Postman, below is the final result:</p><p><img loading="lazy" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/react-file-upload-6559-02.png" alt="React File Upload API Testing" width="959" height="488" class="alignnone size-full wp-image-6579" srcset="https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-02.png 959w, https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-02-768x391.png 768w, https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-02-302x154.png 302w" sizes="(max-width: 959px) 100vw, 959px"></p></div><div class="LinkedBlock" id="tc_6559_09"><h2>Build React Single File Upload</h2><p>Let’s build React File upload functionality, first install the React axios library.</p><p>Next, install Axios library, it helps in making Http request in React app.</p><div class="code-toolbar"><pre class="  language-bash"><code class="  language-bash"><span class="token function">npm</span> <span class="token function">install</span> axios</code></pre><div class="toolbar"><div class="toolbar-item"><span>Bash</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><p>Add the below code in <strong>src/components/files-upload.component.js</strong> file.</p><div class="code-toolbar"><pre class="  language-jsx"><code class="  language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">FilesUploadComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>onFileChange <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onFileChange</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>onSubmit <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onSubmit</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+            profileImg<span class="token operator">:</span> <span class="token string">''</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">onFileChange</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> profileImg<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'profileImg'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>profileImg<span class="token punctuation">)</span>
+        axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"http://localhost:4000/api/user-profile"</span><span class="token punctuation">,</span> formData<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onSubmit<span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form-group<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onFileChange<span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+                        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form-group<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">Upload</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+                </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+            </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>React JSX</span></div><div class="toolbar-item"><button>Copy</button></div></div></div><ul><li>We declared the constructor and set the <strong>profileImg</strong> state and bind the events.</li><li>Inside the file input field, we passed the <strong>onChange</strong> event along with <strong>onSubmit</strong> method on the form.</li><li>In the onSubmit method, we manage the file value using FormData interface, and then we are making the HTTP POST request using the <strong>Axios post()</strong> method.</li></ul><p><img loading="lazy" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/react-file-upload-6559-003.png" alt="react-file-upload-6559-02" width="947" height="513" class="alignnone size-full wp-image-6586" srcset="https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-003.png 947w, https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-003-768x416.png 768w, https://www.positronx.io/wp-content/uploads/2019/09/react-file-upload-6559-003-302x164.png 302w" sizes="(max-width: 947px) 100vw, 947px"></p></div><div class="LinkedBlock" id="tc_6559_10"><h3>Conclusion</h3><p>Finally, <strong>React File Upload with Node/Express Js Tutorial</strong> is over. In this tutorial, we learned to upload a single file in React app and store the images in the MongoDB database using the Node server.</p></div><p></p></section></article> <!-- Popular Post Ends --> <!--<div class="tut-feedback"><p>Thanks for checking this tutorial out :) Let me know if you have any suggestions or issue related to this tutorial, or you want to request a new tutorial. Just shoot me a mail <a href="https://www.positronx.io/contact/" target="_blank">here</a>.</p></div> --></section><aside class="sidebar"><div class="custom-advert"> <!-- /8691100/Positonix_S2S_RightRail_1 --><div id="bsa-zone_1574377384932-9_123456"></div></div> <!-- Networks --><div class="custom-advert"> <script async="" type="text/javascript" src="https://cdn.carbonads.com/carbon.js?serve=CE7DVKQY&amp;placement=wwwpositronxio" id="_carbonads_js"></script> </div><div class="custom-advert affiliate-button do"> <a href="http://www.youtube.com/channel/UCIf1tGU8-Tv0tFNoS_reV8Q?sub_confirmation=1" rel="nofollow" target="_blank"> <svg width="45px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="iconfinder_Youtube_3721679" transform="translate(-2.000000, -5.000000)"> <rect id="Artboard15" x="0" y="0" width="24" height="24"></rect> <g id="Group" transform="translate(2.000000, 5.000000)"> <path d="M0.093,4.075 C0.218,2.134 1.722,0.566 3.655,0.359 C5.66,0.157 7.791,0.048 10,0.048 C12.209,0.048 14.34,0.157 16.345,0.36 C18.278,0.566 19.782,2.134 19.907,4.075 C19.968,5.031 20,6.008 20,7 C20,7.992 19.968,8.969 19.907,9.925 C19.782,11.866 18.278,13.434 16.345,13.641 C14.34,13.843 12.209,13.952 10,13.952 C7.791,13.952 5.66,13.843 3.655,13.64 C1.722,13.434 0.218,11.866 0.093,9.925 C0.032,8.969 4.4408921e-16,7.992 4.4408921e-16,7 C4.4408921e-16,6.008 0.032,5.031 0.093,4.075 Z" id="Shape" fill="#FF0000"></path> <polygon id="Shape" fill="#FFFFFF" points="13.055 7 8.146 9.995 8.146 4.005"></polygon> </g> </g> </g> </svg> Subscribe on YouTube </a></div> <!-- Twitter Follow Box --><div class="custom-advert tweet-follow-box"> <a class="tweet-button" href="https://twitter.com/ImDigamberSingh" target="_blank"> <span class="followtext">Follow me on Twitter</span> <span class="twitterusername">@ImDigamberSingh</span> </a></div> <!-- The content --><div id="related-tutorial-event" class="custom-advert related-post popular-post-fixed"><div class="fixed-sidebar-module"> <strong class="related-title">Related Posts</strong><ul><li> <a href="https://www.positronx.io/create-react-draggable-component-with-react-draggable-package/" rel="bookmark" title="Create React Draggable Component with react-draggable Package"> <span class="title_grd"> Create React Draggable Component with react-draggable Package </span> </a></li><li> <a href="https://www.positronx.io/react-router-hooks-examples/" rel="bookmark" title="Hooks of React Router 5+ Examples"> <span class="title_grd"> Hooks of React Router 5+ Examples </span> </a></li><li> <a href="https://www.positronx.io/react-list-example-tutorial-display-list-in-react/" rel="bookmark" title="React List Example Tutorial – Display List in React"> <span class="title_grd"> React List Example Tutorial – Display List in React </span> </a></li><li> <a href="https://www.positronx.io/react-on-page-scroll-progress-bar-with-web-api-tutorial/" rel="bookmark" title="React On Page Scroll Progress Bar with Web API Tutorial"> <span class="title_grd"> React On Page Scroll Progress Bar with Web API Tutorial </span> </a></li><li> <a href="https://www.positronx.io/react-pdf-tutorial-generate-pdf-in-react-with-jspdf/" rel="bookmark" title="React PDF Tutorial – Generate PDF in React with jsPDF"> <span class="title_grd"> React PDF Tutorial – Generate PDF in React with jsPDF </span> </a></li><li> <a href="https://www.positronx.io/how-to-check-react-app-version-quickly/" rel="bookmark" title="How to Check React App Version Quickly?"> <span class="title_grd"> How to Check React App Version Quickly? </span> </a></li><li> <a href="https://www.positronx.io/react-datepicker-tutorial-with-react-datepicker-examples/" rel="bookmark" title="React 16 Datepicker Tutorial with react-datepicker Examples"> <span class="title_grd"> React 16 Datepicker Tutorial with react-datepicker Examples </span> </a></li><li> <a href="https://www.positronx.io/how-to-build-react-data-table-with-react-table-package/" rel="bookmark" title="How to Build React 16+ Data Table with react-table Package"> <span class="title_grd"> How to Build React 16+ Data Table with react-table Package </span> </a></li></ul></div></div></aside></div> <!-- Author --> <!--<div class="shareTutorial co-author-block"><div class="author-avatar"> <#?php echo get_avatar(get_the_author_meta('user_email'), $size = '120'); ?></div><div class="author-description"> <strong class="authorname"><#?php the_author_meta('display_name', $userID);?></strong><p class="text-ad-2"><#?php the_author_meta('description', $userID);?></p> <a href="https://www.positronx.io/contact/" class="hireme-button">Hire Me</a></div></div> --> <!-- Popular Post --> <!--<div class="popular-wrapper-bottom"><h2>Related Tutorials:</h2><div class="recentPostListBlock relatedTutorials-wrapper"> <#?php
+ $related = get_posts(array('category__in' => wp_get_post_categories($post->ID), 'numberposts' => 12, 'post__not_in' => array($post->ID)));
+ if ($related) {
+ foreach ($related as $post) {
+ setup_postdata($post);?><figure class="recentPostList"><figcaption> <a href="<#?php the_permalink()?>" class="GA-Horizontal-11"> <#?php the_title();?> </a></figcaption></figure> <#?php }
+ }
+ wp_reset_postdata();?></div></div> --></div></main><footer class="px-footer"><div class="container-wrapper"><ul class="footer-sitelinks"><li class="copyright">© 2016-2020 positronX.io - All Rights Reserved</li><li class="dmca"><a href="https://www.dmca.com/Protection/Status.aspx?ID=f2ea991f-fd30-447c-99b5-2324779294ea&amp;refurl=https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/" title="DMCA.com Protection Status" class="dmca-badge"> <img src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/dmca_protected_sml_120l.png" alt="DMCA.com Protection Status"></a></li></ul></div></footer> <drawer-menu class="menu"> <span class="close-drawer" onclick="tinyDrawerClose(event)"> <svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="round-close-24px" fill="#A8A8A8" fill-rule="nonzero"> <path d="M13.3,0.71 C12.91,0.32 12.28,0.32 11.89,0.71 L7,5.59 L2.11,0.7 C1.72,0.31 1.09,0.31 0.7,0.7 C0.31,1.09 0.31,1.72 0.7,2.11 L5.59,7 L0.7,11.89 C0.31,12.28 0.31,12.91 0.7,13.3 C1.09,13.69 1.72,13.69 2.11,13.3 L7,8.41 L11.89,13.3 C12.28,13.69 12.91,13.69 13.3,13.3 C13.69,12.91 13.69,12.28 13.3,11.89 L8.41,7 L13.3,2.11 C13.68,1.73 13.68,1.09 13.3,0.71 Z" id="Path"></path> </g> </g> </svg> </span><div class="branding-block"><div id="search-block"><form role="search" method="get" class="nav-search" action="https://www.positronx.io/"> <input type="text" placeholder="Search..." value="" name="s" title="Search"> <svg width="14px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="round-search-24px" transform="translate(-1.000000, -1.000000)" fill="#8F8F8F" fill-rule="nonzero"> <path d="M13.5,12 L12.71,12 L12.43,11.73 C13.63,10.33 14.25,8.42 13.91,6.39 C13.44,3.61 11.12,1.39 8.32,1.05 C4.09,0.53 0.53,4.09 1.05,8.32 C1.39,11.12 3.61,13.44 6.39,13.91 C8.42,14.25 10.33,13.63 11.73,12.43 L12,12.71 L12,13.5 L16.25,17.75 C16.66,18.16 17.33,18.16 17.74,17.75 C18.15,17.34 18.15,16.67 17.74,16.26 L13.5,12 Z M7.5,12 C5.01,12 3,9.99 3,7.5 C3,5.01 5.01,3 7.5,3 C9.99,3 12,5.01 12,7.5 C12,9.99 9.99,12 7.5,12 Z" id="Shape"></path> </g> </g> </svg></form></div></div><ul class="sidebar-nav-01"><li><a href="https://www.positronx.io/free-angular-tutorials">Angular</a></li><li><a href="https://www.positronx.io/react-native/">React Native</a></li><li><a href="https://www.positronx.io/vue/">Vue</a></li><li><a href="https://www.positronx.io/ionic/">Ionic</a></li><li><a href="https://www.positronx.io/react-js">React</a></li><li><a href="https://www.positronx.io/free-firebase-tutorials/">Firebase</a></li><li><a href="https://www.positronx.io/mongodb/">MongoDB</a></li><li><a href="https://www.positronx.io/node-js/">Node JS</a></li><li><a href="https://www.positronx.io/angular-material/">Angular Material</a></li><li><a href="https://www.positronx.io/interview-questions/">Interview Questions</a></li><li><a href="https://www.positronx.io/python/">Python</a></li><li><a href="https://www.positronx.io/php/">PHP</a></li><li><a href="https://www.positronx.io/free-javascript-tutorials/">JavaScript</a></li><li><a href="https://www.positronx.io/free-typescript-tutorials/">TypeScript</a></li><li><a href="https://www.positronx.io/free-rxjs-tutorials/">RxJS</a></li><li><a href="https://www.positronx.io/free-html5-css3-tutorials/">HTML5 &amp; CSS3</a></li><li><a href="https://www.positronx.io/free-bootstrap-tutorials/">Bootstrap 4</a></li><li><a href="https://www.positronx.io/about/">About</a></li><li><a href="https://www.positronx.io/privacy-policy/">Privacy Policy</a></li><li><a href="https://www.positronx.io/contact/">Contact</a></li></ul> </drawer-menu> <!-- Prism --> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-core.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-autoloader.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-markup.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-clike.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-javascript.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-toolbar.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-show-language.min.js.download"></script> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/prism-copy-to-clipboard.min.js.download"></script> <script>(function () {
+
+if (typeof self === 'undefined' || !self.Prism || !self.document) {
+    return;
+}
+
+if (!Prism.plugins.toolbar) {
+    console.warn('Show Languages plugin loaded before Toolbar plugin.');
+
+    return;
+}
+
+// The languages map is built automatically with gulp
+var Languages = /*languages_placeholder[*/{
+    "html": "HTML",
+    "xml": "XML",
+    "svg": "SVG",
+    "mathml": "MathML",
+    "ssml": "SSML",
+    "rss": "RSS",
+    "css": "CSS",
+    "clike": "C-like",
+    "js": "JavaScript",
+    "abap": "ABAP",
+    "abnf": "Augmented Backus–Naur form",
+    "al": "AL",
+    "antlr4": "ANTLR4",
+    "g4": "ANTLR4",
+    "apacheconf": "Apache Configuration",
+    "apl": "APL",
+    "aql": "AQL",
+    "arff": "ARFF",
+    "asciidoc": "AsciiDoc",
+    "adoc": "AsciiDoc",
+    "asm6502": "6502 Assembly",
+    "aspnet": "ASP.NET (C#)",
+    "autohotkey": "AutoHotkey",
+    "autoit": "AutoIt",
+    "basic": "BASIC",
+    "bbcode": "BBcode",
+    "bnf": "Backus–Naur form",
+    "rbnf": "Routing Backus–Naur form",
+    "conc": "Concurnas",
+    "csharp": "C#",
+    "cs": "C#",
+    "dotnet": "C#",
+    "cpp": "C++",
+    "cil": "CIL",
+    "coffee": "CoffeeScript",
+    "cmake": "CMake",
+    "csp": "Content-Security-Policy",
+    "css-extras": "CSS Extras",
+    "dax": "DAX",
+    "django": "Django/Jinja2",
+    "jinja2": "Django/Jinja2",
+    "dns-zone-file": "DNS zone file",
+    "dns-zone": "DNS zone file",
+    "dockerfile": "Docker",
+    "ebnf": "Extended Backus–Naur form",
+    "ejs": "EJS",
+    "etlua": "Embedded Lua templating",
+    "erb": "ERB",
+    "excel-formula": "Excel Formula",
+    "xlsx": "Excel Formula",
+    "xls": "Excel Formula",
+    "fsharp": "F#",
+    "firestore-security-rules": "Firestore security rules",
+    "ftl": "FreeMarker Template Language",
+    "gcode": "G-code",
+    "gdscript": "GDScript",
+    "gedcom": "GEDCOM",
+    "glsl": "GLSL",
+    "gml": "GameMaker Language",
+    "gamemakerlanguage": "GameMaker Language",
+    "graphql": "GraphQL",
+    "hs": "Haskell",
+    "hcl": "HCL",
+    "hlsl": "HLSL",
+    "http": "HTTP",
+    "hpkp": "HTTP Public-Key-Pins",
+    "hsts": "HTTP Strict-Transport-Security",
+    "ichigojam": "IchigoJam",
+    "iecst": "Structured Text (IEC 61131-3)",
+    "inform7": "Inform 7",
+    "javadoc": "JavaDoc",
+    "javadoclike": "JavaDoc-like",
+    "javastacktrace": "Java stack trace",
+    "jq": "JQ",
+    "jsdoc": "JSDoc",
+    "js-extras": "JS Extras",
+    "js-templates": "JS Templates",
+    "json": "JSON",
+    "webmanifest": "Web App Manifest",
+    "jsonp": "JSONP",
+    "json5": "JSON5",
+    "latex": "LaTeX",
+    "tex": "TeX",
+    "context": "ConTeXt",
+    "lilypond": "LilyPond",
+    "ly": "LilyPond",
+    "emacs": "Lisp",
+    "elisp": "Lisp",
+    "emacs-lisp": "Lisp",
+    "llvm": "LLVM IR",
+    "lolcode": "LOLCODE",
+    "md": "Markdown",
+    "markup-templating": "Markup templating",
+    "matlab": "MATLAB",
+    "mel": "MEL",
+    "moon": "MoonScript",
+    "n1ql": "N1QL",
+    "n4js": "N4JS",
+    "n4jsd": "N4JS",
+    "nand2tetris-hdl": "Nand To Tetris HDL",
+    "nasm": "NASM",
+    "neon": "NEON",
+    "nginx": "nginx",
+    "nsis": "NSIS",
+    "objectivec": "Objective-C",
+    "objc": "Objective-C",
+    "ocaml": "OCaml",
+    "opencl": "OpenCL",
+    "parigp": "PARI/GP",
+    "objectpascal": "Object Pascal",
+    "pcaxis": "PC-Axis",
+    "px": "PC-Axis",
+    "peoplecode": "PeopleCode",
+    "pcode": "PeopleCode",
+    "php": "PHP",
+    "phpdoc": "PHPDoc",
+    "php-extras": "PHP Extras",
+    "plsql": "PL/SQL",
+    "powerquery": "PowerQuery",
+    "pq": "PowerQuery",
+    "mscript": "PowerQuery",
+    "powershell": "PowerShell",
+    "properties": ".properties",
+    "protobuf": "Protocol Buffers",
+    "purebasic": "PureBasic",
+    "pbfasm": "PureBasic",
+    "py": "Python",
+    "q": "Q (kdb+ database)",
+    "qml": "QML",
+    "rkt": "Racket",
+    "jsx": "React JSX",
+    "tsx": "React TSX",
+    "renpy": "Ren'py",
+    "rpy": "Ren'py",
+    "rest": "reST (reStructuredText)",
+    "robotframework": "Robot Framework",
+    "robot": "Robot Framework",
+    "rb": "Ruby",
+    "sas": "SAS",
+    "sass": "Sass (Sass)",
+    "scss": "Sass (Scss)",
+    "shell-session": "Shell session",
+    "solidity": "Solidity (Ethereum)",
+    "sol": "Solidity (Ethereum)",
+    "solution-file": "Solution file",
+    "sln": "Solution file",
+    "soy": "Soy (Closure Template)",
+    "sparql": "SPARQL",
+    "rq": "SPARQL",
+    "splunk-spl": "Splunk SPL",
+    "sqf": "SQF: Status Quo Function (Arma 3)",
+    "sql": "SQL",
+    "tap": "TAP",
+    "toml": "TOML",
+    "tt2": "Template Toolkit 2",
+    "trig": "TriG",
+    "ts": "TypeScript",
+    "t4-cs": "T4 Text Templates (C#)",
+    "t4": "T4 Text Templates (C#)",
+    "t4-vb": "T4 Text Templates (VB)",
+    "t4-templating": "T4 templating",
+    "uscript": "UnrealScript",
+    "uc": "UnrealScript",
+    "vbnet": "VB.Net",
+    "vhdl": "VHDL",
+    "vim": "vim",
+    "visual-basic": "Visual Basic",
+    "vb": "Visual Basic",
+    "wasm": "WebAssembly",
+    "wiki": "Wiki markup",
+    "xeoracube": "XeoraCube",
+    "xml-doc": "XML doc (.net)",
+    "xojo": "Xojo (REALbasic)",
+    "xquery": "XQuery",
+    "yaml": "YAML",
+    "yml": "YAML"
+}/*]*/;
+
+Prism.plugins.toolbar.registerButton('show-language', function (env) {
+    var pre = env.element.parentNode;
+    if (!pre || !/pre/i.test(pre.nodeName)) {
+        return;
+    }
+
+    /**
+     * Tries to guess the name of a language given its id.
+     *
+     * @param {string} id The language id.
+     * @returns {string}
+     */
+    function guessTitle(id) {
+        if (!id) {
+            return id;
+        }
+        return (id.substring(0, 1).toUpperCase() + id.substring(1)).replace(/s(?=cript)/, 'S');
+    }
+
+    var language = pre.getAttribute('data-language') || Languages[env.language] || guessTitle(env.language);
+
+    if (!language) {
+        return;
+    }
+    var element = document.createElement('span');
+    element.textContent = language;
+
+    return element;
+});
+})();</script> <!-- Cookee consent --> <script>if (navigator.cookieEnabled === true) {
+    if (document.cookie.indexOf("visited") == -1) {
+        jQuery('body').prepend(
+            '<div id="cookie"><div id="wrapper-cookee"><p>This site uses cookies. By continuing to browse the site you are agreeing to our use of cookies. <a href="https://www.positronx.io/privacy-policy/" rel="nofollow">Read more</a></p><div id="close"><a href="javascript:void(0)" id="closecookie">OK</a></div><div></div></div></div>'
+        );
+        jQuery('#cookie').fadeIn("fast");
+        jQuery('#closecookie').click(function() {
+            jQuery('#cookie').fadeOut("fast");
+        });
+        document.cookie = "visited=yes; expires=Thu,31 Dec 2025 23:59:59 UTC; path=/";
+    }
+}</script> <!-- DMCA Protection --> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/DMCABadgeHelper.min.js.download"></script> <script>jQuery.noConflict();
+(function($) {
+
+    // Fixed Sidebar
+    // var fixmeTop = $('.sticky-sidebar').offset().top + 500;
+    // $(window).scroll(function() {
+    //     var currentScroll = $(window).scrollTop();
+    //     if (currentScroll >= fixmeTop) {
+    //         $('.sticky-sidebar').addClass('sticky-adbar');
+    //     } else {
+    //         $('.sticky-sidebar').removeClass('sticky-adbar');
+    //     }
+    // });
+
+    // Custom search
+    $('.custom-search').on("click", function(event) {
+        event.preventDefault();
+        $("#search").addClass("open");
+        $('#search > form > input[type="search"]').focus();
+    });
+
+    $("#search, #search button.close").on("click keyup", function(event) {
+        if (
+            event.target == this ||
+            event.target.className == "close" ||
+            event.keyCode == 27
+        ) {
+            $(this).removeClass("open");
+        }
+    });
+
+    // Smooth scroll
+    $('.OrderedList li a').click(function() {
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 500);
+        return false;
+    });
+})(jQuery);</script> <!-- Responsive Menu --> <script>class TinyDrawer {
+    constructor(e) {
+        this.o = Object.assign({}, this.defaults(), e)
+    }
+    load() {
+        document.addEventListener("DOMContentLoaded", () => {
+            this.backdropAdd(), this.setup(), this.triggerOpen(), this.triggerClose(), this.activeUnset()
+        })
+    }
+    defaults() {
+        return {
+            replacement: "drawer",
+            drawerSelector: "drawer-menu"
+        }
+    }
+    setup() {
+        this.elementDrawer = document.querySelector(this.o.drawerSelector), this.elementOpen = document
+            .querySelectorAll("[data-" + this.o.replacement + "-open]"), this.elementClose = document
+            .querySelectorAll("[data-" + this.o.replacement + "-backdrop], [data-" + this.o.replacement + "-close]")
+    }
+    triggerOpen() {
+        this.elementOpen.forEach(e => {
+            e.addEventListener("click", e => {
+                this.open(e.target)
+            })
+        })
+    }
+    triggerClose() {
+        this.elementClose.forEach(e => {
+            e.addEventListener("click", e => {
+                this.close(e.target)
+            })
+        })
+    }
+    activeUnset() {
+        document.body.dataset[this.o.replacement] = ""
+    }
+    activeSet() {
+        document.body.dataset[this.o.replacement] = !0
+    }
+    offsetTopToVariable() {
+        var e = document.body.getBoundingClientRect();
+        this.top = -e.top
+    }
+    open(e = null) {
+        this.activeSet(), this.offsetTopToVariable(), this.callback(e, "open")
+    }
+    close(e = null) {
+        this.activeUnset(), window.scrollTo(0, this.top), this.callback(e, "close")
+    }
+    backdropAdd() {
+        let e = document.createElement("div");
+        e.dataset[this.o.replacement + "Backdrop"] = "", document.body.appendChild(e)
+    }
+    callback(e, t) {
+        void 0 !== this.o.callback && this.o.callback(e, t)
+    }
+}
+var tinyDrawerObj;
+
+function tinyDrawer(e) {
+    return (tinyDrawerObj = new TinyDrawer(e)).load(), tinyDrawerObj
+}
+
+function tinyDrawerOpen(e = null) {
+    let t = e ? e.target : null;
+    tinyDrawerObj.open(t)
+}
+
+function tinyDrawerClose(e = null) {
+    let t = e ? e.target : null;
+    tinyDrawerObj.close(t)
+}
+tinyDrawer({
+    callback: function(element, action) {
+        console.log(element);
+        console.log(action);
+    }
+});</script> <!-- Add this --> <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/addthis_widget.js.download"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh989" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/sh.f48a1a04fe8dbf021b4cda1d.html"></iframe></div><style id="service-icons-0"></style> <script src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/platform.js.download" async="" defer="" gapi_processed="true"></script> <!-- BuySell --> <!-- Load the following script before</head>. You only have to load this script once even if you have multiple ads on the same page. E.g. Flex Bar + FancyBar on the homepage. --> <script type="text/javascript" src="https://m.servedby-buysellads.com/monetization.js"></script> <!-- Load this code where you would like to display the ad on your site. --><div id="logobar"></div> <!-- Load this function before end of</body>. Make sure to disable async for the script. --> <script>(function() {
+  if (typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('custom', 'CE7DVKQU', 'placement:positronxio',
+    {
+      target: '#logobar',
+      template: `
+        <a href="##link##" class="native-flex">
+        <div class="native-img" style="background-color: ##backgroundColor##"><img src="##logo##"></div>
+        <div class="native-desc"><span class="native-sponsor">Sponsored</span>##description##</div>
+        <span class="native-cta" style="border-bottom: solid 2px #ffffff;">##callToAction##</span>
+        </a>`
+        }
+      );
+  }
+})();</script> <!-- OneTrust CMP Builder start --> <!-- <script src="https://cmp-cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-cmp-builder-version="1.8.0" data-domain-script="bottom-panel-lite-global-ot"></script><script>function OptanonWrapper() {addCmpBuilderFeatures();function addCmpBuilderFeatures() {var existingCmpFeaturesScript = document.getElementById('cmp-builder-features-script');if(!existingCmpFeaturesScript) {var cmpFeaturesScript = document.createElement('script'),script1 = document.getElementsByTagName('script')[0];cmpFeaturesScript.src = "https://cmp-cdn.cookielaw.org/consent/cmp-features/cmp-features.js";cmpFeaturesScript.setAttribute('id', 'cmp-builder-features-script');cmpFeaturesScript.async = false;cmpFeaturesScript.type = 'text/javascript';script1.parentNode.insertBefore(cmpFeaturesScript, script1);}}}</script> --> <!-- OneTrust CMP Builder end --><div data-drawer-backdrop=""></div><iframe style="position: absolute; width: 1px; height: 1px; left: -9999px;" src="./React Single File Upload Tutorial with Node, Express and Multer - positronX.io_files/globalstorage.html"></iframe></body></html>

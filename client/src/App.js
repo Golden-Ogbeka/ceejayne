@@ -9,6 +9,8 @@ import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import PublicRoutes from "./components/routes/PublicRoutes";
 import ShopRoutes from "./components/routes/ShopRoutes";
+import AdminRoutes from "./components/routes/AdminRoutes";
+import ServicesRoutes from "./components/routes/ServicesRoutes";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <NavBar />
       <PublicRoutes />
       <ShopRoutes />
+      <ServicesRoutes />
+      <AdminRoutes />
       <Footer />
     </BrowserRouter>
   );

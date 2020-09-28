@@ -10,7 +10,7 @@ import React, {useState} from "react";
 import Products from "../layout/Products";
 
 const Clothing = () => {
-  const [activeTab, setActiveTab] = useState("Pronom");
+  const [activeTab, setActiveTab] = useState("Polos/Tops");
   const toggle = (tab) => (e) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
@@ -22,40 +22,56 @@ const Clothing = () => {
         <h1>Clothing</h1>
         <hr />
       </center>
-      <MDBNav className="nav-justified nav-tabs bg-light">
+      <MDBNav className="nav-justified nav-tabs bg-dark">
         <MDBNavItem>
           <MDBNavLink
             link
             to="#"
-            active={activeTab === "Pronom"}
-            onClick={toggle("Pronom")}
+            active={activeTab === "Polos/Tops"}
+            onClick={toggle("Polos/Tops")}
             role="tab"
             className="text-danger">
-            Pronom
+            Polos/Tops
           </MDBNavLink>
         </MDBNavItem>
         <MDBNavItem>
           <MDBNavLink
             link
             to="#"
-            active={activeTab === "bfNails"}
-            onClick={toggle("bfNails")}
+            active={activeTab === "Shirts"}
+            onClick={toggle("Shirts")}
             role="tab"
             className="text-danger">
-            Virgin Human Hair
+            Shirts
+          </MDBNavLink>
+        </MDBNavItem>
+        <MDBNavItem>
+          <MDBNavLink
+            link
+            to="#"
+            active={activeTab === "Skirts"}
+            onClick={toggle("Skirts")}
+            role="tab"
+            className="text-danger">
+            Skirts
           </MDBNavLink>
         </MDBNavItem>
       </MDBNav>
       <div className="p-2">
         <MDBTabContent activeItem={activeTab}>
-          <MDBTabPane tabId="Pronom" role="tabpanel">
+          <MDBTabPane tabId="Polos/Tops" role="tabpanel">
             <p className="mt-2">
-              <Products shop="Clothing" shopSection="Pronom" />
+              <Products shop="Clothing" shopSection="Polos/Tops" />
             </p>
           </MDBTabPane>
-          <MDBTabPane tabId="bfNails" role="tabpanel">
+          <MDBTabPane tabId="Shirts" role="tabpanel">
             <p className="mt-2">
-              <Products shop="Clothing" shopSection="BF Clothing" />
+              <Products shop="Clothing" shopSection="Shirts" />
+            </p>
+          </MDBTabPane>
+          <MDBTabPane tabId="Skirts" role="tabpanel">
+            <p className="mt-2">
+              <Products shop="Clothing" shopSection="Skirts" />
             </p>
           </MDBTabPane>
         </MDBTabContent>

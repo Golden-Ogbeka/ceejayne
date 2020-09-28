@@ -5,11 +5,13 @@ import Clothing from "../pages/products/shops/Clothing";
 import Hairs from "../pages/products/shops/Hairs";
 import Makeup from "../pages/products/shops/Makeup";
 import Nails from "../pages/products/shops/Nails";
+import Shop from "../pages/products/shops/Shop";
 import Tools from "../pages/products/shops/Tools";
 
 const ShopRoutes = () => {
   return (
     <Switch>
+      <Route exact path="/shop" component={Shop} />
       <Route path="/shop/hairs" component={Hairs} />
       <Route path="/shop/nails" component={Nails} />
       <Route path="/shop/clothing" component={Clothing} />

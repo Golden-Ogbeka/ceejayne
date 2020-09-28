@@ -10,7 +10,7 @@ import React, {useState} from "react";
 import Products from "../layout/Products";
 
 const Bags = () => {
-  const [activeTab, setActiveTab] = useState("Pronom");
+  const [activeTab, setActiveTab] = useState("Shoulder Bags");
   const toggle = (tab) => (e) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
@@ -22,40 +22,40 @@ const Bags = () => {
         <h1>Bags</h1>
         <hr />
       </center>
-      <MDBNav className="nav-justified nav-tabs bg-light">
+      <MDBNav className="nav-justified nav-tabs bg-dark">
         <MDBNavItem>
           <MDBNavLink
             link
             to="#"
-            active={activeTab === "Pronom"}
-            onClick={toggle("Pronom")}
+            active={activeTab === "Shoulder Bags"}
+            onClick={toggle("Shoulder Bags")}
             role="tab"
             className="text-danger">
-            Pronom
+            Shoulder Bags
           </MDBNavLink>
         </MDBNavItem>
         <MDBNavItem>
           <MDBNavLink
             link
             to="#"
-            active={activeTab === "bfNails"}
-            onClick={toggle("bfNails")}
+            active={activeTab === "Leather Bags"}
+            onClick={toggle("Leather Bags")}
             role="tab"
             className="text-danger">
-            Virgin Human Hair
+            Leather Bags
           </MDBNavLink>
         </MDBNavItem>
       </MDBNav>
       <div className="p-2">
         <MDBTabContent activeItem={activeTab}>
-          <MDBTabPane tabId="Pronom" role="tabpanel">
+          <MDBTabPane tabId="Shoulder Bags" role="tabpanel">
             <p className="mt-2">
-              <Products shop="Bags" shopSection="Pronom" />
+              <Products shop="Bags" shopSection="Shoulder Bags" />
             </p>
           </MDBTabPane>
-          <MDBTabPane tabId="bfNails" role="tabpanel">
+          <MDBTabPane tabId="Leather Bags" role="tabpanel">
             <p className="mt-2">
-              <Products shop="Bags" shopSection="BF Bags" />
+              <Products shop="Bags" shopSection="Leather Bags" />
             </p>
           </MDBTabPane>
         </MDBTabContent>

@@ -22,7 +22,7 @@ const Nails = () => {
         <h1>Nails</h1>
         <hr />
       </center>
-      <MDBNav className="nav-justified nav-tabs bg-light">
+      <MDBNav className="nav-justified nav-tabs bg-dark">
         <MDBNavItem>
           <MDBNavLink
             link
@@ -42,7 +42,7 @@ const Nails = () => {
             onClick={toggle("bfNails")}
             role="tab"
             className="text-danger">
-            Virgin Human Hair
+            Basic False Nails
           </MDBNavLink>
         </MDBNavItem>
       </MDBNav>

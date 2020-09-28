@@ -12,6 +12,8 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
   MDBIcon,
+  MDBBtnGroup,
+  MDBLink,
 } from "mdbreact";
 
 import Logo from "../../logo.png";
@@ -26,7 +28,9 @@ const NavBar = () => {
     <React.Fragment>
       <MDBNavbar id="navBar" color="transparent " dark expand="md">
         <MDBNavbarBrand>
-          <img src={Logo} height="60" alt="Ceejayne" />
+          <MDBLink to="/">
+            <img src={Logo} height="60" alt="Ceejayne" />
+          </MDBLink>
         </MDBNavbarBrand>
         <MDBNavbarToggler className="btn-dark" onClick={toggleCollapse} />
         <MDBCollapse id="navbarCollapse" isOpen={isOpen} navbar>
@@ -51,15 +55,16 @@ const NavBar = () => {
 
               <MDBNavItem>
                 <MDBDropdown>
-                  <MDBDropdownToggle
-                    nav
-                    caret
-                    className="btn btn-outline-dark text-dark btn-lg">
-                    <span className="mr-2">
-                      <MDBIcon icon="shopping-basket" className="mr-1" />
-                      Shop
-                    </span>
-                  </MDBDropdownToggle>
+                  <MDBLink
+                    to="/shop"
+                    className="btn btn-outline-dark text-dark btn-lg d-inline-flex">
+                    <MDBIcon icon="shopping-basket" className="mr-1" />
+                    Shop
+                    <MDBDropdownToggle
+                      nav
+                      className="p-0 ml-2 mt-1 text-dark fa fa-angle-down fa-lg"
+                    />
+                  </MDBLink>
                   <MDBDropdownMenu>
                     <MDBDropdownItem href="/shop/nails">Nails</MDBDropdownItem>
                     <MDBDropdownItem href="/shop/hairs">Hairs</MDBDropdownItem>

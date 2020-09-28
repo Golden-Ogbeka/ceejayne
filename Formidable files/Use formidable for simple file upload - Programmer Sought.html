@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.programmersought.com/article/6275995336/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="https://e.dtscout.com/e/?v=1a&amp;pid=5200&amp;site=1&amp;l=https%3A%2F%2Fwww.programmersought.com%2Farticle%2F6275995336%2F&amp;j=https%3A%2F%2Fwww.programmersought.com%2Farticle%2F56481654371%2F" async="" type="text/javascript"></script><script async="" type="text/javascript" src="./Use formidable for simple file upload - Programmer Sought_files/cmp2.js.download"></script><script async="" type="text/javascript" src="./Use formidable for simple file upload - Programmer Sought_files/choice.js.download"></script><script type="text/javascript" async="true">
+(function() {
+    var host = 'www.themoneytizer.com';
+    var element = document.createElement('script');
+    var firstScript = document.getElementsByTagName('script')[0];
+    var url = 'https://quantcast.mgr.consensu.org'
+        .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js')
+    var uspTries = 0;
+    var uspTriesLimit = 3;
+    element.async = true;
+    element.type = 'text/javascript';
+    element.src = url;
+
+    firstScript.parentNode.insertBefore(element, firstScript);
+
+    function makeStub() {
+        var TCF_LOCATOR_NAME = '__tcfapiLocator';
+        var queue = [];
+        var win = window;
+        var cmpFrame;
+
+        function addFrame() {
+            var doc = win.document;
+            var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+            if (!otherCMP) {
+                if (doc.body) {
+                    var iframe = doc.createElement('iframe');
+
+                    iframe.style.cssText = 'display:none';
+                    iframe.name = TCF_LOCATOR_NAME;
+                    doc.body.appendChild(iframe);
+                } else {
+                    setTimeout(addFrame, 5);
+                }
+            }
+            return !otherCMP;
+        }
+
+        function tcfAPIHandler() {
+            var gdprApplies;
+            var args = arguments;
+
+            if (!args.length) {
+                return queue;
+            } else if (args[0] === 'setGdprApplies') {
+                if (
+                    args.length > 3 &&
+                    args[2] === 2 &&
+                    typeof args[3] === 'boolean'
+                ) {
+                    gdprApplies = args[3];
+                    if (typeof args[2] === 'function') {
+                        args[2]('set', true);
+                    }
+                }
+            } else if (args[0] === 'ping') {
+                var retr = {
+                    gdprApplies: gdprApplies,
+                    cmpLoaded: false,
+                    cmpStatus: 'stub'
+                };
+
+                if (typeof args[2] === 'function') {
+                    args[2](retr);
+                }
+            } else {
+                queue.push(args);
+            }
+        }
+
+        function postMessageEventHandler(event) {
+            var msgIsString = typeof event.data === 'string';
+            var json = {};
+
+            try {
+                if (msgIsString) {
+                    json = JSON.parse(event.data);
+                } else {
+                    json = event.data;
+                }
+            } catch (ignore) {}
+
+            var payload = json.__tcfapiCall;
+
+            if (payload) {
+                window.__tcfapi(
+                    payload.command,
+                    payload.version,
+                    function(retValue, success) {
+                        var returnMsg = {
+                            __tcfapiReturn: {
+                                returnValue: retValue,
+                                success: success,
+                                callId: payload.callId
+                            }
+                        };
+                        if (msgIsString) {
+                            returnMsg = JSON.stringify(returnMsg);
+                        }
+                        event.source.postMessage(returnMsg, '*');
+                    },
+                    payload.parameter
+                );
+            }
+        }
+
+        while (win) {
+            try {
+                if (win.frames[TCF_LOCATOR_NAME]) {
+                    cmpFrame = win;
+                    break;
+                }
+            } catch (ignore) {}
+
+            if (win === window.top) {
+                break;
+            }
+            win = win.parent;
+        }
+        if (!cmpFrame) {
+            addFrame();
+            win.__tcfapi = tcfAPIHandler;
+            win.addEventListener('message', postMessageEventHandler, false);
+        }
+    };
+
+    if (typeof module !== 'undefined') {
+        module.exports = makeStub;
+    } else {
+        makeStub();
+    }
+
+    var uspStubFunction = function() {
+        var arg = arguments;
+        if (typeof window.__uspapi !== uspStubFunction) {
+            setTimeout(function() {
+                if (typeof window.__uspapi !== 'undefined') {
+                    window.__uspapi.apply(window.__uspapi, arg);
+                }
+            }, 500);
+        }
+    };
+
+    var checkIfUspIsReady = function() {
+        uspTries++;
+        if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+            console.warn('USP is not accessible');
+        } else {
+            clearInterval(uspInterval);
+        }
+    };
+
+    if (typeof window.__uspapi === 'undefined') {
+        window.__uspapi = uspStubFunction;
+        var uspInterval = setInterval(checkIfUspIsReady, 6000);
+    }
+})();
+</script>
+
+
+<meta name="keywords" content="Use formidable for simple file upload, Programmer Sought">
+<meta name="description" content="Use formidable for simple file upload, Programmer Sought, the best programmer technical posts sharing site.">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Use formidable for simple file upload - Programmer Sought</title>
+<link href="./Use formidable for simple file upload - Programmer Sought_files/css.css" rel="stylesheet" type="text/css">
+<link href="./Use formidable for simple file upload - Programmer Sought_files/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./Use formidable for simple file upload - Programmer Sought_files/style.css">
+<link rel="stylesheet" href="./Use formidable for simple file upload - Programmer Sought_files/atom-one-dark.css">
+<link rel="stylesheet" href="./Use formidable for simple file upload - Programmer Sought_files/ck.css">
+<link rel="stylesheet" href="./Use formidable for simple file upload - Programmer Sought_files/viewer.min.css">
+<script> window._izq = window._izq || []; window._izq.push(["init" ]); </script> <script src="./Use formidable for simple file upload - Programmer Sought_files/fbb81477542bc7369465f5afdda9daab7f17067c.js.download"></script><script id="izootoSdk" src="./Use formidable for simple file upload - Programmer Sought_files/izooto.js.download"></script>
+<script defer="" async="" src="https://a.vdo.ai/core/v-programmersought/vdo.ai.js"></script><script defer="" async="" src="https://a.vdo.ai/core/s-programmersought/vdo.ai.js"></script><style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style><style type="text/css">pre{position: relative}pre:hover .hljs-button{display: block}.hljs-button{display: none;position: absolute;right: 4px;top: 4px;font-size: 12px;color: #4d4d4d;background-color: white;padding: 2px 8px;margin: 8px;border-radius: 4px;cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05);}.hljs-button:after{content: attr(data-title)}</style><style type="text/css">.hljs-ln{border-collapse:collapse}            .hljs-ln td{padding:0}            .hljs-ln-n{text-align: right;padding-right: 8px;}            .hljs-ln-n:before{content:attr(data-line-number)}</style><script type="text/javascript" async="" src="./Use formidable for simple file upload - Programmer Sought_files/js15_as.js.download"></script></head><span id="warning-container"><i data-reactroot=""></i></span>
+<body style="">
+<nav>
+<div class="container">
+<div class="website-logo"><h2 style="margin-top:5px;"><span style="color:white;font-weight: bold;">Programmer</span><span style="color:#F4785E;font-weight: bold;display: inline-block;">Sought</span></h2></div>
+<div id="menu">
+<ul class="toplinks">
+<li><a href="https://www.programmersought.com/" rel="nofollow" target="_blank">Home</a></li>
+<li><a href="mailto:programmersought@gmx.com" rel="nofollow" target="_blank">Contact Us</a></li>
+</ul>
+</div>
+<a id="menu-toggle" href="https://www.programmersought.com/article/6275995336/#" class=" ">☰</a> </div>
+</nav>
+<header style="padding:0px;">
+<div class="container" style="float:left;">
+<form id="searchForm" action="https://www.programmersought.com/search" method="post" onsubmit="return validate();">
+<div>
+<input type="text" name="s" id="s" value="" style="width:300px;">
+<input type="hidden" id="curPage" name="curPage" value="">
+<input type="submit" value="search" style="color:black;width:80px;">
+</div>
+</form>
+</div>
+<div style="clear:both;"></div>
+</header>
+<div id="topads"></div>
+<section>
+<div class="container" style="min-height: 600px;">
+<div class="docs-content">
+<h3 style="line-height: 30px;">
+<span>Use formidable for simple file upload</span>
+</h3>
+<div style="clear:both;"></div>
+<div id="rightads0">
+<iframe src="./Use formidable for simple file upload - Programmer Sought_files/750_200.html" height="200" width="750" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true">
+</iframe>
+</div>
+<div style="padding:5px 5px 5px 5px;word-wrap: break-word; word-break: normal;max-width: 850px;" id="article_content">
+<div id="vdoai">
+<div id="vdo_ai_div"></div><script>(function(v,d,o,ai){ai=d.createElement('script');ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, '//a.vdo.ai/core/v-programmersought/vdo.ai.js');</script>
+</div>
+<div class="htmledit_views">
+<div class="show-content-free">
+<ol>
+<li>Create a package.json configuration file</li>
+</ol>
+<pre onclick="hljs.copyCode(event)"><code class="hljs delphi">You can use npm init -y <span class="hljs-keyword">to</span> generate a package.json <span class="hljs-keyword">file</span>.
+</code><div class="hljs-button" data-title="copy"></div></pre>
+<ol start="2">
+<li><p>Installation dependence<br><code>Use the npm install -S package name to update the package.json file while installing the dependent library.</code></p></li>
+<li><p>Here use express specific installation does not say, directly into the body</p></li>
+</ol>
+<pre onclick="hljs.copyCode(event)"><code class="hljs kotlin"><ol class="hljs-ln" style="width:1660px"><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> express = require(<span class="hljs-string">"express"</span>);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> router = express.Router();</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> fs = require(<span class="hljs-string">"fs"</span>);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> path = require(<span class="hljs-string">"path"</span>);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> formidable = require(<span class="hljs-string">"formidable"</span>);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="7"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / Provide a routing <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">When</span> <span class="hljs-title">accessing</span> <span class="hljs-title">the</span> <span class="hljs-title">root</span> <span class="hljs-title">directory</span> <span class="hljs-title">of</span> <span class="hljs-title">this</span> <span class="hljs-title">route</span> <span class="hljs-title">will</span> <span class="hljs-title">take</span> <span class="hljs-title">this</span> <span class="hljs-title">processing</span> <span class="hljs-title">function</span></span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="8"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">router.post(<span class="hljs-string">"/"</span>, function(req, res, next) {</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="9"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> Console.log(<span class="hljs-string">"Start file upload...."</span>);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="10"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> <span class="hljs-comment">// Use foridable form to parse the received request. You can write the file directly to the local </span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="11"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">var</span> form = new formidable.IncomingForm();</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="12"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / Set the editor</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="13"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">form.encoding = <span class="hljs-string">"utf-8"</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="14"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / Set the file storage path must be written</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="15"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">form.uploadDir = <span class="hljs-string">"./public/images/"</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="16"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / retain suffix</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="17"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">form.keepExtensions = <span class="hljs-literal">true</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="18"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / Set a single file size limit</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="19"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">form.maxFieldsSize = <span class="hljs-number">5</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="20"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> <span class="hljs-comment">//form.maxFields = 1000; set so the sum of the size of the file</span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="21"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> / / Use form to parse the request fields are all the fields outside the file files contain file information</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="22"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">form.parse(req, function(err, fields, files) {</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="23"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  console.log(fields);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="24"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     / / Error handling</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="25"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">if</span> (err) {</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="26"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    res.json({</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="27"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">      code: <span class="hljs-number">0</span>,</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="28"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">      message: `${err.message}`</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="29"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    });</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="30"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-keyword">return</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="31"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  }</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="32"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="33"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     / / File <span class="hljs-keyword">is</span> empty</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="34"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">if</span> (!files | (Object.keys(files).length == <span class="hljs-number">0</span>)) {</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="35"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    res.json({</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="36"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">      code: <span class="hljs-number">0</span>,</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="37"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">             Message: `File cannot be empty.</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="38"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    });</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="39"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    <span class="hljs-keyword">return</span>;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="40"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  }</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="41"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="42"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     / / Modify the file name</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="43"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">var</span> dir = form.uploadDir;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="44"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     / / Note that the file attribute of files <span class="hljs-keyword">is</span> the parameter name of the user upload settings. If the fileName <span class="hljs-keyword">is</span> <span class="hljs-keyword">set</span> then you need to use files.FileName</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="45"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     <span class="hljs-comment">// Print files will find an object file corresponds to a File {} This format I don't know very well Maybe it is a file. You can skip the File and use the files.file. property to get the property value.</span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="46"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="47"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">var</span> oldName = files.file.path;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="48"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  <span class="hljs-keyword">var</span> newName = path.join(dir, files.file.name);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="49"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">     / / Modify the file name and suffix</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="50"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  fs.rename(oldName, newName, () =&gt; {</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="51"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    console.log(`renameed to ${newName}`);</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="52"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  });</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="53"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="54"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  res.json({</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="55"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">    code: <span class="hljs-number">1</span></div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="56"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">  });</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="57"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="58"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">});</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="59"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">});</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="60"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="61"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line">module.exports = router;</div></div></li><li><div class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="62"></div></div><div class="hljs-ln-code"><div class="hljs-ln-line"> </div></div></li></ol></code><div class="hljs-button" data-title="copy"></div></pre>
+</div>
+</div></div>
+<div style="clear:both;"></div>
+<div id="rightads1">
+<div id="vdo_ai_div"></div><script>(function(v,d,o,ai){ai=d.createElement('script');ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, '//a.vdo.ai/core/s-programmersought/vdo.ai.js');</script>
+</div>
+<div id="rightads119" style="text-align:center;width:100%;">
+<iframe src="./Use formidable for simple file upload - Programmer Sought_files/728_90.html" height="90" width="728" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true">
+</iframe>
+</div>
+<h3>Intelligent Recommendation</h3>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/63692935128/" rel="bookmark">formidable handle file uploads</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">Brief introduction In web development, often encountered in handling the case file upload. 4.0 and express frame after receiving req.files not support file uploading, file uploading to, and needs mult...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/59051033193/" rel="bookmark">Use of the formidable module of NodeJs</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">Today, share the formidable module of the nodejs post request. Nothing to say, directly on the code index.html inex.js Note: the name attribute of the input[type=file] tag in index.html corresponds to...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<div class="loop-thumb">
+<a href="https://www.programmersought.com/article/52072938177/"><img style="width:172px;height:120px;" src="./Use formidable for simple file upload - Programmer Sought_files/150fea5cb07e4ddf469a40992899df0e.png">
+</a>
+</div>
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/52072938177/" rel="bookmark">Use node koa-formidable</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">To use the koa-formidable Step a: Download koa-formidable npm package: npm i koa-formidable -S Step two: Quote koa-body middleware koa project using koa-formidable file uploads, a file is automaticall...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/30815314748/" rel="bookmark">Use of formidable middleware</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">Install formidable's dependencies first...</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/21442549554/" rel="bookmark">jQuery File Upload plugin is simple to use file upload</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">Foreword The development process sometimes requires the user to upload pictures in the preceding information, we can usually use the form tag set the enctype = "multipart / form-data" attrib...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<div id="rightads2" style="width:100%;height:90px;" class="adsloading">
+<div id="30785-1"><script src="https://ads.themoneytizer.com/s/gen.js?type=1"></script><script src="https://ads.themoneytizer.com/s/requestform.js?siteId=30785&amp;formatId=1"></script></div>
+</div>
+<h3>More Recommendation</h3>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/84001899972/" rel="bookmark">nodejs used formidable upload files, uploading files are not generated solutions do not choose an empty file</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/2978504010/" rel="bookmark">Httpclient file upload request simple use case</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">Recently, when I am doing a crawler, I need to use the relevant request for uploading an image. After referring to the older method on the Internet, I wrote a sample request for use. The required mave...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/79582905992/" rel="bookmark">jquery-file-upload simple to use (Hello)</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">First, the file references (the official online just to find chestnuts) Second, prepare input controls Three, input processing time work (statement only to meet the needs of my work) Fourth, backgroun...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/85743171556/" rel="bookmark">input type = file upload pictures of simple to use</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">1.HTML 2.js 3. Effect 4. Description This property is just fine with, h5 property, for use on compatible machine h5 property...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div style="padding-top:6px;padding-bottom:6px;">
+<div class="loop-wrap clearfix">
+<header class="loop-data" style="padding:0;display:block;text-align: left;width: auto;">
+<h3 style="margin-top:0px;border-bottom-style: none;padding-bottom: 0px;margin-bottom: 0px;overflow:hidden;line-height:30px;">
+<a href="https://www.programmersought.com/article/48433319753/" rel="bookmark">python3 use of socket simple file upload</a>
+</h3>
+</header>
+<div class="mh-excerpt">
+<p style="line-height:25px;">server.py client.py...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="rightads3" style="width:100%;height:90px;" class="adsloading">
+<div id="30785-28"><script src="https://ads.themoneytizer.com/s/gen.js?type=28"></script><script src="https://ads.themoneytizer.com/s/requestform.js?siteId=30785&amp;formatId=28"></script></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+<ul class="docs-nav" id="menu-left" style="top: 0px;">
+<div id="lefttopads" style="width:320px;text-align:center;">
+<iframe src="./Use formidable for simple file upload - Programmer Sought_files/300_250.html" height="250" width="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true">
+</iframe>
+</div>
+<li style="font-weight: bold;font-size: 20px;"><strong>Related Posts</strong></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/54022877843/" title="How to use file upload module formidable">How to use file upload module formidable</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/1234209383/" title="Formidable upload file in node">Formidable upload file in node</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/7752457684/" title="Formidable file upload">Formidable file upload</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/50772878864/" title="Node of the file upload (formidable)">Node of the file upload (formidable)</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/7602911758/" title="15 - Simple use of formidable">15 - Simple use of formidable</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/4479344413/" title="Formidable upload file memory overflow">Formidable upload file memory overflow</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/8714360439/" title="File upload using the formidable module of Node.js">File upload using the formidable module of Node.js</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/7690444770/" title="Node.js uses formidable to implement file upload function">Node.js uses formidable to implement file upload function</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/58131620373/" title="Node processing form form upload large file - formidable module">Node processing form form upload large file - formidable module</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/77393091844/" title="Use simple file upload Socket">Use simple file upload Socket</a></li>
+<div style="width:320px;height:250px;background-color: white;" id="leftads1" class="adsloading">
+<div id="30785-2"><script src="https://ads.themoneytizer.com/s/gen.js?type=2"></script><script src="https://ads.themoneytizer.com/s/requestform.js?siteId=30785&amp;formatId=2"></script></div>
+</div>
+<li style="font-weight: bold;font-size: 20px;"><strong>Popular Posts</strong></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/92253815300/" title="Summary of Operation and Maintenance Development Milestones">Summary of Operation and Maintenance Development Milestones</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/10174698502/" title="Java multithreading basics-multithreading examples">Java multithreading basics-multithreading examples</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/84285626407/" title="Learn Docker by yourself: 17. Upload a custom image to docker hub">Learn Docker by yourself: 17. Upload a custom image to docker hub</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/3484731213/" title="26 - Object-Oriented Advanced - Context Management - Reflection">26 - Object-Oriented Advanced - Context Management - Reflection</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/23965047902/" title="The difference between String and StringBuilder">The difference between String and StringBuilder</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/70172191544/" title="Detailed synchronized">Detailed synchronized</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/41945646113/" title="SpringBoot-Jackson, Gson, fastJson return JSON data">SpringBoot-Jackson, Gson, fastJson return JSON data</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/72461977211/" title="[P5341] Luo Valley [TJOI2019] Mr. toluene and large center string (suffix automaton)">[P5341] Luo Valley [TJOI2019] Mr. toluene and large center string (suffix automaton)</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/21812569349/" title="Swift study notes 2">Swift study notes 2</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/423188324/" title="Three sorting">Three sorting</a></li>
+<div style="width:320px;height:615px;background-color: white;" id="leftads2" class="adsloading">
+<div id="30785-3"><script src="https://ads.themoneytizer.com/s/gen.js?type=3"></script><script src="https://ads.themoneytizer.com/s/requestform.js?siteId=30785&amp;formatId=3"></script></div>
+</div>
+<li style="font-weight: bold;font-size: 20px;"><strong>Recommended Posts</strong></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/55394353134/" title="Simulate right-click">Simulate right-click</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/17113768352/" title="NEO4J document reading summary">NEO4J document reading summary</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/98321391309/" title="Ubuntu personal problem">Ubuntu personal problem</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/27151638926/" title="Third-party open source library RxJava - Android practical development scenario">Third-party open source library RxJava - Android practical development scenario</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/83642529516/" title="[C ++] in width calculation text inside imagemagick">[C ++] in width calculation text inside imagemagick</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/26873801369/" title="What are the performance-related indicators of the application?">What are the performance-related indicators of the application?</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/9308494691/" title="Python-----Check if the file exists">Python-----Check if the file exists</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/86431336811/" title="[android] the relationship between the scaleType attribute and the display of images in ImagView">[android] the relationship between the scaleType attribute and the display of images in ImagView</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/92422496287/" title="Springboot processing date formatting issues">Springboot processing date formatting issues</a></li>
+<li style="list-style-type: circle;color:#F4785E;word-wrap:break-word;"><a href="https://www.programmersought.com/article/27922780276/" title="HHUOJ 1916 Restore binary tree">HHUOJ 1916 Restore binary tree</a></li>
+<div style="width:320px;height:250px;background-color: white;" id="leftads3" class="adsloading">
+<div id="30785-19"><script src="https://ads.themoneytizer.com/s/gen.js?type=19"></script><script src="https://ads.themoneytizer.com/s/requestform.js?siteId=30785&amp;formatId=19"></script></div>
+</div>
+<li style="font-weight: bold;font-size: 20px;"><strong>Related Tags</strong></li>
+<a href="https://www.programmersought.com/tag/How+to+use+the+formidable/" title="How to use the formidable">How to use the formidable</a><a href="https://www.programmersought.com/tag/What+file+upload+module/" title="What file upload module">What file upload module</a><a href="https://www.programmersought.com/tag/How+to+upload+a+file+node/" title="How to upload a file node">How to upload a file node</a><a href="https://www.programmersought.com/tag/node/" title="node">node</a><a href="https://www.programmersought.com/tag/nodejs/" title="nodejs">nodejs</a><a href="https://www.programmersought.com/tag/upload+files/" title="upload files">upload files</a><a href="https://www.programmersought.com/tag/formidable/" title="formidable">formidable</a><a href="https://www.programmersought.com/tag/Node.js/" title="Node.js">Node.js</a><a href="https://www.programmersought.com/tag/node+post/" title="node post">node post</a><a href="https://www.programmersought.com/tag/java/" title="java">java</a><div id="leftbottomads" style="width:320px;text-align:center;">
+<iframe src="./Use formidable for simple file upload - Programmer Sought_files/300_600.html" height="600" width="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true">
+</iframe>
+</div>
+</ul>
+</div>
+</section><iframe name="__tcfapiLocator" style="display: none;" src="./Use formidable for simple file upload - Programmer Sought_files/saved_resource.html"></iframe>
+<section class="vibrant centered">
+<div class="container">
+<h4> Copyright © 2018-2020 - All Rights Reserved - <a href="https://www.programmersought.com/" style="color:white;">www.programmersought.com</a> </h4>
+</div>
+</section>
+<a class="totop" href="https://www.programmersought.com/article/6275995336/#" style="display: block;">Top</a>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/jquery.min.js.download"></script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/layout.js.download"></script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/jquery.localscroll-1.2.7.js.download" type="text/javascript"></script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/jquery.scrollTo-1.4.3.1.js.download" type="text/javascript"></script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/top.js.download" type="text/javascript"></script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/hljs.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/viewer.min.js.download"></script>
+<script>
+var viewer = new Viewer(document.getElementById('article_content'));
+</script>
+<script src="./Use formidable for simple file upload - Programmer Sought_files/bottom.js.download"></script>   <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4230527,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4230527&101" alt="free web hit counter" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+
+
+<script async="" type="text/javascript" src="./Use formidable for simple file upload - Programmer Sought_files/0.php"></script><iframe style="position: absolute; width: 1px; height: 1px; left: -9999px;" src="./Use formidable for simple file upload - Programmer Sought_files/globalstorage.html"></iframe></body></html>

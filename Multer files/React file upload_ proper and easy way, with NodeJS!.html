@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/ -->
+<html lang="en" prefix="og: http://ogp.me/ns#"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="4oyJwZMpvaJERHtd4DW7YoVXO_Ww38-eXI6t7JJ8v_k">
+  <title>React file upload: proper and easy way, with NodeJS!</title>
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+  <link rel="pingback" href="https://programmingwithmosh.com/xmlrpc.php">
+  <link rel="canonical" href="https://programmingwithmosh.com/">
+  <link rel="alternate" href="https://programmingwithmosh.com/feed" type="application/rss+xml" title="Programming with Mosh">
+
+  <link href="https://programmingwithmosh.com/wp-content/themes/octopress-greyshade-for-wordpress-master/favicon.png" rel="shortcut icon">
+
+    
+<!-- This site is optimized with the Yoast SEO Premium plugin v8.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Aren’t you tired of reloading the page every time you upload anything to the site? This is the ultimate answer to react file upload and issues!">
+<link rel="canonical" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React file upload: proper and easy way, with NodeJS!">
+<meta property="og:description" content="Aren’t you tired of reloading the page every time you upload anything to the site? This is the ultimate answer to react file upload and issues!">
+<meta property="og:url" content="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/">
+<meta property="og:site_name" content="Programming with Mosh">
+<meta property="article:publisher" content="https://www.facebook.com/programmingwithmosh">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="react">
+<meta property="article:section" content="JavaScript">
+<meta property="article:published_time" content="2019-01-14T08:00:40+00:00">
+<meta property="article:modified_time" content="2019-02-17T22:50:40+00:00">
+<meta property="og:updated_time" content="2019-02-17T22:50:40+00:00">
+<script src="./React file upload_ proper and easy way, with NodeJS!_files/prism.js.download" async=""></script><script async="" src="./React file upload_ proper and easy way, with NodeJS!_files/analytics.js.download"></script><script async="" src="./React file upload_ proper and easy way, with NodeJS!_files/fbevents.js.download"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PFVNW9S"></script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/programmingwithmosh.com\/","sameAs":["https:\/\/www.facebook.com\/programmingwithmosh","https:\/\/www.youtube.com\/user\/programmingwithmosh","https:\/\/twitter.com\/moshhamedani"],"@id":"#person","name":"Mosh Hamedani"}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://netdna.bootstrapcdn.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Programming with Mosh » React file upload: proper and easy way, with NodeJS! Comments Feed" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/programmingwithmosh.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.12"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./React file upload_ proper and easy way, with NodeJS!_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="./React file upload_ proper and easy way, with NodeJS!_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="sab-plugin-css" href="./React file upload_ proper and easy way, with NodeJS!_files/simple-author-box.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./React file upload_ proper and easy way, with NodeJS!_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="./React file upload_ proper and easy way, with NodeJS!_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./React file upload_ proper and easy way, with NodeJS!_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/jquery.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/related-posts.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://programmingwithmosh.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://programmingwithmosh.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://programmingwithmosh.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.8.12">
+<link rel="shortlink" href="https://wp.me/p5UtVT-yS">
+<link rel="alternate" type="application/json+oembed" href="https://programmingwithmosh.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprogrammingwithmosh.com%2Fjavascript%2Freact-file-upload-proper-server-side-nodejs-easy%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://programmingwithmosh.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fprogrammingwithmosh.com%2Fjavascript%2Freact-file-upload-proper-server-side-nodejs-easy%2F&amp;format=xml">
+
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://i1.wp.com/">
+<link rel="dns-prefetch" href="https://i2.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style><style type="text/css">.saboxplugin-wrap .saboxplugin-gravatar img {-webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%;border-radius:50%;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color {-webkit-border-radius:50%;-moz-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%;border-radius:50%;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color:before {text-shadow: none;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color {border: medium none !important;}.saboxplugin-wrap {margin-top:0px;}.saboxplugin-wrap {margin-bottom:45px;}.saboxplugin-wrap .saboxplugin-authorname {font-size:19px; line-height:26px;}.saboxplugin-wrap .saboxplugin-desc {font-size:16px; line-height:23px;}.saboxplugin-wrap .saboxplugin-web {font-size:14px;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color {font-size:21px;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color:before {width:36px; height:36px; line-height:37px; }.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-grey {font-size:18px;}</style><style type="text/css" id="syntaxhighlighteranchor"></style>
+  <link href="./React file upload_ proper and easy way, with NodeJS!_files/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="./React file upload_ proper and easy way, with NodeJS!_files/bootstrap-btn.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="./React file upload_ proper and easy way, with NodeJS!_files/prism.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PFVNW9S');</script>
+<!-- End Google Tag Manager -->
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="./React file upload_ proper and easy way, with NodeJS!_files/jquery.min.js.download"></script>
+  <link href="./React file upload_ proper and easy way, with NodeJS!_files/css" rel="stylesheet" type="text/css">
+  <!--Fonts from Google"s Web font directory at https://google.com/webfonts -->
+<link href="./React file upload_ proper and easy way, with NodeJS!_files/css(1)" rel="stylesheet" type="text/css">
+<link href="./React file upload_ proper and easy way, with NodeJS!_files/css(2)" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="./React file upload_ proper and easy way, with NodeJS!_files/e5236a45-57f4-4dfa-98e1-10fef24e180f.css">
+<link rel="stylesheet" href="./React file upload_ proper and easy way, with NodeJS!_files/font-awesome.min(1).css">
+
+
+<!-- Google Adsense -->
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5065732454474785",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '926504794111315');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=926504794111315&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./React file upload_ proper and easy way, with NodeJS!_files/hovercard.min.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./React file upload_ proper and easy way, with NodeJS!_files/services.min.css"><script async="" src="./React file upload_ proper and easy way, with NodeJS!_files/modules-v60.js.download"></script><script type="text/javascript" charset="utf-8" src="./React file upload_ proper and easy way, with NodeJS!_files/saved_resource" async=""></script><script type="text/javascript" charset="utf-8" src="./React file upload_ proper and easy way, with NodeJS!_files/saved_resource" async=""></script><style type="text/css">#ad14d4987d5605b56582a70c1580242a7d943d50a-container{margin:0;padding:0;overflow:hidden;position:absolute;border:none;background-color:transparent}body.logged-in.admin-bar #ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Bar.hb-bar-top,body.logged-in.admin-bar #ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Slider.hb-top-left,body.logged-in.admin-bar #ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Slider.hb-top-right,body.logged-in.admin-bar #pull-down.hb-bar-top,body.logged-in.admin-bar #pull-down.hb-top-left,body.logged-in.admin-bar #pull-down.hb-top-right{z-index:99998!important;top:32px!important}.hellobar#pull-down.hb-animated{animation-duration:1s;-o-animation-duration:1s;-ms-animation-duration:1s;-moz-animation-duration:1s;-webkit-animation-duration:1s;animation-fill-mode:forwards;-o-animation-fill-mode:forwards;-ms-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}.hellobar#pull-down{top:-1px;right:10px;padding:3px;z-index:10000002;overflow:hidden;position:absolute;border-radius:0 0 5px 5px;transform:translateY(-40px);-o-transform:translateY(-40px);-ms-transform:translateY(-40px);-moz-transform:translateY(-40px);-webkit-transform:translateY(-40px)}.hellobar#pull-down .hellobar-arrow{cursor:pointer;display:flex;height:11px;opacity:.3;width:11px;filter:flipv;transform:scaleY(-1);-o-transform:scaleY(-1);-ms-transform:scaleY(-1);-moz-transform:scaleY(-1);-webkit-transform:scaleY(-1)}.hellobar#pull-down .hellobar-arrow:hover{opacity:.6}.hellobar#pull-down .hellobar-arrow svg{fill:#fff}.hellobar#pull-down.inverted .hellobar-arrow svg{fill:#3c3e3f}#ad14d4987d5605b56582a70c1580242a7d943d50a-container.hb-animated{animation-duration:.25s;-o-animation-duration:.25s;-ms-animation-duration:.25s;-moz-animation-duration:.25s;-webkit-animation-duration:.25s;animation-fill-mode:forwards;-o-animation-fill-mode:forwards;-ms-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}@keyframes hb-bounceInDown{0%,60%,75%,90%,to{transition-timing-function:cubic-bezier(.215,.61,.355,1);-o-transition-timing-function:cubic-bezier(.215,.61,.355,1);-ms-transition-timing-function:cubic-bezier(.215,.61,.355,1);-moz-transition-timing-function:cubic-bezier(.215,.61,.355,1);-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{transform:translate3d(0,-3000px,0);-o-transform:translate3d(0,-3000px,0);-ms-transform:translate3d(0,-3000px,0);-moz-transform:translate3d(0,-3000px,0);-webkit-transform:translate3d(0,-3000px,0)}60%{transform:translateZ(0);-o-transform:translateZ(0);-ms-transform:translateZ(0);-moz-transform:translateZ(0);-webkit-transform:translateZ(0)}75%{transform:translate3d(0,-40px,0);-o-transform:translate3d(0,-40px,0);-ms-transform:translate3d(0,-40px,0);-moz-transform:translate3d(0,-40px,0);-webkit-transform:translate3d(0,-40px,0)}90%{transform:translateZ(0);-o-transform:translateZ(0);-ms-transform:translateZ(0);-moz-transform:translateZ(0);-webkit-transform:translateZ(0)}to{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}}@-moz-keyframes hb-bounceInDown{0%,60%,75%,90%,to{-moz-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-moz-transform:translate3d(0,-3000px,0)}60%{-moz-transform:translateZ(0)}75%{-moz-transform:translate3d(0,-40px,0)}90%{-moz-transform:translateZ(0)}to{-moz-transform:none}}@-webkit-keyframes hb-bounceInDown{0%,60%,75%,90%,to{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:translate3d(0,-3000px,0)}60%{-webkit-transform:translateZ(0)}75%{-webkit-transform:translate3d(0,-40px,0)}90%{-webkit-transform:translateZ(0)}to{-webkit-transform:none}}@keyframes hb-bounceInUp{0%,60%,75%,90%,to{transition-timing-function:cubic-bezier(.215,.61,.355,1);-o-transition-timing-function:cubic-bezier(.215,.61,.355,1);-ms-transition-timing-function:cubic-bezier(.215,.61,.355,1);-moz-transition-timing-function:cubic-bezier(.215,.61,.355,1);-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{transform:translate3d(0,3000px,0);-o-transform:translate3d(0,3000px,0);-ms-transform:translate3d(0,3000px,0);-moz-transform:translate3d(0,3000px,0);-webkit-transform:translate3d(0,3000px,0)}60%{transform:translateZ(0);-o-transform:translateZ(0);-ms-transform:translateZ(0);-moz-transform:translateZ(0);-webkit-transform:translateZ(0)}75%{transform:translate3d(0,40px,0);-o-transform:translate3d(0,40px,0);-ms-transform:translate3d(0,40px,0);-moz-transform:translate3d(0,40px,0);-webkit-transform:translate3d(0,40px,0)}90%{transform:translateZ(0);-o-transform:translateZ(0);-ms-transform:translateZ(0);-moz-transform:translateZ(0);-webkit-transform:translateZ(0)}to{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}}@-moz-keyframes hb-bounceInUp{0%,60%,75%,90%,to{-moz-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-moz-transform:translate3d(0,3000px,0)}60%{-moz-transform:translateZ(0)}75%{-moz-transform:translate3d(0,40px,0)}90%{-moz-transform:translateZ(0)}to{-moz-transform:none}}@-webkit-keyframes hb-bounceInUp{0%,60%,75%,90%,to{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:translate3d(0,3000px,0)}60%{-webkit-transform:translateZ(0)}75%{-webkit-transform:translate3d(0,40px,0)}90%{-webkit-transform:translateZ(0)}to{-webkit-transform:none}}@keyframes hb-bounceOutUp{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}to{transform:translate3d(0,-500px,0);-o-transform:translate3d(0,-500px,0);-ms-transform:translate3d(0,-500px,0);-moz-transform:translate3d(0,-500px,0);-webkit-transform:translate3d(0,-500px,0)}}@-moz-keyframes hb-bounceOutUp{0%,to{-moz-transition-timing-function:ease-in}0%{-moz-transform:none}to{-moz-transform:translate3d(0,-500px,0)}}@-webkit-keyframes hb-bounceOutUp{0%,to{-webkit-transition-timing-function:ease-in}0%{-webkit-transform:none}to{-webkit-transform:translate3d(0,-500px,0)}}@keyframes hb-bounceOutDown{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}to{transform:translate3d(0,500px,0);-o-transform:translate3d(0,500px,0);-ms-transform:translate3d(0,500px,0);-moz-transform:translate3d(0,500px,0);-webkit-transform:translate3d(0,500px,0)}}@-moz-keyframes hb-bounceOutDown{0%,to{-moz-transition-timing-function:ease-in}0%{-moz-transform:none}to{-moz-transform:translate3d(0,500px,0)}}@-webkit-keyframes hb-bounceOutDown{0%,to{-webkit-transition-timing-function:ease-in}0%{-webkit-transform:none}to{-webkit-transform:translate3d(0,500px,0)}}@keyframes hb-bounceInLeft{0%,75%,to{transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-o-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-ms-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{transform:translate3d(200%,0,0);-o-transform:translate3d(200%,0,0);-ms-transform:translate3d(200%,0,0);-moz-transform:translate3d(200%,0,0);-webkit-transform:translate3d(200%,0,0)}75%{transform:translate3d(-10%,0,0);-o-transform:translate3d(-10%,0,0);-ms-transform:translate3d(-10%,0,0);-moz-transform:translate3d(-10%,0,0);-webkit-transform:translate3d(-10%,0,0)}to{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}}@-moz-keyframes hb-bounceInLeft{0%,75%,to{-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-moz-transform:translate3d(200%,0,0)}75%{-moz-transform:translate3d(-10%,0,0)}to{-moz-transform:none}}@-webkit-keyframes hb-bounceInLeft{0%,75%,to{-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-webkit-transform:translate3d(200%,0,0)}75%{-webkit-transform:translate3d(-10%,0,0)}to{-webkit-transform:none}}@keyframes hb-bounceOutRight{0%,25%,to{transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-o-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-ms-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}25%{transform:translate3d(-10%,0,0);-o-transform:translate3d(-10%,0,0);-ms-transform:translate3d(-10%,0,0);-moz-transform:translate3d(-10%,0,0);-webkit-transform:translate3d(-10%,0,0)}to{transform:translate3d(200%,0,0);-o-transform:translate3d(200%,0,0);-ms-transform:translate3d(200%,0,0);-moz-transform:translate3d(200%,0,0);-webkit-transform:translate3d(200%,0,0)}}@-moz-keyframes hb-bounceOutRight{0%,25%,to{-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-moz-transform:none}25%{-moz-transform:translate3d(-10%,0,0)}to{-moz-transform:translate3d(200%,0,0)}}@-webkit-keyframes hb-bounceOutRight{0%,25%,to{-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-webkit-transform:none}25%{-webkit-transform:translate3d(-10%,0,0)}to{-webkit-transform:translate3d(200%,0,0)}}@keyframes hb-bounceInRight{0%,75%,to{transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-o-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-ms-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{transform:translate3d(-200%,0,0);-o-transform:translate3d(-200%,0,0);-ms-transform:translate3d(-200%,0,0);-moz-transform:translate3d(-200%,0,0);-webkit-transform:translate3d(-200%,0,0)}75%{transform:translate3d(10%,0,0);-o-transform:translate3d(10%,0,0);-ms-transform:translate3d(10%,0,0);-moz-transform:translate3d(10%,0,0);-webkit-transform:translate3d(10%,0,0)}to{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}}@-moz-keyframes hb-bounceInRight{0%,75%,to{-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-moz-transform:translate3d(-200%,0,0)}75%{-moz-transform:translate3d(10%,0,0)}to{-moz-transform:none}}@-webkit-keyframes hb-bounceInRight{0%,75%,to{-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-webkit-transform:translate3d(-200%,0,0)}75%{-webkit-transform:translate3d(10%,0,0)}to{-webkit-transform:none}}@keyframes hb-bounceOutLeft{0%,25%,to{transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-o-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-ms-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255);-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{transform:none;-o-transform:none;-ms-transform:none;-moz-transform:none;-webkit-transform:none}25%{transform:translate3d(10%,0,0);-o-transform:translate3d(10%,0,0);-ms-transform:translate3d(10%,0,0);-moz-transform:translate3d(10%,0,0);-webkit-transform:translate3d(10%,0,0)}to{transform:translate3d(-200%,0,0);-o-transform:translate3d(-200%,0,0);-ms-transform:translate3d(-200%,0,0);-moz-transform:translate3d(-200%,0,0);-webkit-transform:translate3d(-200%,0,0)}}@-moz-keyframes hb-bounceOutLeft{0%,25%,to{-moz-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-moz-transform:none}25%{-moz-transform:translate3d(10%,0,0)}to{-moz-transform:translate3d(-200%,0,0)}}@-webkit-keyframes hb-bounceOutLeft{0%,25%,to{-webkit-transition-timing-function:cubic-bezier(.65,-.25,.325,1.255)}0%{-webkit-transform:none}25%{-webkit-transform:translate3d(10%,0,0)}to{-webkit-transform:translate3d(-200%,0,0)}}@keyframes hb-fadeIn{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{opacity:0}to{opacity:1}}@-moz-keyframes hb-fadeIn{0%,to{-moz-transition-timing-function:ease-in}0%{opacity:0}to{opacity:1}}@-webkit-keyframes hb-fadeIn{0%,to{-webkit-transition-timing-function:ease-in}0%{opacity:0}to{opacity:1}}@keyframes hb-fadeOut{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{opacity:1}to{opacity:0}}@-moz-keyframes hb-fadeOut{0%,to{-moz-transition-timing-function:ease-in}0%{opacity:1}to{opacity:0}}@-webkit-keyframes hb-fadeOut{0%,to{-webkit-transition-timing-function:ease-in}0%{opacity:1}to{opacity:0}}@keyframes hb-fadeInDown{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{opacity:0;height:110%;margin-top:-5%}to{opacity:1;height:100%;margin-top:0}}@-moz-keyframes hb-fadeInDown{0%,to{-moz-transition-timing-function:ease-in}0%{opacity:0;height:110%;margin-top:-5%}to{opacity:1;height:100%;margin-top:0}}@-webkit-keyframes hb-fadeInDown{0%,to{-webkit-transition-timing-function:ease-in}0%{opacity:0;height:110%;margin-top:-5%}to{opacity:1;height:100%;margin-top:0}}@keyframes hb-fadeOutUp{0%,to{transition-timing-function:ease-in;-o-transition-timing-function:ease-in;-ms-transition-timing-function:ease-in;-moz-transition-timing-function:ease-in;-webkit-transition-timing-function:ease-in}0%{opacity:1;height:100%;margin-top:0}to{opacity:0;height:110%;margin-top:-5%}}@-moz-keyframes hb-fadeOutUp{0%,to{-moz-transition-timing-function:ease-in}0%{opacity:1;height:100%;margin-top:0}to{opacity:0;height:110%;margin-top:-5%}}@-webkit-keyframes hb-fadeOutUp{0%,to{-webkit-transition-timing-function:ease-in}0%{opacity:1;height:100%;margin-top:0}to{opacity:0;height:110%;margin-top:-5%}}.hb-hidden{display:none}body .hb-cu-offer,html .hb-cu-offer{text-align:center!important;padding:2em!important}body .hb-cu-offer a,html .hb-cu-offer a{text-decoration:none!important;box-shadow:none!important}body .hb-cu-offer a:hover,html .hb-cu-offer a:hover{text-decoration:underline!important;box-shadow:none!important}.hb-cu-modal{display:block!important;width:90%!important;position:absolute!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;font-family:Open Sans,Helvetica,Arial,sans-serif!important;padding:20px!important;text-align:center!important;font-size:13px!important;background-color:#fefefe!important;margin:0!important;border:1px solid #efefef!important;max-width:670px!important}.hb-cu-modal .progress{margin:10px auto 18px!important;width:95%!important}.hb-cu-modal .caption{color:#000!important;border-bottom:1px solid #ccc!important;font-size:10pt!important;padding:8px 0!important;width:85%!important;max-width:520px!important}.hb-cu-modal .caption,.hb-cu-modal .headline{font-family:Open Sans,Helvetica,Arial,sans-serif!important;margin:auto!important}.hb-cu-modal .headline{letter-spacing:0!important;color:#333!important;font-size:18pt!important;font-weight:700!important;padding:30px!important;max-width:500px!important}.hb-cu-modal .form{padding:0 30px!important}.hb-cu-modal input{display:block!important}.hb-cu-modal input,.hb-cu-modal input[type=checkbox]{padding:13px!important;width:100%!important;max-width:450px!important;margin:auto!important;margin-bottom:15px!important;font-size:1.2em!important;color:#201d1d!important;background:#fff!important;border:1pt solid #c9d7dd!important}.hb-cu-modal input[type=checkbox]{display:inline!important}.hb-cu-modal .hb-gdpr-checkboxes{padding:0 67px!important;margin-bottom:15px!important}.hb-cu-modal .hb-gdpr-checkboxes label{text-align:left;margin:0 0 10px;display:flex;align-items:flex-start}.hb-cu-modal .hb-gdpr-checkboxes span{flex:94%}.hb-cu-modal .hb-gdpr-checkboxes .hb-gdpr-checkbox{padding:0!important;width:auto!important;margin:2px 5px 0 0!important;font-size:1.2em!important;color:#201d1d!important;background:#fff!important;border:1pt solid #c9d7dd!important;display:inline!important}.hb-cu-modal .cta{padding:13px!important;width:100%!important;max-width:450px!important;margin:auto!important;margin-bottom:15px!important;font-size:1.2em!important;color:#201d1d!important;display:block!important;color:#fff!important;text-transform:uppercase!important;text-decoration:none!important;font-family:Open Sans,Helvetica,Arial,sans-serif!important;font-weight:700!important;cursor:pointer!important;padding:20px!important;font-size:18px!important;margin-top:5px!important;border:none!important;border-radius:0!important;-webkit-appearance:none!important}.hb-cu-modal .cta:focus{outline:none!important}.hb-cu-modal .spam-disclaimer{font-family:Open Sans,Helvetica,Arial,sans-serif!important;margin-top:8px!important;color:#9c9c9d!important;font-size:14px!important}.hb-cu-modal-container{display:none;position:fixed!important;z-index:9000000!important;padding:0!important;padding-top:100px!important;left:0!important;top:0!important;width:100%!important;height:100%!important;overflow:auto!important;background-color:#000!important;background-color:rgba(0,0,0,.4)!important;box-sizing:content-box!important}#hb-cu-close-button{margin-top:-35px!important;margin-right:-35px!important;float:right!important;width:auto!important;height:auto!important;background:#333!important;border:2px solid #fff!important;-webkit-border-radius:18px!important;-moz-border-radius:18px!important;border-radius:18px!important;box-shadow:none!important;box-sizing:border-box!important;letter-spacing:normal!important;word-spacing:0!important;text-size-adjust:100%!important;padding:7px!important;display:flex!important;justify-content:center!important;align-items:center!important}#hb-cu-close-button svg{fill:transparent!important;stroke:#fff!important;stroke-linecap:round!important;stroke-width:5px!important}#ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Modal{top:0;left:0;position:fixed;_position:absolute;_top:expression(eval(document.body.scrollTop));width:100%;height:100%;z-index:10000003}#ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Modal.hb-animated{opacity:0;height:110%;margin-top:-5%}#ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Modal.hb-animateIn{animation-name:hb-fadeInDown;-o-animation-name:hb-fadeInDown;-ms-animation-name:hb-fadeInDown;-moz-animation-name:hb-fadeInDown;-webkit-animation-name:hb-fadeInDown}#ad14d4987d5605b56582a70c1580242a7d943d50a-container.HB-Modal.hb-animateOut{animation-name:hb-fadeOutUp;-o-animation-name:hb-fadeOutUp;-ms-animation-name:hb-fadeOutUp;-moz-animation-name:hb-fadeOutUp;-webkit-animation-name:hb-fadeOutUp}
+
+</style></head><span id="warning-container"><i data-reactroot=""></i></span>
+
+<body class="post-template-default single single-post postid-2162 single-format-standard"> 
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFVNW9S"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66465936-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+  <div class="container"><div id="sidebar" class="info">
+      <div class="intrude-less">
+      <header id="header" class="inner">
+      <div id="img-placeholder">
+          <a href="https://programmingwithmosh.com/"><img src="./React file upload_ proper and easy way, with NodeJS!_files/mosh-300px.png" scale="0"></a>
+          <h1>Mosh Hamedani</h1>
+          <p>Coding Made Simple</p>	
+       </div>
+      
+   
+
+    <nav id="main-nav">
+      <ul class="main-navigation">
+         <li><a href="https://codewithmosh.com/courses" target="_blank">Courses</a><span class="count">20</span></li>
+         <li><a href="https://programmingwithmosh.com/tutorials">Tutorials</a></li>
+         <li><a href="https://www.youtube.com/user/programmingwithmosh" target="_blank">YouTube</a></li>
+         <li><a href="https://codewithmosh.com/p/about" target="_blank">About me</a></li>
+         <li><a href="https://programmingwithmosh.com/contact-me">Contact me</a></li>
+      </ul>
+    </nav>
+
+ 
+    <nav id="sub-nav">
+      <div class="social">
+              
+        <a class="rss" href="https://programmingwithmosh.com/feed" title="RSS">RSS</a>
+       
+
+      </div>
+    </nav>
+    </header>
+  </div>
+</div>
+ 
+   <style>
+    .container .posts .posts-container #content{
+        width: 70%;
+        display: inline-block;
+    }
+    .content-right-sidebar{
+        width: 30%;
+        display: inline-block;
+        float: right;
+        margin-top: 40px;
+        padding-left: 75px;
+        box-sizing: border-box;
+    }
+    article .entry-content{
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .categories, .general-list {
+        list-style: none;
+        font-family: 'Museo Sans W01', helvetica, arial, sans-serif;
+        font-size: 1.5em;
+        font-weight: 800;
+        color: #1D1B1B;
+        line-height: 1.2em;
+        text-align: left;
+        margin-bottom: 40px; 
+    }
+    .categories .cat-item, .general-list li {
+        list-style: none;
+    }
+    .categories .cat-item a, .general-list li a{
+        display: block;
+        font-size: 16px;
+        color: #60656f;
+        border-bottom: 1px solid #f1f5fc;
+        padding: 11px 0;
+        line-height: 20px;
+        font-family: 'open sans', helvetica, sans-serif;
+        font-weight: 400;
+    }
+    .categories .cat-item:hover a, .general-list li:hover a {
+        color: #0d82df;
+    }
+    .categories ul, ul.general-list {
+        padding-left: 0;
+    }
+
+    @media screen and (max-width: 1000px){
+        .content-right-sidebar{
+            display: none;
+        }
+        .container .posts .posts-container #content {
+            width: 100%;
+        }
+    }
+</style>
+
+  <div class="posts">
+     
+        
+    <div class="posts-container">
+      <div id="content" class="inner">
+
+    
+      <article id="post-2162" class="post-2162 post type-post status-publish format-standard hentry category-javascript category-react tag-javascript tag-react">
+      <div class="entry-content">
+
+          <div class="meta">
+            <div class="date">
+              <time>January 14th, 2019</time>
+            </div>
+            
+            <span class="comments"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#disqus_thread">Comments</a></span>  
+          </div>
+
+          <h1 class="title"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/">React file upload: proper and easy way, with NodeJS!</a></h1>
+          	  <p>Upload page reloads on submitting a file for upload. Are you a newbie to React, and using this generic style to upload files on the web?</p>
+<p class="graf graf--h3">There’s a better way to handle uploads in React.</p>
+<p class="graf graf--h3"><strong>This tutorial</strong> <strong>is the answer!</strong></p>
+<p class="graf graf--p">Today, it’ll change forever if you go through this tutorial and implement it on your site.</p>
+<p class="graf graf--p">We’ll use Node with React to upload multiple files at once. As we go along, there will be simple client-side validation and finally with uploaded notification can be shown with <a class="markup--anchor markup--p-anchor" href="https://github.com/fkhadra/react-toastify" rel="noopener" data-href="https://github.com/fkhadra/react-toastify">react-toastify</a>.</p>
+<p class="graf graf--p">Like always, start a react app with <code class=" language-javascript">create<span class="token operator">-</span>react<span class="token operator">-</span>app</code></p>
+<p class="graf graf--p">Include the bootstrap CDN in index.html.</p>
+<p class="graf graf--p">In contrast to creating the form from scratch, grab this snippet from <a class="markup--anchor markup--p-anchor" href="https://bootsnipp.com/snippets/DOXy4" rel="noopener" data-href="https://bootsnipp.com/snippets/DOXy4">bootsnipp</a>.</p>
+<figure class="graf graf--figure graf--layoutOutsetCenter"><img class="graf-image alignnone" title="react workspace" src="https://i2.wp.com/cdn-images-1.medium.com/max/1000/1*GxmHHriiMef6cejJ4Fun-Q.png?zoom=1.25&amp;resize=721%2C411&amp;ssl=1" alt="react workspace" width="721" height="410" data-image-id="1*GxmHHriiMef6cejJ4Fun-Q.png" data-width="1436" data-height="821" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/1000/1*GxmHHriiMef6cejJ4Fun-Q.png?zoom=1.25&amp;resize=721%2C411&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/1000/1*GxmHHriiMef6cejJ4Fun-Q.png?resize=1000%2C571&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">This is our beautiful upload form to work with.</p>
+<h2 class="graf graf--p"><strong class="markup--strong markup--p-strong">Single&nbsp; React file upload</strong></h2>
+<p class="graf graf--p">Let’s start with a simple one, a single file upload.</p>
+<p class="graf graf--p"><strong class="markup--strong markup--p-strong">Capture selected file</strong></p>
+<p class="graf graf--p">Add a change handler in to<code class=" language-javascript">app<span class="token punctuation">.</span>js</code> pick the file on change.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"> <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"file"</span> name<span class="token operator">=</span><span class="token string">"file"</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChangeHandler<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span></code></pre>
+<p class="graf graf--p">Log <code class=" language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files </code>, it is an array of all stored files. &nbsp;<code class=" language-javascript">target<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></code>holds the actual file and its details.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">On saving, create-react-app will instantly refresh the browser.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="capture file with reactjs" src="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*fytmIwzrTFq360NvCA2XwQ.png?zoom=1.25&amp;resize=512%2C932&amp;ssl=1" alt="capture file with reactjs" width="512" height="932" data-image-id="1*fytmIwzrTFq360NvCA2XwQ.png" data-width="512" data-height="932" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*fytmIwzrTFq360NvCA2XwQ.png?zoom=1.25&amp;resize=512%2C932&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*fytmIwzrTFq360NvCA2XwQ.png?resize=512%2C932&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p"><strong class="markup--strong markup--p-strong">Store the file in state, and only upload when a user clicks the upload button.</strong></p>
+<p class="graf graf--p">Initially, the <code class=" language-javascript">selectedFile</code>state is set to null</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+        selectedFile<span class="token punctuation">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+   
+  <span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">To pass the file to the state, set<code class=" language-javascript">selectedFile</code> state to <code class=" language-javascript">event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></code>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"> onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      selectedFile<span class="token punctuation">:</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      loaded<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">Check the state variable again with <a class="markup--anchor markup--p-anchor" href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" rel="noopener" data-href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">react-devtools</a> to verify.</p>
+<p>Again, create-react-app will instantly refresh the browser and you’ll see the result</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="assign file to state variable in react" src="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*evx2ZkJWi_vBsCyxMwbbaw.png?zoom=1.25&amp;resize=469%2C888&amp;ssl=1" alt="assign file to state variable in react" width="469" height="889" data-image-id="1*evx2ZkJWi_vBsCyxMwbbaw.png" data-width="469" data-height="888" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*evx2ZkJWi_vBsCyxMwbbaw.png?zoom=1.25&amp;resize=469%2C888&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*evx2ZkJWi_vBsCyxMwbbaw.png?resize=469%2C888&amp;ssl=1" scale="1.25"></figure>
+<h3 class="graf graf--h4"><strong class="markup--strong markup--h4-strong">Send the files to the&nbsp;server</strong></h3>
+<p class="graf graf--p">We have a state of files to upload.</p>
+<p class="graf graf--p">We definitely need an upload button,&nbsp; upload is handled with <code class=" language-javascript">onClick</code> event handler.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"> <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">"button"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn btn-success btn-block"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onClickHandler<span class="token punctuation">}</span><span class="token operator">&gt;</span>Upload<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span> </code></pre>
+<p class="graf graf--p"><code class=" language-javascript">onClickhandle</code> &nbsp;will execute <code class=" language-javascript">onClickHandler</code> which sends a request to the server. The file from a state is appended as a file to FormData.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onClickHandler <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    data<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedFile<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">We’ll use <code class=" language-javascript">axios</code> to send <strong class="markup--strong markup--p-strong">AJAX</strong> requests.</p>
+<p class="graf graf--p">Install and import <code class=" language-javascript">axios</code>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Create form object and create <code class=" language-javascript">POST</code> request with <code class=" language-javascript">axios</code>. It needs endpoint URL and form data.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">   axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8000/upload"</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// receive two parameter endpoint url ,form data </span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// then print response status</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">Here’s final,<code class=" language-javascript">onClickhandler</code> with <code class=" language-javascript">axios</code> <code class=" language-javascript">POST</code> request. It sends <code class=" language-javascript">POST</code> request to <code class="markup--code markup--p-code u-paddingRight0 u-marginRight0"><a class="markup--anchor markup--p-anchor" href="http://localhost:8000/upload" rel="noopener" data-href="http://localhost:8000/upload">http://localhost:8000/upload</a> </code>and gets response.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onClickHandler <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+   <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   data<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedFile<span class="token punctuation">)</span>
+   axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8000/upload"</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">// receive two    parameter endpoint url ,form data</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// then print response status</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">The file type attached is set as a state and needs to be checked. As a result, it’s a binary file.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="attached file to post request with axios" src="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*MEjPt4xaP2FP5IZOw6oGpw.png?zoom=1.25&amp;resize=512%2C932&amp;ssl=1" alt="attached file to post request with axios" width="512" height="932" data-image-id="1*MEjPt4xaP2FP5IZOw6oGpw.png" data-width="512" data-height="932" srcset="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*MEjPt4xaP2FP5IZOw6oGpw.png?zoom=1.25&amp;resize=512%2C932&amp;ssl=1" src-orig="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*MEjPt4xaP2FP5IZOw6oGpw.png?resize=512%2C932&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p"><code class=" language-javascript">Axios</code> will send a request to the endpoint with a binary file in Form Data.</p>
+<p class="graf graf--p">To receive the uploaded file, implement a backend server. It’ll receive the file sent from front-end.</p>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">Create a simple server with Node.</strong></h3>
+<p class="graf graf--p">Create <code class=" language-javascript">server<span class="token punctuation">.</span>js</code> file in the root directory</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="create simple server in nodejs" src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*d-R8EuFBII_4FIqxQeIACA.png?zoom=1.25&amp;resize=185%2C275&amp;ssl=1" alt="create simple server in nodejs" width="185" height="276" data-image-id="1*d-R8EuFBII_4FIqxQeIACA.png" data-width="185" data-height="275" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*d-R8EuFBII_4FIqxQeIACA.png?zoom=1.25&amp;resize=185%2C275&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*d-R8EuFBII_4FIqxQeIACA.png?resize=185%2C275&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Install <code class=" language-javascript">express</code>, <code class=" language-javascript">multer</code>, and <code class=" language-javascript">cors</code>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">npm i express multer cors nodemon –save</code></pre>
+<p class="graf graf--p">We’ll use express to create a server, <code class=" language-javascript">multer</code> to handle files. Cors will be used to enable cross-origin request to this server. <code class=" language-javascript">Nodemon</code> to monitor the changes and auto-reload, it is optional and you’ll have to restart the server manually in it’s absence.</p>
+<p class="graf graf--p">In,<code class=" language-javascript">server<span class="token punctuation">.</span>js</code> initiate an express instance</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> multer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'multer'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> cors <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cors'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Don’t forget CORS middleware.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">Create a <code class=" language-javascript">multer</code> instance and set the destination folder. The code below uses /public folder. You can also assign a new file name upon upload. The code below uses <code class=" language-javascript">‘originalfilename’</code>as the file name.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> storage <span class="token operator">=</span> multer<span class="token punctuation">.</span><span class="token function">diskStorage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      destination<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> file<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">'public'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    filename<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> file<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'-'</span> <span class="token operator">+</span>file<span class="token punctuation">.</span>originalname <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">Create an upload instance and receive a single file</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> upload <span class="token operator">=</span> <span class="token function">multer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> storage<span class="token punctuation">:</span> storage <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">single</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">Setup the<code class=" language-javascript">POST</code>route to upload a file</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/upload'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     
+    <span class="token function">upload</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token keyword">instanceof</span> <span class="token class-name">multer<span class="token punctuation">.</span>MulterError</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+           <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+           <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>file<span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Start an upload object and handle an error, check for<code class=" language-javascript">multer</code><strong class="markup--strong markup--p-strong">&nbsp;</strong>error before general errors. Status OK (200) with metadata is sent back to the client on successful upload.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="upload response from node server" src="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*7qKdzB7S93AuzTcVOqPGbQ.png?zoom=1.25&amp;resize=520%2C932&amp;ssl=1" alt="upload response from node server" width="520" height="931" data-image-id="1*7qKdzB7S93AuzTcVOqPGbQ.png" data-width="520" data-height="932" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*7qKdzB7S93AuzTcVOqPGbQ.png?zoom=1.25&amp;resize=520%2C932&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*7qKdzB7S93AuzTcVOqPGbQ.png?resize=520%2C932&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Make the server listen on port <strong class="markup--strong markup--p-strong">8000</strong>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8000</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'App running on port 8000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Run <code class=" language-javascript">nodemon server<span class="token punctuation">.</span>js</code> in a terminal to start this server</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="start node server" src="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*x4_87DYhqS7bv245IRwfcg.png?zoom=1.25&amp;resize=690%2C234&amp;ssl=1" alt="start node server" width="690" height="234" data-image-id="1*x4_87DYhqS7bv245IRwfcg.png" data-width="690" data-height="234" srcset="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*x4_87DYhqS7bv245IRwfcg.png?zoom=1.25&amp;resize=690%2C234&amp;ssl=1" src-orig="https://i1.wp.com/cdn-images-1.medium.com/max/800/1*x4_87DYhqS7bv245IRwfcg.png?resize=690%2C234&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Upload a file, you will see the file appear in the public directory.</p>
+<figure class="graf graf--figure graf--layoutOutsetCenter"><img class="graf-image aligncenter" title="testing upload with react to nodejs" src="./React file upload_ proper and easy way, with NodeJS!_files/1_4OelKIH3lMZ-x3PlQcFgMg.gif" alt="testing upload with react to nodejs" width="721" height="410" data-image-id="1*4OelKIH3lMZ-x3PlQcFgMg.gif" data-width="1438" data-height="821" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/1000/1*4OelKIH3lMZ-x3PlQcFgMg.gif?zoom=1.25&amp;resize=721%2C411&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/1000/1*4OelKIH3lMZ-x3PlQcFgMg.gif?resize=1438%2C821&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">It’s working, congratulations!</p>
+<h2 class="graf graf--p"><strong class="markup--strong markup--p-strong">Uploading multiple files in React</strong></h2>
+<p class="graf graf--p">It’s time for uploading multiple files at once.</p>
+<p class="graf graf--p">Add<code class=" language-javascript">multiple</code>in the input field to accept multiple files in the form.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"file"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"form-control"</span> multiple onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChangeHandler<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span></code></pre>
+<p class="graf graf--p">Update and<code class=" language-javascript">onChangeHandler</code> remove zero indexes, it’s just event.target.files.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+     selectedFile<span class="token punctuation">:</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">Also, update function<code class=" language-javascript">onClickHandler</code> to loop through the attached files.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onClickHandler <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+   <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedFile<span class="token punctuation">.</span>length<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       data<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>selectedFile<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+
+  axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8000/upload"</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">// receive two    parameter endpoint url ,form data</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// then print response status</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">In <code class=" language-javascript">server<span class="token punctuation">.</span>js</code> update <strong>multer</strong> upload instance to accept an array of files.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> upload <span class="token operator">=</span> <span class="token function">multer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> storage<span class="token punctuation">:</span> storage <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">Reload the server and upload multiple files this time.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="upload success result" src="./React file upload_ proper and easy way, with NodeJS!_files/1_Y9S9CU3fLoa_UEIeg35yTw.gif" alt="upload success result" width="721" height="406" data-image-id="1*Y9S9CU3fLoa_UEIeg35yTw.gif" data-width="1438" data-height="812" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*Y9S9CU3fLoa_UEIeg35yTw.gif?zoom=1.25&amp;resize=721%2C407&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*Y9S9CU3fLoa_UEIeg35yTw.gif?resize=1438%2C812&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Is it working for you as well? Let us know if it isn’t.</p>
+<h2 class="graf graf--p"><strong class="markup--strong markup--p-strong">Handling Validation</strong></h2>
+<p class="graf graf--p">Until now, nothing has gone wrong but&nbsp; it doesn’t mean it never will.</p>
+<p class="graf graf--p">Here are situations where this application can crash:</p>
+<ol class="postList">
+<li class="graf graf--li">Too many images to upload</li>
+<li class="graf graf--li">Uploading an image with the wrong file extension</li>
+<li class="graf graf--li">Sending an image file that is too large</li>
+</ol>
+<p class="graf graf--p"><strong class="markup--strong markup--p-strong">Client-side validation doesn’t secure the application but can throw errors early to the user and improves the user experience.</strong></p>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">#1 There are too many files!</strong></h3>
+<p class="graf graf--p">Create a separate function named <code class=" language-javascript">maxSelectedFile</code> and pass event object.</p>
+<p class="graf graf--p">Use length to check a number of files attached. The code below returns false when a number of files reach 3.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">
+maxSelectFile<span class="token operator">=</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+   <span class="token keyword">let</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files <span class="token comment" spellcheck="true">// create file object</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>files<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+          <span class="token keyword">const</span> msg <span class="token operator">=</span> <span class="token string">'Only 3 images can be uploaded at a time'</span>
+          event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment" spellcheck="true">// discard selected file</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+     <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">Update <code class=" language-javascript">onChangeHandler</code> to only set state when the maxSelectFile returns, that is when a number of files are less than 3.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+      <span class="token keyword">var</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">maxSelectFile</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">// if return true allow to setState</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         selectedFile<span class="token punctuation">:</span> files
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">The result</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react upload validation result" src="./React file upload_ proper and easy way, with NodeJS!_files/1_HY8S-68QR3TKJEiXFMDd_Q.gif" alt="max file pick validation result" width="721" height="411" data-image-id="1*HY8S-68QR3TKJEiXFMDd_Q.gif" data-width="1437" data-height="821" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*HY8S-68QR3TKJEiXFMDd_Q.gif?zoom=1.25&amp;resize=721%2C412&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*HY8S-68QR3TKJEiXFMDd_Q.gif?resize=800%2C457&amp;ssl=1" scale="1.25"></figure>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">#2 Uploading an image with the wrong file extension</strong></h3>
+<p class="graf graf--p">Create a <code class=" language-javascript">checkMimeType</code> function and pass an event object</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">checkMimeType<span class="token operator">=</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//getting file object</span>
+  <span class="token keyword">let</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files 
+  <span class="token comment" spellcheck="true">//define message container</span>
+  <span class="token keyword">let</span> err <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token comment" spellcheck="true">// list allow mime type</span>
+ <span class="token keyword">const</span> types <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'image/png'</span><span class="token punctuation">,</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span> <span class="token string">'image/gif'</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">// loop access array</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>files<span class="token punctuation">.</span>length<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// compare file type find doesn't matach</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>types<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>type <span class="token operator">=</span><span class="token operator">&gt;</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type <span class="token operator">!==</span> type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">// create error message and assign to container   </span>
+       err <span class="token operator">+</span><span class="token operator">=</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type<span class="token operator">+</span><span class="token string">' is not a supported format\n'</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// if message not same old that mean has error </span>
+      event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment" spellcheck="true">// discard selected file</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+       <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+ <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">Update <code class=" language-javascript">onChangeHandler</code> again to include <code class=" language-javascript">checkMimeType</code>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+      <span class="token keyword">var</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">maxSelectFile</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkMimeType</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">// if return true allow to setState</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         selectedFile<span class="token punctuation">:</span> files
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">See the output again.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react upload validation result" src="./React file upload_ proper and easy way, with NodeJS!_files/1_uINSr2mNoimcIT9H5ULWew.gif" alt="react file upload validation result" width="721" height="411" data-image-id="1*uINSr2mNoimcIT9H5ULWew.gif" data-width="1434" data-height="820" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*uINSr2mNoimcIT9H5ULWew.gif?zoom=1.25&amp;resize=721%2C412&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*uINSr2mNoimcIT9H5ULWew.gif?resize=800%2C457&amp;ssl=1" scale="1.25"></figure>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">#3 Uploading an image that is too large</strong></h3>
+<p class="graf graf--p">Create another function <code class=" language-javascript">checkFileSize</code>&nbsp;to check the file size. Define your limiting size and return false if the uploaded file size is greater.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">checkFileSize<span class="token operator">=</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+     <span class="token keyword">let</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+     <span class="token keyword">let</span> size <span class="token operator">=</span> <span class="token number">15000</span> 
+     <span class="token keyword">let</span> err <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span> 
+     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>files<span class="token punctuation">.</span>length<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>size <span class="token operator">&gt;</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      err <span class="token operator">+</span><span class="token operator">=</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type<span class="token operator">+</span><span class="token string">'is too large, please pick a smaller file\n'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>err <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+     <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<pre class="graf graf--pre graf--empty"></pre>
+<p class="graf graf--p">Update <code class=" language-javascript">onChangeHandler</code> again to handle <code class=" language-javascript">checkFileSize</code>.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">onChangeHandler<span class="token operator">=</span>event<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+      <span class="token keyword">var</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">maxSelectFile</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkMimeType</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">checkMimeType</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+      <span class="token comment" spellcheck="true">// if return true allow to setState</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         selectedFile<span class="token punctuation">:</span> files
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">The output thereafter…</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react upload result" src="./React file upload_ proper and easy way, with NodeJS!_files/1_a2S_4OplODMBXFbqMNiRsA.gif" alt="react file upload result" width="721" height="410" data-image-id="1*a2S_4OplODMBXFbqMNiRsA.gif" data-width="1436" data-height="818" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*a2S_4OplODMBXFbqMNiRsA.gif?zoom=1.25&amp;resize=721%2C410&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/1*a2S_4OplODMBXFbqMNiRsA.gif?resize=800%2C455&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">That’s all on client-side validation.</p>
+<h2 class="graf graf--h3">Improve UX with progress bar and&nbsp;Toastify</h2>
+<p class="graf graf--p">Letting the user know the happening is a lot better than having them stare at the screen until the upload is finished.</p>
+<p class="graf graf--p">To improve the user experience, we can insert progress bar and a popup message</p>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">Progress Bar<br>
+</strong></h3>
+<p class="graf graf--p">Use state variable <code class=" language-javascript">loaded</code> to update real-time values.<br>
+Update the state, add <code class=" language-javascript">loaded<span class="token punctuation">:</span> <span class="token number">0</span></code></p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+       selectedFile<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+       loaded<span class="token punctuation">:</span><span class="token number">0</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>The loaded state is changed from progressEvent of the POST request.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8000/upload"</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+       onUploadProgress<span class="token punctuation">:</span> ProgressEvent <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+           loaded<span class="token punctuation">:</span> <span class="token punctuation">(</span>ProgressEvent<span class="token punctuation">.</span>loaded <span class="token operator">/</span> ProgressEvent<span class="token punctuation">.</span>total<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+       <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">For progress bar, we use <strong>reactstrap</strong>.</p>
+<p>Install and import progress bar from <strong>reactstrap</strong></p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>Progress<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'reactstrap'</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Add a progress bar after the file picker.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"form-group"</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>Progress max<span class="token operator">=</span><span class="token string">"100"</span> color<span class="token operator">=</span><span class="token string">"success"</span> value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>loaded<span class="token punctuation">}</span> <span class="token operator">&gt;</span><span class="token punctuation">{</span>Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>loaded<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token operator">%</span><span class="token operator">&lt;</span><span class="token operator">/</span>Progress<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+<p class="graf graf--p">See the result in action.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react file upload console result" src="./React file upload_ proper and easy way, with NodeJS!_files/1_lfOXRzXUgSWpG5nkhYZRQg.gif" alt="react file upload console result" width="442" height="778" data-image-id="1*lfOXRzXUgSWpG5nkhYZRQg.gif" data-width="442" data-height="776" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*lfOXRzXUgSWpG5nkhYZRQg.gif?zoom=1.25&amp;resize=442%2C776&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*lfOXRzXUgSWpG5nkhYZRQg.gif?resize=442%2C776&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Beautiful, ain’t it?</p>
+<h3 class="graf graf--p"><strong class="markup--strong markup--p-strong">Display the result message with toastify</strong></h3>
+<p class="graf graf--p">Install&nbsp;<code class=" language-javascript">react<span class="token operator">-</span>toastify</code> and import the following:</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> ToastContainer<span class="token punctuation">,</span> toast <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-toastify'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'react-toastify/dist/ReactToastify.css'</span><span class="token punctuation">;</span></code></pre>
+<p class="graf graf--p">Put the container somewhere</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"form-group"</span><span class="token operator">&gt;</span>
+   <span class="token operator">&lt;</span>ToastContainer <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+<p class="graf graf--p">Use toast wherever you want to display a message.</p>
+<p class="graf graf--p">First of all, place upload result</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript"><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> 
+    toast<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token string">'upload success'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> 
+    toast<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'upload fail'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p class="graf graf--p">See the result.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react upload progress bar result" src="./React file upload_ proper and easy way, with NodeJS!_files/0_ddHmLNxO_bocanLw.gif" alt="react file upload progress bar result" width="438" height="424" data-image-id="0*ddHmLNxO_bocanLw.gif" data-width="438" data-height="425" srcset="https://i2.wp.com/cdn-images-1.medium.com/max/800/0*ddHmLNxO_bocanLw.gif?zoom=1.25&amp;resize=438%2C425&amp;ssl=1" src-orig="https://i2.wp.com/cdn-images-1.medium.com/max/800/0*ddHmLNxO_bocanLw.gif?resize=438%2C425&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Also, place validation result.</p>
+<p class="graf graf--p">Update <code class=" language-javascript">checkMimeType</code> function for validation.</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">checkMimeType<span class="token operator">=</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+
+    <span class="token keyword">let</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+    <span class="token keyword">let</span> err <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">// create empty array</span>
+    <span class="token keyword">const</span> types <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'image/png'</span><span class="token punctuation">,</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span> <span class="token string">'image/gif'</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>files<span class="token punctuation">.</span>length<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>types<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>type <span class="token operator">=</span><span class="token operator">&gt;</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type <span class="token operator">!==</span> type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        err<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type<span class="token operator">+</span><span class="token string">' is not a supported format\n'</span><span class="token punctuation">;</span>
+       <span class="token comment" spellcheck="true">// assign message to array</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> z<span class="token operator">&lt;</span>err<span class="token punctuation">.</span>length<span class="token punctuation">;</span> z<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// loop create toast massage</span>
+        event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span> 
+        toast<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">You’ve the result</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react file upload validation result" src="./React file upload_ proper and easy way, with NodeJS!_files/0_M5mkV7TqQXQ-yV3O.gif" alt="react upload validation result" width="438" height="380" data-image-id="0*M5mkV7TqQXQ-yV3O.gif" data-width="438" data-height="380" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/0*M5mkV7TqQXQ-yV3O.gif?zoom=1.25&amp;resize=438%2C380&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/0*M5mkV7TqQXQ-yV3O.gif?resize=438%2C380&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Also, add <code class=" language-javascript">toast<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span></code></p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react file upload validation result" src="./React file upload_ proper and easy way, with NodeJS!_files/0_uufyjdNtv_xfnwEx.gif" alt="react upload validation result" width="435" height="370" data-image-id="0*uufyjdNtv_xfnwEx.gif" data-width="435" data-height="371" srcset="https://i0.wp.com/cdn-images-1.medium.com/max/800/0*uufyjdNtv_xfnwEx.gif?zoom=1.25&amp;resize=435%2C371&amp;ssl=1" src-orig="https://i0.wp.com/cdn-images-1.medium.com/max/800/0*uufyjdNtv_xfnwEx.gif?resize=435%2C371&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Include the <code class=" language-javascript">checkFileSize</code>and changes from <code class=" language-javascript">checkMimeType</code> function</p>
+<pre class="graf graf--pre language-javascript"><code class=" language-javascript">checkFileSize<span class="token operator">=</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> files <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>files
+  <span class="token keyword">let</span> size <span class="token operator">=</span> <span class="token number">2000000</span> 
+  <span class="token keyword">let</span> err <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x<span class="token operator">&lt;</span>files<span class="token punctuation">.</span>length<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>size <span class="token operator">&gt;</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   err<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> files<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span>type<span class="token operator">+</span><span class="token string">'is too large, please pick a smaller file\n'</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> z<span class="token operator">&lt;</span>err<span class="token punctuation">.</span>length<span class="token punctuation">;</span> z<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ toast<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">[</span>z<span class="token punctuation">]</span><span class="token punctuation">)</span>
+ event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p class="graf graf--p">Change err variable to array and loop to create toast message from it.</p>
+<figure class="graf graf--figure"><img class="graf-image aligncenter" title="react file upload validation result" src="./React file upload_ proper and easy way, with NodeJS!_files/0_1wxfiuYHEgR7-Ai4.gif" alt="react upload validation result" width="434" height="379" data-image-id="0*1wxfiuYHEgR7-Ai4.gif" data-width="434" data-height="379" srcset="https://i1.wp.com/cdn-images-1.medium.com/max/800/0*1wxfiuYHEgR7-Ai4.gif?zoom=1.25&amp;resize=434%2C379&amp;ssl=1" src-orig="https://i1.wp.com/cdn-images-1.medium.com/max/800/0*1wxfiuYHEgR7-Ai4.gif?resize=434%2C379&amp;ssl=1" scale="1.25"></figure>
+<p class="graf graf--p">Our react file upload is working fine, but we can have a lot of improvements like uploading to cloud providers , also use of third-party plugins for other services to improve upload experience are some possible additions.</p>
+<p class="graf graf--p">Before we end of this tutorial,&nbsp; you can contribute to improve and refactor code from this tutorial send your PR to this <a class="markup--anchor markup--p-anchor" href="https://github.com/krissnawat/simple-react-upload" rel="noopener" data-href="https://github.com/krissnawat/simple-react-upload">repository</a>.</p>
+<p>If you loved the tutorial, you might also want to check out <a href="https://programmingwithmosh.com/courses/react">Mosh’s Complete React course</a></p>
+<p class="graf graf--p"><strong class="markup--strong markup--p-strong">And, if this post was helpful in any way, show some support. Please share!</strong></p>
+<div class="saboxplugin-wrap">
+<div class="saboxplugin-gravatar"><img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/5b43a763b5eb3ea0a72341201aab068d.png" srcset="https://secure.gravatar.com/avatar/5b43a763b5eb3ea0a72341201aab068d?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo grav-hashed grav-hijack" height="100" width="100" id="grav-5b43a763b5eb3ea0a72341201aab068d-0" originals="100" src-orig="https://secure.gravatar.com/avatar/5b43a763b5eb3ea0a72341201aab068d?s=100&amp;d=mm&amp;r=g" scale="1.25"></div>
+<div class="saboxplugin-authorname"><a href="https://programmingwithmosh.com/author/krissanawat/">Krissanawat Kaewsanmuang</a></div>
+<div class="saboxplugin-desc">
+<div class="vcard author"><span class="fn">Krissanawat is Nomad Web developer live in Chiangmai passionate on React and Laravel</span></div>
+</div>
+<div class="clearfix"></div>
+<div class="saboxplugin-socials sabox-colored"><a target="_blank" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/GitHub.com/krissanawat"><span class="saboxplugin-icon-color saboxplugin-icon-github"></span></a><a target="_blank" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/reactninjaio"><span class="saboxplugin-icon-color saboxplugin-icon-twitter"></span></a></div>
+</div>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-2162" class="share-twitter sd-button share-icon no-text" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer" data-shared="" class="share-reddit sd-button share-icon no-text" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-2162" class="share-facebook sd-button share-icon no-text" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer" data-shared="sharing-linkedin-2162" class="share-linkedin sd-button share-icon no-text" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon no-text" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span></span><span class="sharing-screen-reader-text">Click to email this to a friend (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="1536" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://programmingwithmosh.com/react/react-tutorial-beginners/" title="React Tutorial: React in 20 Minutes
+
+So you&#39;ve probably heard that there is big hype for React these days. You&#39;re curious to find out what it is and why it has a high adoption rate. And you want to quickly learn how to build a simple page using React. If that sounds like you, this post…" rel="nofollow" data-origin="2162" data-position="0">React Tutorial: React in 20 Minutes</a></span><span class="jp-relatedposts-post-date">August 31, 2018</span><span class="jp-relatedposts-post-context">In “React”</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="1781" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://programmingwithmosh.com/react/react-vs-angular/" title="React vs. Angular: The Complete Comparison
+
+Do you want to learn about and discover the differences between React vs. Angular? Then keep on reading! I am going to explain to you the similarities, differences, pros, and cons of both React and Angular in this article. You don’t need to be an expert programmer to understand this…" rel="nofollow" data-origin="2162" data-position="1">React vs. Angular: The Complete Comparison</a></span><span class="jp-relatedposts-post-date">November 5, 2018</span><span class="jp-relatedposts-post-context">In “Angular”</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="4154" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://programmingwithmosh.com/react-native/expo-or-not-building-react-native-apps/" title="Expo or Not - Building React Native Apps
+
+Are you thinking of using React Native to build cross-platform apps? When you set out on a path to build apps using React Native, you come across the question, should I use Expo or not? React Native Background Before we talk about Expo, here is a quick background on React…" rel="nofollow" data-origin="2162" data-position="2">Expo or Not - Building React Native Apps</a></span><span class="jp-relatedposts-post-date">April 13, 2020</span><span class="jp-relatedposts-post-context">In “JavaScript”</span></p></div></div>   Tags: <a href="https://programmingwithmosh.com/tag/javascript/" rel="tag">javascript</a>, <a href="https://programmingwithmosh.com/tag/react/" rel="tag">react</a>          
+      </div>
+      </article>
+
+      
+      
+<!-- You can start editing here. -->
+
+	<h3 id="comments">
+		32 responses to “React file upload: proper and easy way, with NodeJS!”	</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-10170">
+				<div id="div-comment-10170" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/5eb3af1aa1c86eef588df075ec5b7ead.jpeg" srcset="https://secure.gravatar.com/avatar/5eb3af1aa1c86eef588df075ec5b7ead?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-5eb3af1aa1c86eef588df075ec5b7ead-0" originals="32" src-orig="https://secure.gravatar.com/avatar/5eb3af1aa1c86eef588df075ec5b7ead?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Christine Olalo</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10170">
+			March 26, 2019 at 9:20 am</a>		</div>
+
+		<p>Hello,</p>
+<p>Would you know how to pass a string as a metadata for the file?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10170" onclick="return addComment.moveForm( &quot;div-comment-10170&quot;, &quot;10170&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Christine Olalo">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10295">
+				<div id="div-comment-10295" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/164ea1174deebcb5a7183e1845d085f4.png" srcset="https://secure.gravatar.com/avatar/164ea1174deebcb5a7183e1845d085f4?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-164ea1174deebcb5a7183e1845d085f4-0" originals="32" src-orig="https://secure.gravatar.com/avatar/164ea1174deebcb5a7183e1845d085f4?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Rajnish</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10295">
+			May 13, 2019 at 1:39 pm</a>		</div>
+
+		<p>In which file I can define onChangeHandler?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10295" onclick="return addComment.moveForm( &quot;div-comment-10295&quot;, &quot;10295&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Rajnish">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-10307">
+				<div id="div-comment-10307" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/131eda95e6dec0152aa75f48033736e5.png" srcset="https://secure.gravatar.com/avatar/131eda95e6dec0152aa75f48033736e5?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-131eda95e6dec0152aa75f48033736e5-0" originals="32" src-orig="https://secure.gravatar.com/avatar/131eda95e6dec0152aa75f48033736e5?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">narendar b</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10307">
+			May 20, 2019 at 2:09 pm</a>		</div>
+
+		<p>Hi I am trying up load image along with other form  text fields data but its always defined in node .Either recieving  text or Image not both.How to handle if we have both in a form.Will form.append is sufficient do we need to implement completely difffent</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10307" onclick="return addComment.moveForm( &quot;div-comment-10307&quot;, &quot;10307&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to narendar b">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10520">
+				<div id="div-comment-10520" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/ef9aecc72fe8bd109cc2c4b3e80fdeef.jpeg" srcset="https://secure.gravatar.com/avatar/ef9aecc72fe8bd109cc2c4b3e80fdeef?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-ef9aecc72fe8bd109cc2c4b3e80fdeef-0" originals="32" src-orig="https://secure.gravatar.com/avatar/ef9aecc72fe8bd109cc2c4b3e80fdeef?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/jasper10301993" rel="external nofollow" class="url">jasper10301993</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10520">
+			August 8, 2019 at 10:26 pm</a>		</div>
+
+		<p>When I console.log(event.target.files[0]) it does print the files array, but when I assign it state.selectedFile and console.log it, state.selectedFile doesn’t change, it still null.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10520" onclick="return addComment.moveForm( &quot;div-comment-10520&quot;, &quot;10520&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to jasper10301993">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-10551">
+				<div id="div-comment-10551" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/f4f40ddd3df600a712329933d128243c.jpeg" srcset="https://secure.gravatar.com/avatar/f4f40ddd3df600a712329933d128243c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-f4f40ddd3df600a712329933d128243c-0" originals="32" src-orig="https://secure.gravatar.com/avatar/f4f40ddd3df600a712329933d128243c?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://worldofmaterial.wordpress.com/" rel="external nofollow" class="url">Tran Tuyen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10551">
+			August 20, 2019 at 4:23 am</a>		</div>
+
+		<p>Very useful Mosh Hamedani, i would like to ask one thing: How can i store image on database with only original file name ?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10551" onclick="return addComment.moveForm( &quot;div-comment-10551&quot;, &quot;10551&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Tran Tuyen">Reply</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-10552">
+				<div id="div-comment-10552" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/f4f40ddd3df600a712329933d128243c.jpeg" srcset="https://secure.gravatar.com/avatar/f4f40ddd3df600a712329933d128243c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-f4f40ddd3df600a712329933d128243c-1" originals="32" src-orig="https://secure.gravatar.com/avatar/f4f40ddd3df600a712329933d128243c?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://worldofmaterial.wordpress.com/" rel="external nofollow" class="url">Tran Tuyen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10552">
+			August 20, 2019 at 4:24 am</a>		</div>
+
+		<p>i use mongodb</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10552" onclick="return addComment.moveForm( &quot;div-comment-10552&quot;, &quot;10552&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Tran Tuyen">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-10565">
+				<div id="div-comment-10565" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/f69d7ae61e01698810fb735ac01ca1ff.png" srcset="https://secure.gravatar.com/avatar/f69d7ae61e01698810fb735ac01ca1ff?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-f69d7ae61e01698810fb735ac01ca1ff-0" originals="32" src-orig="https://secure.gravatar.com/avatar/f69d7ae61e01698810fb735ac01ca1ff?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Thiago Viotto</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10565">
+			August 24, 2019 at 11:26 pm</a>		</div>
+
+		<p>Thank you very much. This worked perfeclty! It’s very good tutorial. Congratulations!</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10565" onclick="return addComment.moveForm( &quot;div-comment-10565&quot;, &quot;10565&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Thiago Viotto">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-10576">
+				<div id="div-comment-10576" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/df8cf9ab4c3d7a08118759925cdd34d0.png" srcset="https://secure.gravatar.com/avatar/df8cf9ab4c3d7a08118759925cdd34d0?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-df8cf9ab4c3d7a08118759925cdd34d0-0" originals="32" src-orig="https://secure.gravatar.com/avatar/df8cf9ab4c3d7a08118759925cdd34d0?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Deb</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10576">
+			August 27, 2019 at 11:37 am</a>		</div>
+
+		<p>Hi </p>
+<p>I have a requirement which is like</p>
+<p>1. Read a complex excel including its styling like background color, style &amp; calculation.<br>
+2. Need to create another sheet &amp; populate data in that on run time.<br>
+3. User will then edit the newly created sheet after downloading but here the style of the uploaded excel should be retained.</p>
+<p>I have checked everywhere but did not found any. I have been using xlsx module of node in my project for excel manipulation.</p>
+<p>Can you please tell me whether its feasible or not.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10576" onclick="return addComment.moveForm( &quot;div-comment-10576&quot;, &quot;10576&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Deb">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-10582">
+				<div id="div-comment-10582" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/bbc9a132775652ced5b237fbf9723887.png" srcset="https://secure.gravatar.com/avatar/bbc9a132775652ced5b237fbf9723887?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-bbc9a132775652ced5b237fbf9723887-0" originals="32" src-orig="https://secure.gravatar.com/avatar/bbc9a132775652ced5b237fbf9723887?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Ujjwal Srivastava</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10582">
+			August 29, 2019 at 5:56 pm</a>		</div>
+
+		<p>Hey Mosh!</p>
+<p>This tutorial was very fulfilling, your style of explaining things is fabulous. I ran the application without using cors middleware and to my surprise files are still being placed in the destined folder. Also, the console get cleared(application re-renders) when I run it without cors. Could you please explain why this is happening? </p>
+<p>Thanks in Advance.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10582" onclick="return addComment.moveForm( &quot;div-comment-10582&quot;, &quot;10582&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Ujjwal Srivastava">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-10588">
+				<div id="div-comment-10588" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/1609716e693348c9f8ddef1fa5461bf4.png" srcset="https://secure.gravatar.com/avatar/1609716e693348c9f8ddef1fa5461bf4?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-1609716e693348c9f8ddef1fa5461bf4-0" originals="32" src-orig="https://secure.gravatar.com/avatar/1609716e693348c9f8ddef1fa5461bf4?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Francisco Vieira Souza</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10588">
+			September 2, 2019 at 8:13 pm</a>		</div>
+
+		<p>I tried your first option, to upload a single file, but I always get “Current request is not a multipart request” on my Spring Boot server API, I made sure that end point is working testing with Postman.<br>
+Any suggestion?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10588" onclick="return addComment.moveForm( &quot;div-comment-10588&quot;, &quot;10588&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Francisco Vieira Souza">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-10619">
+				<div id="div-comment-10619" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/a171f3cf222efb7dc207b57c730e59b8.jpeg" srcset="https://secure.gravatar.com/avatar/a171f3cf222efb7dc207b57c730e59b8?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-a171f3cf222efb7dc207b57c730e59b8-0" originals="32" src-orig="https://secure.gravatar.com/avatar/a171f3cf222efb7dc207b57c730e59b8?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Ezrqn Kemboi</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10619">
+			September 14, 2019 at 11:38 am</a>		</div>
+
+		<p>Thanks so much for this tutorial @Mosh.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10619" onclick="return addComment.moveForm( &quot;div-comment-10619&quot;, &quot;10619&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Ezrqn Kemboi">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-10621">
+				<div id="div-comment-10621" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/c997406127d908a80391ec9ead07da08.jpeg" srcset="https://secure.gravatar.com/avatar/c997406127d908a80391ec9ead07da08?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-c997406127d908a80391ec9ead07da08-0" originals="32" src-orig="https://secure.gravatar.com/avatar/c997406127d908a80391ec9ead07da08?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/winnersingh" rel="external nofollow" class="url">winnersingh</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10621">
+			September 14, 2019 at 11:40 pm</a>		</div>
+
+		<p>I want to create a react app where user can upload the photo and then send it via email. Could you guide me how to do that.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10621" onclick="return addComment.moveForm( &quot;div-comment-10621&quot;, &quot;10621&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to winnersingh">Reply</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-10977">
+				<div id="div-comment-10977" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/1cc544c29d87ea978a40946ccb1f2b92.png" srcset="https://secure.gravatar.com/avatar/1cc544c29d87ea978a40946ccb1f2b92?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-1cc544c29d87ea978a40946ccb1f2b92-0" originals="32" src-orig="https://secure.gravatar.com/avatar/1cc544c29d87ea978a40946ccb1f2b92?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">vinny</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10977">
+			January 10, 2020 at 9:12 pm</a>		</div>
+
+		<p>same I but I want users to upload pdf file</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10977" onclick="return addComment.moveForm( &quot;div-comment-10977&quot;, &quot;10977&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to vinny">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10675">
+				<div id="div-comment-10675" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/6a5fc35da5d38806aa98df9571612ae9.png" srcset="https://secure.gravatar.com/avatar/6a5fc35da5d38806aa98df9571612ae9?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-6a5fc35da5d38806aa98df9571612ae9-0" originals="32" src-orig="https://secure.gravatar.com/avatar/6a5fc35da5d38806aa98df9571612ae9?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/anonymousdj" rel="external nofollow" class="url">Tony</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10675">
+			October 3, 2019 at 10:14 am</a>		</div>
+
+		<p>A great tutorial with no nonsense. Thank you very much!</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10675" onclick="return addComment.moveForm( &quot;div-comment-10675&quot;, &quot;10675&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Tony">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-10712">
+				<div id="div-comment-10712" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/3dd96c6b75f1dc53cca538ce0d90b239.png" srcset="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-3dd96c6b75f1dc53cca538ce0d90b239-0" originals="32" src-orig="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">NIc</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10712">
+			October 22, 2019 at 11:14 am</a>		</div>
+
+		<p>the server code did not work for me nomatter what i tried.</p>
+<p>below is the code that worked for me.</p>
+<p>var formidable = require(“formidable”),<br>
+  http = require(“http”),<br>
+  util = require(“util”),<br>
+  fs = require(“fs-extra”);</p>
+<p>http<br>
+  .createServer(function(req, res) {<br>
+    /* Process the form uploads */<br>
+    if (req.url == “/upload” &amp;&amp; req.method.toLowerCase() == “post”) {<br>
+      var form = new formidable.IncomingForm();<br>
+      form.maxFileSize = 200 * 1024 * 1024 * 1024;<br>
+      form.parse(req, function(err, fields, files) {<br>
+        res.writeHead(200, { “content-type”: “text/plain” });<br>
+        res.write(“received upload:\n\n”);<br>
+        res.end(util.inspect({ fields: fields, files: files }));<br>
+      });</p>
+<p>      form.on(“progress”, function(bytesReceived, bytesExpected) {<br>
+        var percent_complete = (bytesReceived / bytesExpected) * 100;<br>
+        console.log(percent_complete.toFixed(2));<br>
+      });</p>
+<p>      form.on(“end”, function(fields, files) {<br>
+        /* Temporary location of our uploaded file */<br>
+        for (let i = 0; i &lt; this.openedFiles.length; i++) {<br>
+          var temp_path = this.openedFiles[i].path;<br>
+          /* The file name of the uploaded file */<br>
+          var file_name = this.openedFiles[i].name;<br>
+          /* Location where we want to copy the uploaded file */<br>
+          var new_location = "./upload/";</p>
+<p>          fs.copy(temp_path, new_location + file_name, function(err) {<br>
+            if (err) {<br>
+              console.error(err);<br>
+            } else {<br>
+              console.log("success!");<br>
+            }<br>
+          });<br>
+        }<br>
+      });</p>
+<p>      return;<br>
+    }</p>
+<p>    /* Display the file upload form. */<br>
+    res.writeHead(200, { "content-type": "text/html" });<br>
+    res.end(<br>
+      '’ +<br>
+        ” +<br>
+        ” +<br>
+        ” +<br>
+        “”<br>
+    );<br>
+  })<br>
+  .listen(8080);</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10712" onclick="return addComment.moveForm( &quot;div-comment-10712&quot;, &quot;10712&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to NIc">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10713">
+				<div id="div-comment-10713" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/3dd96c6b75f1dc53cca538ce0d90b239.png" srcset="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-3dd96c6b75f1dc53cca538ce0d90b239-1" originals="32" src-orig="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Nic</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10713">
+			October 22, 2019 at 2:52 pm</a>		</div>
+
+		<p>when i add the progress code to my onClick handler it stops functioning.<br>
+i’m pretty sure i’m not doing anything wrong please assist.</p>
+<p>      onUploadProgress: ProgressEvent =&gt; {<br>
+        this.setState({<br>
+          loaded: (ProgressEvent.loaded / ProgressEvent.total*100),<br>
+        })</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10713" onclick="return addComment.moveForm( &quot;div-comment-10713&quot;, &quot;10713&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Nic">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-10714">
+				<div id="div-comment-10714" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/3dd96c6b75f1dc53cca538ce0d90b239.png" srcset="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-3dd96c6b75f1dc53cca538ce0d90b239-2" originals="32" src-orig="https://secure.gravatar.com/avatar/3dd96c6b75f1dc53cca538ce0d90b239?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Nic</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10714">
+			October 22, 2019 at 3:30 pm</a>		</div>
+
+		<p>needed to add corst to the costum server to fix the issue.</p>
+<p>res.setHeader(‘Access-Control-Allow-Origin’, ‘*’);<br>
+	res.setHeader(‘Access-Control-Request-Method’, ‘*’);<br>
+	res.setHeader(‘Access-Control-Allow-Methods’, ‘OPTIONS, GET’);<br>
+	res.setHeader(‘Access-Control-Allow-Headers’, ‘*’);</p>
+<p>was added to the server code.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10714" onclick="return addComment.moveForm( &quot;div-comment-10714&quot;, &quot;10714&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Nic">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10777">
+				<div id="div-comment-10777" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/351ffa0539d89bda49a7890e4e62c42a.png" srcset="https://secure.gravatar.com/avatar/351ffa0539d89bda49a7890e4e62c42a?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-351ffa0539d89bda49a7890e4e62c42a-0" originals="32" src-orig="https://secure.gravatar.com/avatar/351ffa0539d89bda49a7890e4e62c42a?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">JACK</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10777">
+			October 25, 2019 at 4:39 pm</a>		</div>
+
+		<p>Mosh my dear , you have a lot of mistakes in your code.</p>
+<p>If you want to help others , really want , please make sure your code works before posting it.</p>
+<p>Otherwise … you’re just wasting people’s time  , and yours.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10777" onclick="return addComment.moveForm( &quot;div-comment-10777&quot;, &quot;10777&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to JACK">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1 parent" id="comment-10974">
+				<div id="div-comment-10974" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/dde8c28a73b7ef60c4900cc5a02974cb.png" srcset="https://secure.gravatar.com/avatar/dde8c28a73b7ef60c4900cc5a02974cb?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-dde8c28a73b7ef60c4900cc5a02974cb-0" originals="32" src-orig="https://secure.gravatar.com/avatar/dde8c28a73b7ef60c4900cc5a02974cb?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Andrew Day</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10974">
+			January 10, 2020 at 2:28 am</a>		</div>
+
+		<p>Hi Mosh,</p>
+<p>when I do this.</p>
+<p>const data = new FormData()<br>
+data.append(‘file’, this.state.resume)</p>
+<p>And when it arrives on my Express server its an empty object.</p>
+<p>Any ideas?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-10974" onclick="return addComment.moveForm( &quot;div-comment-10974&quot;, &quot;10974&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Andrew Day">Reply</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment odd alt depth-2" id="comment-11387">
+				<div id="div-comment-11387" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/9a0b89cefb1dac8c21454a7fb1450535.png" srcset="https://secure.gravatar.com/avatar/9a0b89cefb1dac8c21454a7fb1450535?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-9a0b89cefb1dac8c21454a7fb1450535-0" originals="32" src-orig="https://secure.gravatar.com/avatar/9a0b89cefb1dac8c21454a7fb1450535?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">manths</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11387">
+			July 2, 2020 at 7:46 pm</a>		</div>
+
+		<p>you want to use getAll(key) method to get formdata object value</p>
+<p>otherwise you seeing blank object</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11387" onclick="return addComment.moveForm( &quot;div-comment-11387&quot;, &quot;11387&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to manths">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11060">
+				<div id="div-comment-11060" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/4ca40016cea6ded049610608e077138b.png" srcset="https://secure.gravatar.com/avatar/4ca40016cea6ded049610608e077138b?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-4ca40016cea6ded049610608e077138b-0" originals="32" src-orig="https://secure.gravatar.com/avatar/4ca40016cea6ded049610608e077138b?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">FangerZero</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11060">
+			February 17, 2020 at 4:33 pm</a>		</div>
+
+		<p>Just wanted to say thanks for this! It really helped me understand why it was saying I didn’t have a Multipartfile, I thought I could just send the files as is between {}. But I needed a new FormData().</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11060" onclick="return addComment.moveForm( &quot;div-comment-11060&quot;, &quot;11060&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to FangerZero">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11122">
+				<div id="div-comment-11122" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/c759aa180413b4920b5b86b29d272c16.png" srcset="https://secure.gravatar.com/avatar/c759aa180413b4920b5b86b29d272c16?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-c759aa180413b4920b5b86b29d272c16-0" originals="32" src-orig="https://secure.gravatar.com/avatar/c759aa180413b4920b5b86b29d272c16?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">RV</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11122">
+			March 22, 2020 at 4:49 am</a>		</div>
+
+		<p>Very good stuff. I need to know how I can give user to downlaod thier uploaded file. Basically need to know how to make component which download the files.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11122" onclick="return addComment.moveForm( &quot;div-comment-11122&quot;, &quot;11122&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to RV">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11127">
+				<div id="div-comment-11127" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/be1759766cc3c5e34c82749523e888ea.png" srcset="https://secure.gravatar.com/avatar/be1759766cc3c5e34c82749523e888ea?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-be1759766cc3c5e34c82749523e888ea-0" originals="32" src-orig="https://secure.gravatar.com/avatar/be1759766cc3c5e34c82749523e888ea?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/dmikester1" rel="external nofollow" class="url">Mike</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11127">
+			March 24, 2020 at 2:27 pm</a>		</div>
+
+		<p>Excellent tutorial!  Exactly what I was looking for!  Does anyone know what the advantage is of sending the files using FormData vs just a generic object or array?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11127" onclick="return addComment.moveForm( &quot;div-comment-11127&quot;, &quot;11127&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Mike">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11257">
+				<div id="div-comment-11257" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/0fa18d7843ce9520f6a3f5bc2150b65e.jpeg" srcset="https://secure.gravatar.com/avatar/0fa18d7843ce9520f6a3f5bc2150b65e?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-0fa18d7843ce9520f6a3f5bc2150b65e-0" originals="32" src-orig="https://secure.gravatar.com/avatar/0fa18d7843ce9520f6a3f5bc2150b65e?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/gurdiga" rel="external nofollow" class="url">Vlad</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11257">
+			May 4, 2020 at 7:11 am</a>		</div>
+
+		<p>Thank you! This was helpful. 🤓</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11257" onclick="return addComment.moveForm( &quot;div-comment-11257&quot;, &quot;11257&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Vlad">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11294">
+				<div id="div-comment-11294" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/f560b3f9fef54ab217e1cc1a84223ceb.png" srcset="https://secure.gravatar.com/avatar/f560b3f9fef54ab217e1cc1a84223ceb?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-f560b3f9fef54ab217e1cc1a84223ceb-0" originals="32" src-orig="https://secure.gravatar.com/avatar/f560b3f9fef54ab217e1cc1a84223ceb?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Siddharth Khuttan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11294">
+			May 16, 2020 at 3:57 pm</a>		</div>
+
+		<p>Can I get to display the name of the file on the screen? If so, how can I do that?  I’m getting a problem saying I can’t display value of undefined. I think it’s something related to re-rendering of page until the file gets uploaded.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11294" onclick="return addComment.moveForm( &quot;div-comment-11294&quot;, &quot;11294&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Siddharth Khuttan">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11367">
+				<div id="div-comment-11367" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/e0f62eddfd6c5a0200694d186f1b18cf.jpeg" srcset="https://secure.gravatar.com/avatar/e0f62eddfd6c5a0200694d186f1b18cf?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-e0f62eddfd6c5a0200694d186f1b18cf-0" originals="32" src-orig="https://secure.gravatar.com/avatar/e0f62eddfd6c5a0200694d186f1b18cf?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Oscar Reyes</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11367">
+			June 19, 2020 at 10:10 pm</a>		</div>
+
+		<p>Hi Mosh, I have an issue in my app… I am sending the data from the react app, using the formData.append (I am sending data and one image) to node server, and I have received both, data and the image, I do not have any issue storing the data, but when I am using the store procedure with the image, then the app does not stores the file.  I have followed the multer procedure as you show it.  Which could be my mistake?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11367" onclick="return addComment.moveForm( &quot;div-comment-11367&quot;, &quot;11367&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Oscar Reyes">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11382">
+				<div id="div-comment-11382" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/bc8a3a7475d99c2c9777f8c86060f6e4.png" srcset="https://secure.gravatar.com/avatar/bc8a3a7475d99c2c9777f8c86060f6e4?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-bc8a3a7475d99c2c9777f8c86060f6e4-0" originals="32" src-orig="https://secure.gravatar.com/avatar/bc8a3a7475d99c2c9777f8c86060f6e4?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Shruti Pant</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11382">
+			June 29, 2020 at 12:35 pm</a>		</div>
+
+		<p>Thanks for making this tutorial. Very helpful for beginners.</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11382" onclick="return addComment.moveForm( &quot;div-comment-11382&quot;, &quot;11382&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Shruti Pant">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11403">
+				<div id="div-comment-11403" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/3fb4c0f99c204fa5adfb4bb9499765f2.png" srcset="https://secure.gravatar.com/avatar/3fb4c0f99c204fa5adfb4bb9499765f2?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-3fb4c0f99c204fa5adfb4bb9499765f2-0" originals="32" src-orig="https://secure.gravatar.com/avatar/3fb4c0f99c204fa5adfb4bb9499765f2?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Veeral Sharma</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11403">
+			July 12, 2020 at 7:45 am</a>		</div>
+
+		<p>very helpful</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11403" onclick="return addComment.moveForm( &quot;div-comment-11403&quot;, &quot;11403&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Veeral Sharma">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11406">
+				<div id="div-comment-11406" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/1eaa50dd12ce01a4506a40d24d8ec92a.png" srcset="https://secure.gravatar.com/avatar/1eaa50dd12ce01a4506a40d24d8ec92a?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-1eaa50dd12ce01a4506a40d24d8ec92a-0" originals="32" src-orig="https://secure.gravatar.com/avatar/1eaa50dd12ce01a4506a40d24d8ec92a?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Vik G</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11406">
+			July 14, 2020 at 5:19 am</a>		</div>
+
+		<p>@mosh where is the button to love this tutorial?</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11406" onclick="return addComment.moveForm( &quot;div-comment-11406&quot;, &quot;11406&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Vik G">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11415">
+				<div id="div-comment-11415" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/7287e182ae5e1215efdf3bccf1c6988b.jpeg" srcset="https://secure.gravatar.com/avatar/7287e182ae5e1215efdf3bccf1c6988b?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-7287e182ae5e1215efdf3bccf1c6988b-0" originals="32" src-orig="https://secure.gravatar.com/avatar/7287e182ae5e1215efdf3bccf1c6988b?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Romero Medeiros</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11415">
+			July 17, 2020 at 1:25 am</a>		</div>
+
+		<p>Very helpful, thanks a lot!</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11415" onclick="return addComment.moveForm( &quot;div-comment-11415&quot;, &quot;11415&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Romero Medeiros">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-11480">
+				<div id="div-comment-11480" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/253563dd116ba36cdee7dc1b9281f2da.png" srcset="https://secure.gravatar.com/avatar/253563dd116ba36cdee7dc1b9281f2da?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-253563dd116ba36cdee7dc1b9281f2da-0" originals="32" src-orig="https://secure.gravatar.com/avatar/253563dd116ba36cdee7dc1b9281f2da?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn">Tomikimi Ogoli</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11480">
+			August 12, 2020 at 5:11 pm</a>		</div>
+
+		<p>This was really helpful, thank you so much</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11480" onclick="return addComment.moveForm( &quot;div-comment-11480&quot;, &quot;11480&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to Tomikimi Ogoli">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-11553">
+				<div id="div-comment-11553" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./React file upload_ proper and easy way, with NodeJS!_files/07f0a43b29fd9978c10d2fd551a99129.png" srcset="https://secure.gravatar.com/avatar/07f0a43b29fd9978c10d2fd551a99129?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo grav-hashed grav-hijack" height="32" width="32" id="grav-07f0a43b29fd9978c10d2fd551a99129-0" originals="32" src-orig="https://secure.gravatar.com/avatar/07f0a43b29fd9978c10d2fd551a99129?s=32&amp;d=mm&amp;r=g" scale="1.25">			<cite class="fn"><a href="http://gravatar.com/mbassan" rel="external nofollow" class="url">mbassan</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11553">
+			September 17, 2020 at 10:56 pm</a>		</div>
+
+		<p>From one Moshe to another, most sincere thanks for this!</p>
+
+		<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#comment-11553" onclick="return addComment.moveForm( &quot;div-comment-11553&quot;, &quot;11553&quot;, &quot;respond&quot;, &quot;2162&quot; )" aria-label="Reply to mbassan">Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply					<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#respond" style="display:none;">Cancel reply</a></small>
+				</h3>
+						<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="./React file upload_ proper and easy way, with NodeJS!_files/saved_resource.html" style="width: 100%; height: 58px; border: 0px;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups" scrolling="no"></iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							<input id="ak_js" name="ak_js" type="hidden" value="1601250185439"></form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		
+      <div class="pagination">
+           <div class="nav-previous alignleft"></div>
+           <div class="nav-next alignright"></div>
+      </div>
+      
+      
+      </div>
+
+  <div class="content-right-sidebar">
+<!-- <form role="search" method="get" id="searchform" class="searchform" action="https://programmingwithmosh.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form> -->
+          <style>
+    .connect-with-us-title{
+        font-family: 'Museo Sans W01', helvetica, arial, sans-serif;
+        font-size: 1.5em;
+        font-weight: 800;
+        color: #1D1B1B;
+        line-height: 1.2em;
+        text-align: left;
+        margin-top: 20px;
+    }
+    .social-icons-parent {
+		margin-bottom: 30px; 
+    }
+    .social-icons-parent .social-icons{
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 10px;
+    }
+    .social-icons-parent ul.social-icons li{
+        float: left;
+    }
+    .social-icons-parent ul.social-icons li a{
+        color: #60656f;
+        line-height: 20px;
+        display: inline-block;
+        border: 0;
+        padding: 0 16px 0 0;
+        font-size: 30px;
+    }
+    .social-icons-parent ul.social-icons li a .fa-twitter{
+        color: #469bfc;
+    }
+    .social-icons-parent ul.social-icons li a .fa-twitter:hover{
+        color: #41495b;
+    }
+
+    .social-icons-parent ul.social-icons li a .fa-facebook-square{
+        color: #3c5a86;
+    }
+    .social-icons-parent ul.social-icons li a .fa-facebook-square:hover{
+        color: #41495b;
+    }
+
+    .social-icons-parent ul.social-icons li a .fa-youtube-play{
+        color: #fb2a36;
+    }
+    .social-icons-parent ul.social-icons li a .fa-youtube-play:hover{
+        color: #da000d;
+    }
+
+    .social-icons-parent ul.social-icons li a .fa-linkedin-square{
+        color: #127cb4;
+    }
+    .social-icons-parent ul.social-icons li a .fa-linkedin-square:hover{
+        color: #41495b;
+    }
+</style>
+
+<div class="connect-with-us-title">
+    Connect with Me
+</div>
+<div class="social-icons-parent">
+    <ul class="social-icons">
+        <li class="youtube"><a href="https://www.youtube.com/user/programmingwithmosh" title="Mosh on YouTube" target="_blank">
+                <i class="fa fa-youtube-play"></i>
+            </a>
+        </li>
+        <li class="twitter">
+            <a href="https://twitter.com/moshhamedani" title="Mosh on Twitter" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        <li class="facebook">
+            <a href="https://www.facebook.com/programmingwithmosh/" title="Mosh on Facebook" target="_blank">
+                <i class="fa fa-facebook-square"></i>
+            </a>
+        </li>
+        <li class="linkedin">
+            <a href="https://www.linkedin.com/in/mosh-hamedani/" title="Mosh on LinkedIn" target="_blank">
+                <i class="fa fa-linkedin-square"></i>
+            </a>
+        </li>
+    </ul>
+    <div style="clear: both"></div>
+</div>          <li class="categories">Categories<ul>	<li class="cat-item cat-item-24"><a href="https://programmingwithmosh.com/category/angular/">Angular</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="https://programmingwithmosh.com/category/asp-net/">ASP.NET</a>
+</li>
+	<li class="cat-item cat-item-2183"><a href="https://programmingwithmosh.com/category/backend/">Backend</a>
+<ul class="children">
+	<li class="cat-item cat-item-3053"><a href="https://programmingwithmosh.com/category/backend/graphql/">GraphQL</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://programmingwithmosh.com/category/net/">C# / .NET</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://programmingwithmosh.com/category/courses/">Courses</a>
+</li>
+	<li class="cat-item cat-item-4720"><a href="https://programmingwithmosh.com/category/css/">CSS</a>
+</li>
+	<li class="cat-item cat-item-1547"><a href="https://programmingwithmosh.com/category/flutter/">Flutter</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://programmingwithmosh.com/category/general/">General</a>
+</li>
+	<li class="cat-item cat-item-3125"><a href="https://programmingwithmosh.com/category/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://programmingwithmosh.com/category/javascript/">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-1548"><a href="https://programmingwithmosh.com/category/mobile/">Mobile</a>
+</li>
+	<li class="cat-item cat-item-381"><a href="https://programmingwithmosh.com/category/python/">Python</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="https://programmingwithmosh.com/category/react/">React</a>
+</li>
+	<li class="cat-item cat-item-1406"><a href="https://programmingwithmosh.com/category/react-native/">React Native</a>
+</li>
+	<li class="cat-item cat-item-4373"><a href="https://programmingwithmosh.com/category/redux/">Redux</a>
+<ul class="children">
+	<li class="cat-item cat-item-4487"><a href="https://programmingwithmosh.com/category/redux/redux-redux/">Redux</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-4306"><a href="https://programmingwithmosh.com/category/svelte/">Svelte</a>
+</li>
+</ul></li> 
+          <h3>Popular Posts</h3>
+<ul class="general-list">
+            <li><a href="https://programmingwithmosh.com/react/react-vs-angular/">React vs. Angular: The Complete Comparison</a></li>
+            <li><a href="https://programmingwithmosh.com/python/python-exercises-and-questions-for-beginners/">53 Python Exercises and Questions for Beginners</a></li>
+            <li><a href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/">React file upload: proper and easy way, with NodeJS!</a></li>
+            <li><a href="https://programmingwithmosh.com/javascript/react-lifecycle-methods/">React Lifecycle Methods – A Deep Dive</a></li>
+            <li><a href="https://programmingwithmosh.com/react/react-functional-components/">React Functional or Class Components: Everything you need to know</a></li>
+            <li><a href="https://programmingwithmosh.com/net/common-mistakes-with-the-repository-pattern/">4 Common Mistakes with the Repository Pattern</a></li>
+            <li><a href="https://programmingwithmosh.com/net/csharp-collections/">5 C# Collections that Every C# Developer Must Know</a></li>
+    </ul>
+
+
+
+
+  </div>
+ 
+    </div><!-- .posts-container --> 
+
+    <footer id="footer" class="inner"><p>
+    Copyright © 2015 - Programming with Mosh -
+    <span class="credit">Powered by <a href="http://wordpress.org/">Wordpress</a></span>
+    </p>
+
+    Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta + One Month Rails</a></footer>
+
+
+  </div><!-- .posts --> 
+
+  
+  
+
+    </div><!-- .container --> 
+  <!--
+The IP2Location Redirection is using IP2Location LITE geolocation database. Please visit http://lite.ip2location.com for more information.
+-->
+	<div style="display:none">
+	<div class="grofile-hash-map-5b43a763b5eb3ea0a72341201aab068d">
+	</div>
+	<div class="grofile-hash-map-5eb3af1aa1c86eef588df075ec5b7ead">
+	</div>
+	<div class="grofile-hash-map-164ea1174deebcb5a7183e1845d085f4">
+	</div>
+	<div class="grofile-hash-map-131eda95e6dec0152aa75f48033736e5">
+	</div>
+	<div class="grofile-hash-map-ef9aecc72fe8bd109cc2c4b3e80fdeef">
+	</div>
+	<div class="grofile-hash-map-f4f40ddd3df600a712329933d128243c">
+	</div>
+	<div class="grofile-hash-map-f69d7ae61e01698810fb735ac01ca1ff">
+	</div>
+	<div class="grofile-hash-map-df8cf9ab4c3d7a08118759925cdd34d0">
+	</div>
+	<div class="grofile-hash-map-bbc9a132775652ced5b237fbf9723887">
+	</div>
+	<div class="grofile-hash-map-1609716e693348c9f8ddef1fa5461bf4">
+	</div>
+	<div class="grofile-hash-map-a171f3cf222efb7dc207b57c730e59b8">
+	</div>
+	<div class="grofile-hash-map-c997406127d908a80391ec9ead07da08">
+	</div>
+	<div class="grofile-hash-map-1cc544c29d87ea978a40946ccb1f2b92">
+	</div>
+	<div class="grofile-hash-map-6a5fc35da5d38806aa98df9571612ae9">
+	</div>
+	<div class="grofile-hash-map-3dd96c6b75f1dc53cca538ce0d90b239">
+	</div>
+	<div class="grofile-hash-map-351ffa0539d89bda49a7890e4e62c42a">
+	</div>
+	<div class="grofile-hash-map-dde8c28a73b7ef60c4900cc5a02974cb">
+	</div>
+	<div class="grofile-hash-map-9a0b89cefb1dac8c21454a7fb1450535">
+	</div>
+	<div class="grofile-hash-map-19d67656c579abb42be0fa9ac8ca143f">
+	</div>
+	<div class="grofile-hash-map-c759aa180413b4920b5b86b29d272c16">
+	</div>
+	<div class="grofile-hash-map-be1759766cc3c5e34c82749523e888ea">
+	</div>
+	<div class="grofile-hash-map-0fa18d7843ce9520f6a3f5bc2150b65e">
+	</div>
+	<div class="grofile-hash-map-f560b3f9fef54ab217e1cc1a84223ceb">
+	</div>
+	<div class="grofile-hash-map-e0f62eddfd6c5a0200694d186f1b18cf">
+	</div>
+	<div class="grofile-hash-map-bc8a3a7475d99c2c9777f8c86060f6e4">
+	</div>
+	<div class="grofile-hash-map-3fb4c0f99c204fa5adfb4bb9499765f2">
+	</div>
+	<div class="grofile-hash-map-1eaa50dd12ce01a4506a40d24d8ec92a">
+	</div>
+	<div class="grofile-hash-map-7287e182ae5e1215efdf3bccf1c6988b">
+	</div>
+	<div class="grofile-hash-map-253563dd116ba36cdee7dc1b9281f2da">
+	</div>
+	<div class="grofile-hash-map-07f0a43b29fd9978c10d2fd551a99129">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/programmingwithmosh.com\/javascript\/react-file-upload-proper-server-side-nodejs-easy\/":2162};
+	</script>
+					
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/photon.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var php_data = {"ac_settings":{"tracking_actid":89545604,"site_tracking_default":1,"site_tracking":1},"user_email":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/site_tracking.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/jquery.form.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"https:\/\/programmingwithmosh.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/scripts.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/devicepx-jetpack.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/gprofiles.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/wpgroho.js.download"></script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/wp-embed.min.js.download"></script>
+<script async="async" type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/form.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/sharing.min.js.download"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+</script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+			if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+				// window.location.reload() doesn't respect the Hash in IE
+				window.location.hash = window.location.hash;
+			}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			(function () {
+				var comm_par_el = document.getElementById( 'comment_parent' ),
+					comm_par = ( comm_par_el && comm_par_el.value ) ? comm_par_el.value : '',
+					frame = document.getElementById( 'jetpack_remote_comment' ),
+					tellFrameNewParent;
+
+				tellFrameNewParent = function () {
+					if ( comm_par ) {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=87343113&postid=2162&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en&jetpack_version=7.1.1&show_cookie_consent=10&has_cookie_consent=0&sig=0814f93fc03c7d26f00e6450a021f767ec23bf46#parent=https%3A%2F%2Fprogrammingwithmosh.com%2Fjavascript%2Freact-file-upload-proper-server-side-nodejs-easy%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+					} else {
+						frame.src = "https://jetpack.wordpress.com/jetpack-comment/?blogid=87343113&postid=2162&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en&jetpack_version=7.1.1&show_cookie_consent=10&has_cookie_consent=0&sig=0814f93fc03c7d26f00e6450a021f767ec23bf46#parent=https%3A%2F%2Fprogrammingwithmosh.com%2Fjavascript%2Freact-file-upload-proper-server-side-nodejs-easy%2F";
+					}
+				};
+
+				
+				if ( 'undefined' !== typeof addComment ) {
+					addComment._Jetpack_moveForm = addComment.moveForm;
+
+					addComment.moveForm = function ( commId, parentId, respondId, postId ) {
+						var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ),
+							cancelClick, cancel;
+
+						if ( false === returnValue ) {
+							cancel = document.getElementById( 'cancel-comment-reply-link' );
+							cancelClick = cancel.onclick;
+							cancel.onclick = function () {
+								var cancelReturn = cancelClick.call( this );
+								if ( false !== cancelReturn ) {
+									return cancelReturn;
+								}
+
+								if ( ! comm_par ) {
+									return cancelReturn;
+								}
+
+								comm_par = 0;
+
+								tellFrameNewParent();
+
+								return cancelReturn;
+							};
+						}
+
+						if ( comm_par == parentId ) {
+							return returnValue;
+						}
+
+						comm_par = parentId;
+
+						tellFrameNewParent();
+
+						return returnValue;
+					};
+				}
+
+				
+				// Do the post message bit after the dom has loaded.
+				document.addEventListener( 'DOMContentLoaded', function () {
+					var iframe_url = "https:\/\/jetpack.wordpress.com";
+					if ( window.postMessage ) {
+						if ( document.addEventListener ) {
+							window.addEventListener( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						} else if ( document.attachEvent ) {
+							window.attachEvent( 'message', function ( event ) {
+								var origin = event.origin.replace( /^http:\/\//i, 'https://' );
+								if ( iframe_url.replace( /^http:\/\//i, 'https://' ) !== origin ) {
+									return;
+								}
+								jQuery( frame ).height( event.data );
+							});
+						}
+					}
+				})
+
+			})();
+		</script>
+
+		<script type="text/javascript" src="./React file upload_ proper and easy way, with NodeJS!_files/e-202039.js.download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.1.1',blog:'87343113',post:'2162',tz:'0',srv:'programmingwithmosh.com'} ]);
+	_stq.push([ 'clickTrackerInit', '87343113', '2162' ]);
+</script>
+   <script src="./React file upload_ proper and easy way, with NodeJS!_files/aaa51ebfce5c345c7e222113b9c208aea57be30b.js.download" type="text/javascript" charset="utf-8" async="async"></script>
+   <script src="./React file upload_ proper and easy way, with NodeJS!_files/prism.js(1).download"></script>	
+
+<div id="sharing_email" style="display: none;">
+		<form action="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="">
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="This field is for validation and should not be changed">
+			
+			<img style="float: right; display: none" class="loading" src="./React file upload_ proper and easy way, with NodeJS!_files/loading.gif" alt="loading" width="16" height="16" scale="0">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a rel="nofollow" href="https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/#cancel" class="sharing_cancel" role="button">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><iframe style="position: absolute; width: 1px; height: 1px; left: -9999px;" src="./React file upload_ proper and easy way, with NodeJS!_files/globalstorage.html"></iframe><img src="./React file upload_ proper and easy way, with NodeJS!_files/g.gif" alt=":)" width="6" height="5" id="wpstats" scale="0"></body></html>

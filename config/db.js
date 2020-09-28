@@ -1,13 +1,14 @@
 let mysql = require("mysql");
-let con = mysql.createConnection({
+let sqlConnection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
+  database: "ceejayne",
 });
 
-const InitiateSqlServer = async () => {
+const InitiateSqlServer = () => {
   try {
-    await con.connect(function (err) {
+    sqlConnection.connect(function (err) {
       if (err) {
         console.error(err);
       } else {
@@ -19,6 +20,7 @@ const InitiateSqlServer = async () => {
     //Exit process with failure
     process.exit(1);
   }
-  con.end();
+  // sqlConnection.end();
 };
-module.exports = InitiateSqlServer;
+
+module.exports = {InitiateSqlServer, sqlConnection};

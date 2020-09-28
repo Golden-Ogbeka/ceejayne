@@ -22,7 +22,7 @@ const Hairs = () => {
         <h1>Hairs</h1>
         <hr />
       </center>
-      <MDBNav className="nav-justified nav-tabs bg-light">
+      <MDBNav className="nav-justified nav-tabs bg-dark">
         <MDBNavItem>
           <MDBNavLink
             link
@@ -82,27 +82,27 @@ const Hairs = () => {
       <div className="p-2">
         <MDBTabContent activeItem={activeTab}>
           <MDBTabPane tabId="Closure" role="tabpanel">
-            <p className="mt-2">
+            <p className="m-2">
               <Products shop="Hairs" shopSection="Closure" />
             </p>
           </MDBTabPane>
           <MDBTabPane tabId="VirginHair" role="tabpanel">
-            <p className="mt-2">
-              <Products shop="Hairs" shopSection="Virgin Hair" />
+            <p className="p-2">
+              <Products shop="Hairs" shopSection="Virgin Human Hair" />
             </p>
           </MDBTabPane>
           <MDBTabPane tabId="Synthetic" role="tabpanel">
-            <p className="mt-2">
+            <p className="m-2">
               <Products shop="Hairs" shopSection="Synthetic" />
             </p>
           </MDBTabPane>
           <MDBTabPane tabId="Human Hair Blend" role="tabpanel">
-            <p className="mt-2">
+            <p className="m-2">
               <Products shop="Hairs" shopSection="Human Hair Blend" />
             </p>
           </MDBTabPane>
           <MDBTabPane tabId="Wigs" role="tabpanel">
-            <p className="mt-2">
+            <p className="m-2">
               <Products shop="Hairs" shopSection="Wigs" />
             </p>
           </MDBTabPane>

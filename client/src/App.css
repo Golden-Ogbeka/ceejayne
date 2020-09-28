@@ -25,3 +25,10 @@ body {
     height: 500px;
   }
 }
+
+.scrollableList {
+  max-height: 100vh;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
