@@ -11,8 +11,11 @@ import {
   MDBRow,
 } from "mdbreact";
 import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
 
 const AdminLogin = () => {
+  const history = useHistory();
+
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -29,10 +32,11 @@ const AdminLogin = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post("/admin/login", input);
-      alert("logged in");
+      const response = await Axios.post("/api/admin/login", input);
+      alert(response.data);
+      history.push("/admin/dashboard");
     } catch (error) {
-      alert("Couldnt login");
+      alert(error.response.data);
     }
   };
   return (
@@ -70,6 +74,25 @@ const AdminLogin = () => {
                         onChange={(e) => updateInput(e)}
                       />
                     </div>
+                    {/* <div class="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        class="custom-control-input"
+                        id="defaultUnchecked"
+                        onChange={() =>
+                          setInput({
+                            ...input,
+                            remember: !remember,
+                          })
+                        }
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="defaultUnchecked">
+                        Remain Logged in
+                      </label>
+                    </div> 
+                    <hr /> */}
                     <div className="text-center">
                       <MDBBtn type="submit" color="danger">
                         Login

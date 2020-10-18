@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const {sqlConnection} = require("../config/db");
 
-router.get("/products", async (req, res) => {
+router.get("/api/products", async (req, res) => {
   let query = "";
   if (req.query.ID) {
     //get product by ID

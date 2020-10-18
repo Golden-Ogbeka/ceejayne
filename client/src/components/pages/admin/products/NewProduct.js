@@ -10,9 +10,9 @@ const NewProduct = () => {
     shopSection: "",
     description: "",
     price: "",
-    image: "",
+    productImage: "",
   });
-  const {name, shop, shopSection, description, price, image} = input;
+  const {name, shop, shopSection, description, price, productImage} = input;
 
   const updateInput = (e) => {
     setInput({
@@ -24,17 +24,18 @@ const NewProduct = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     const form = new FormData();
-    form.append("image", image);
+    form.append("productImage", productImage);
     form.append("name", name);
     form.append("shop", shop);
     form.append("shopSection", shopSection);
     form.append("description", description);
     form.append("price", price);
     try {
-      const response = await Axios.post("/admin/product/new", form);
-      alert("Added");
+      const response = await Axios.post("/api/admin/product/new", form);
+      alert(response.data);
+      window.location.reload();
     } catch (error) {
-      alert("Couldnt add");
+      alert(error.response.data);
     }
   };
   return (
@@ -152,16 +153,16 @@ const NewProduct = () => {
                   value={price}
                   onChange={(e) => updateInput(e)}
                 />
-                <label htmlFor="image">Product Image</label>
+                <label htmlFor="productImage">Product Image</label>
                 <br />
                 <input
                   type="file"
-                  id="image"
-                  aria-describedby="image"
+                  id="productImage"
+                  aria-describedby="productImage"
                   required
-                  name="image"
+                  name="productImage"
                   onChange={(e) =>
-                    setInput({...input, image: e.target.files[0]})
+                    setInput({...input, productImage: e.target.files[0]})
                   }
                   accept="image/png, image/jpeg"
                 />

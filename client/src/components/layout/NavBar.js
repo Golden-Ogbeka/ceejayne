@@ -44,14 +44,14 @@ const NavBar = () => {
                   Home
                 </MDBNavLink>
               </MDBNavItem>
-              <MDBNavItem>
+              {/* <MDBNavItem>
                 <MDBNavLink
                   to="/about"
                   className="btn btn-outline-dark text-dark btn-lg">
                   <MDBIcon far icon="question-circle" className="mr-1" />
                   About
                 </MDBNavLink>
-              </MDBNavItem>
+              </MDBNavItem> */}
 
               <MDBNavItem>
                 <MDBDropdown>

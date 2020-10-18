@@ -11,13 +11,14 @@ const EditProduct = (props) => {
     shopSection: "",
     description: "",
     price: "",
+    productImage: "",
   });
-  const {name, shop, shopSection, description, price} = input;
+  const {name, shop, shopSection, description, price, productImage} = input;
 
   useEffect(() => {
     const getProductInfo = async () => {
       try {
-        const response = await Axios.get(`/products?ID=${productID}`);
+        const response = await Axios.get(`/api/products?ID=${productID}`);
         const {name, shop, shopSection, description, price} = response.data[0];
         setInput({
           name,
@@ -42,10 +43,18 @@ const EditProduct = (props) => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post("/admin/product/edit", input);
-      alert("Updated");
+      const data = new FormData();
+      data.append("productImage", productImage);
+      data.append("name", name);
+      data.append("shop", shop);
+      data.append("shopSection", shopSection);
+      data.append("description", description);
+      data.append("price", price);
+
+      const response = await Axios.put(`/api/admin/product/${productID}`, data);
+      alert(response.data);
     } catch (error) {
-      alert("Couldnt update");
+      alert(error.response.data);
     }
   };
   return (
@@ -162,6 +171,21 @@ const EditProduct = (props) => {
                   onChange={(e) => updateInput(e)}
                 />
               </div>
+              <div>
+                <label htmlFor="productImage">Product Image (optional)</label>
+                <br />
+                <input
+                  type="file"
+                  id="productImage"
+                  aria-describedby="productImage"
+                  name="productImage"
+                  onChange={(e) =>
+                    setInput({...input, productImage: e.target.files[0]})
+                  }
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+              <hr />
               <div className="text-center">
                 <MDBBtn type="submit" color="danger" block>
                   <h4>Update Product</h4>

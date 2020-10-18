@@ -1,3 +1,4 @@
+import Axios from "axios";
 import {
   MDBNavbar,
   MDBNavbarNav,
@@ -11,8 +12,21 @@ import {
   MDBIcon,
 } from "mdbreact";
 import React from "react";
+import {useHistory} from "react-router-dom";
 
 const AdminNav = () => {
+  const history = useHistory();
+  const logout = async () => {
+    try {
+      if (window.confirm("Are you sure you want to logout?")) {
+        const response = await Axios.post("/api/admin/logout");
+        alert(response.data);
+        history.push("/admin/login");
+      }
+    } catch (error) {
+      alert(error.response.data);
+    }
+  };
   return (
     <MDBNavbar className="mb-5 nav-justified bg-dark">
       <MDBNavbarNav>
@@ -32,7 +46,7 @@ const AdminNav = () => {
                 </span>
               </MDBDropdownToggle>
               <MDBDropdownMenu>
-                <MDBDropdownItem href="/shop/nails">
+                <MDBDropdownItem href="/admin/products/all">
                   All Products
                 </MDBDropdownItem>
                 <MDBDropdownItem href="/admin/product/new">
@@ -43,6 +57,12 @@ const AdminNav = () => {
                 </MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
+          </MDBNavItem>
+          <MDBNavItem>
+            <MDBNavLink to="#!" className="text-white" onClick={() => logout()}>
+              <MDBIcon icon="sign-out-alt" className="mr-1" />
+              Logout
+            </MDBNavLink>
           </MDBNavItem>
         </MDBBtnGroup>
       </MDBNavbarNav>

@@ -7,8 +7,6 @@ import {
   MDBCardImage,
   MDBCardText,
   MDBCardTitle,
-  MDBCol,
-  MDBRow,
   MDBTooltip,
 } from "mdbreact";
 
@@ -19,11 +17,11 @@ const Products = (props) => {
       try {
         let response = "";
         if (props.shop) {
-          response = await Axios.get(`/products?shop=${props.shop}`);
+          response = await Axios.get(`/api/products?shop=${props.shop}`);
           console.log(response);
         }
         if (props.id) {
-          response = await Axios.get(`/products?ID=${props.id}`);
+          response = await Axios.get(`/api/products?ID=${props.id}`);
         }
         const allProducts = response.data;
         setProducts(allProducts);
@@ -44,7 +42,7 @@ const Products = (props) => {
                 <MDBCard ecommerce cascade narrow>
                   <MDBCardImage
                     cascade
-                    src={product.image}
+                    src={`/${product.image}`}
                     top
                     alt="Product Image"
                     overlay="white-slight"
@@ -53,7 +51,7 @@ const Products = (props) => {
                     <MDBCardTitle>
                       <h5>
                         <a
-                          href={`/shop/product/${product._id}`}
+                          href={`/shop/product/${product.ID}`}
                           className="danger-text">
                           {product.name}
                         </a>
@@ -73,12 +71,12 @@ const Products = (props) => {
                       <span className="float-left font-weight-bold">
                         <h5>NGN {product.price}</h5>
                       </span>
-                      <span className="float-right">
+                      {/* <span className="float-right">
                         <MDBTooltip domElement placement="top">
                           <i className="grey-text fa fa-shopping-cart mr-3 fa-lg" />
                           <span>Add to Cart</span>
                         </MDBTooltip>
-                      </span>
+                      </span> */}
                     </MDBCardText>
                   </MDBCardBody>
                 </MDBCard>

@@ -8,18 +8,34 @@ import Nails from "../pages/products/shops/Nails";
 import Shop from "../pages/products/shops/Shop";
 import Tools from "../pages/products/shops/Tools";
 
-const ShopRoutes = () => {
-  return (
-    <Switch>
-      <Route exact path="/shop" component={Shop} />
-      <Route path="/shop/hairs" component={Hairs} />
-      <Route path="/shop/nails" component={Nails} />
-      <Route path="/shop/clothing" component={Clothing} />
-      <Route path="/shop/bags" component={Bags} />
-      <Route path="/shop/makeup" component={Makeup} />
-      <Route path="/shop/tools" component={Tools} />
-    </Switch>
-  );
-};
-
-export default ShopRoutes;
+export const ShopRoutes = [
+  {
+    path: "/shop",
+    component: Shop,
+    exact: true,
+  },
+  {
+    path: "/shop/hairs",
+    component: Hairs,
+  },
+  {
+    path: "/shop/nails",
+    component: Nails,
+  },
+  {
+    path: "/shop/clothing",
+    component: Clothing,
+  },
+  {
+    path: "/shop/bags",
+    component: Bags,
+  },
+  {
+    path: "/shop/makeup",
+    component: Makeup,
+  },
+  {
+    path: "/shop/tools",
+    component: Tools,
+  },
+];

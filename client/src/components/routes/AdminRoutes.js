@@ -1,19 +1,33 @@
-import React from "react";
-import {Route, Switch} from "react-router-dom";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdminLogin from "../pages/admin/AdminLogin";
+import AllProducts from "../pages/admin/products/AllProducts";
 import EditProduct from "../pages/admin/products/EditProduct";
 import NewProduct from "../pages/admin/products/NewProduct";
 
-const AdminRoutes = () => {
-  return (
-    <Switch>
-      <Route path="/admin/login" component={AdminLogin} />
-      <Route path="/admin/dashboard" component={AdminDashboard} />
-      <Route path="/admin/product/edit/:productID" component={EditProduct} />
-      <Route path="/admin/product/new" component={NewProduct} />
-    </Switch>
-  );
-};
-
-export default AdminRoutes;
+export const AdminRoutes = [
+  {
+    path: "/admin/login",
+    component: AdminLogin,
+    protected: true,
+  },
+  {
+    path: "/admin/dashboard",
+    component: AdminDashboard,
+    private: true,
+  },
+  {
+    path: "/admin/product/edit/:productID",
+    component: EditProduct,
+    private: true,
+  },
+  {
+    path: "/admin/product/new",
+    component: NewProduct,
+    private: true,
+  },
+  {
+    path: "/admin/products/all",
+    component: AllProducts,
+    private: true,
+  },
+];
