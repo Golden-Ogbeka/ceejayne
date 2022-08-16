@@ -1,2 +1,2 @@
-# Ceejayne Beauty Parlour
+# Beauty Parlour
  An ecommerce store
